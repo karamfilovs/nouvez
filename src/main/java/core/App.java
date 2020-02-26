@@ -24,7 +24,7 @@ public class App {
 
     //pages
     private LoginPage loginPage;
-    private BrandsPage brandsPage;
+    private MyAccountPage brandsPage;
     private DashboardPage dashboardPage;
     private ResetPasswordPage resetPasswordPage;
     private RegisterPage registerPage;
@@ -40,9 +40,9 @@ public class App {
         }
     }
 
-    public BrandsPage brandsPage() {
+    public MyAccountPage brandsPage() {
         if (brandsPage == null) {
-            brandsPage = new BrandsPage(driver);
+            brandsPage = new MyAccountPage(driver);
             return brandsPage;
         } else {
             return brandsPage;
