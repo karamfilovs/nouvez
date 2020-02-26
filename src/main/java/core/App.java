@@ -111,7 +111,7 @@ public class App {
 
             LOGGER.info("******************************************************************");
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-            driver.manage().deleteAllCookies();
+            //driver.manage().deleteAllCookies();
         }
     }
 

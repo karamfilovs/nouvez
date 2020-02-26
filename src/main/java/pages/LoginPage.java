@@ -9,30 +9,30 @@ import org.slf4j.LoggerFactory;
 
 public class LoginPage extends BasePage {
     private static final Logger LOGGER = LoggerFactory.getLogger(LoginPage.class);
-    private final String PAGE_URL = "/login";
+    private final String PAGE_URL = "/customer/account/login/";
 
-    @FindBy(how = How.NAME, using = "brugernavn")
+    @FindBy(how = How.NAME, using = "login[username]")
     private WebElement usernameField;
-
-    @FindBy(how = How.NAME, using = "adgangskode")
-    private WebElement passwordField;
-
-    @FindBy(how = How.ID, using = "btn-login")
-    private WebElement loginButton;
-
-    @FindBy(how = How.XPATH, using = "//div[@class='alert alert-danger']")
-    private WebElement badLoginErrorMessage;
-
-    @FindBy(how = How.XPATH, using = "//div[@class='feedback text-danger']")
-    private WebElement requiredPasswordMessage;
-
-    @FindBy(how = How.XPATH, using = "//div[@class='feedback text-danger']")
-    private WebElement requiredUsernameMessage;
 
     @FindBy(how = How.XPATH, using = "//a[@href='/testing/reset-password']")
     private WebElement resetPasswordLink;
 
-    @FindBy(how = How.XPATH, using = "//a[@href='/testing/register']")
+    @FindBy(how = How.NAME, using = "login[password]")
+    private WebElement passwordField;
+
+    @FindBy(how = How.ID, using = "send2")
+    private WebElement loginButton;
+
+    @FindBy(how = How.ID, using = "email-error")
+    private WebElement badLoginErrorMessage;
+
+    @FindBy(how = How.ID, using = "pass-error")
+    private WebElement requiredPasswordMessage;
+
+    @FindBy(how = How.ID, using = "email-error")
+    private WebElement requiredUsernameMessage;
+
+    @FindBy(how = How.PARTIAL_LINK_TEXT, using = "My Account")
     private WebElement registrationLink;
 
 
@@ -51,6 +51,11 @@ public class LoginPage extends BasePage {
         typeText(passwordField, password);
     }
 
+    public void ClickResetPasswordLink() {
+        LOGGER.info("Clicking on reset password link");
+        click(resetPasswordLink);
+    }
+
     public void clickLoginButton() {
         LOGGER.info("Clicking Login button");
         click(loginButton);
@@ -61,12 +66,7 @@ public class LoginPage extends BasePage {
         typeText(usernameField, username);
     }
 
-    public void ClickResetPasswordLink(){
-        LOGGER.info("Clicking on reset password link");
-        click(resetPasswordLink);
-    }
-
-    public void clickRegistrationLink(){
+    public void clickRegistrationLink() {
         LOGGER.info("Clicking on registration form link");
         click(registrationLink);
     }
@@ -79,11 +79,11 @@ public class LoginPage extends BasePage {
         return getText(requiredPasswordMessage);
     }
 
-    public String getUsernameRequiredMessage(){
+    public String getUsernameRequiredMessage() {
         return getText(requiredUsernameMessage);
     }
 
-    public String getLoginButton(){
+    public String getLoginButton() {
         return getText(loginButton);
     }
 
