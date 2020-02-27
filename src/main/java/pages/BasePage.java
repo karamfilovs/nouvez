@@ -63,7 +63,7 @@ public class BasePage {
         builder.moveToElement(element).click();
     }
 
-    protected String getTitle() {
+    public String getTitle() {
         return driver.getTitle();
     }
 
@@ -236,10 +236,6 @@ public class BasePage {
     }
 
 
-    public void quickLogout() {
-        navigateTo("/logout");
-
-    }
 
     /**
      * wait specific time in miliseconds.

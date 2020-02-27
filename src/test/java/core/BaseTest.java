@@ -6,7 +6,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.extension.ExtensionContext;
-import org.junit.jupiter.api.extension.ParameterResolver;
 
 import java.lang.reflect.Method;
 import java.time.LocalTime;
@@ -16,9 +15,10 @@ public class BaseTest {
     protected App app;
 
     @BeforeAll
-    public static void beforeAll(){
+    public static void beforeAll() {
         //Configures browsers
         WebDriverManager.chromedriver().setup();
+        WebDriverManager.firefoxdriver().setup();
     }
 
     @BeforeEach

@@ -17,7 +17,22 @@ public class LoginPageTest extends BaseTest {
         app.loginPage().enterUsername("alex@pragmatic.bg");
         app.loginPage().enterPassword("Test2020$");
         app.loginPage().clickLoginButton();
-        Assertions.assertEquals("Alex Karamfilov", app.brandsPage().getUserSectionText());
+        Assertions.assertEquals("My Account", app.myAccountPage().getPageTitle());
+    }
+
+    @Test
+    @Tag("positive")
+    @Tag("yasho")
+    @Tag("login")
+    @DisplayName("DD-01: Can login with valid username/password and logout")
+    public void canLoginWithValidCredentialsAndLogout(){
+        app.loginPage().gotoLoginPage();
+        app.loginPage().enterUsername("alex@pragmatic.bg");
+        app.loginPage().enterPassword("Test2020$");
+        app.loginPage().clickLoginButton();
+        Assertions.assertEquals("My Account", app.myAccountPage().getPageTitle());
+        app.myAccountPage().logout();
+        Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle());
     }
 
     @Test

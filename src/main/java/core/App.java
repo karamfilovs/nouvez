@@ -24,56 +24,55 @@ public class App {
 
     //pages
     private LoginPage loginPage;
-    private MyAccountPage brandsPage;
+    private MyAccountPage myAccountPage;
     private DashboardPage dashboardPage;
     private ResetPasswordPage resetPasswordPage;
     private RegisterPage registerPage;
+    private HomePage homePage;
+
 
 
     //lazy instantiating methods
     public LoginPage loginPage() {
         if (loginPage == null) {
             loginPage = new LoginPage(driver);
-            return loginPage;
-        } else {
-            return loginPage;
         }
+        return loginPage;
     }
 
-    public MyAccountPage brandsPage() {
-        if (brandsPage == null) {
-            brandsPage = new MyAccountPage(driver);
-            return brandsPage;
-        } else {
-            return brandsPage;
+    public MyAccountPage myAccountPage() {
+        if (myAccountPage == null) {
+            myAccountPage = new MyAccountPage(driver);
         }
+        return myAccountPage;
+    }
+
+    public HomePage homePage() {
+        if (homePage == null) {
+            homePage = new HomePage(driver);
+        }
+        return homePage;
     }
 
     public DashboardPage dashboardPage() {
         if (dashboardPage == null) {
             dashboardPage = new DashboardPage(driver);
-            return dashboardPage;
-        } else {
-            return dashboardPage;
         }
+        return dashboardPage;
     }
 
     public ResetPasswordPage resetPasswordPage() {
         if (resetPasswordPage == null) {
             resetPasswordPage = new ResetPasswordPage(driver);
-            return resetPasswordPage;
-        } else {
-            return resetPasswordPage;
         }
+        return resetPasswordPage;
     }
 
     public RegisterPage registerPage() {
         if (registerPage == null) {
             registerPage = new RegisterPage(driver);
-            return registerPage;
-        } else {
-            return registerPage;
         }
+        return registerPage;
     }
 
 
@@ -111,12 +110,12 @@ public class App {
 
             LOGGER.info("******************************************************************");
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-            //driver.manage().deleteAllCookies();
+            driver.manage().deleteAllCookies();
         }
     }
 
     private boolean isHeadless() {
-        if(System.getProperty("headless").equals("on")){
+        if (System.getProperty("headless").equals("on")) {
             LOGGER.info("Starting headless browser execution");
             return true;
         } else {

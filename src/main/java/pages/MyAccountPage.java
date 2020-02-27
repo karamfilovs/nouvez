@@ -12,15 +12,15 @@ public class MyAccountPage extends BasePage {
     private static final Logger LOGGER = LoggerFactory.getLogger(MyAccountPage.class);
     private static final String PAGE_URL = "/customer/account";
 
-    String actualTitle = driver.getTitle();
-    String expectedTitle = "My Account";
-    assertEquals(expectedTitle,actualTitle);
-
     @FindBy(how = How.CSS, using = ".icon.icon-account")
     private WebElement myAccountIcon;
 
+    @FindBy(how = How.CSS, using = ".icon.icon-account")
+    private WebElement pageTitle;
+
     @FindBy(how = How.CSS, using = ".authorization-link > a:nth-child(1)")
     private WebElement signOutLink;
+
 
 
     public MyAccountPage(WebDriver driver) {
@@ -28,7 +28,7 @@ public class MyAccountPage extends BasePage {
     }
 
     public void gotoPage() {
-        LOGGER.info("Navigating to Brands page");
+        LOGGER.info("Navigating to My Account page");
         navigateTo(PAGE_URL);
     }
 
@@ -36,8 +36,14 @@ public class MyAccountPage extends BasePage {
         return getText(myAccountIcon);
     }
 
-    public String signOutLink() {
-        return getText(signOutLink);
+    /**
+     * clicks logout button
+     */
+    public void logout() {
+        click(signOutLink);
     }
 
+    public String getPageTitle() {
+        return getText(pageTitle);
+    }
 }

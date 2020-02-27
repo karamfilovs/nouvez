@@ -15,7 +15,7 @@ public class BrandsPageTest extends BaseTest {
     @Tag("brands")
     @DisplayName("DD-X: Can navigate to brands page")
     public void canNavigateToBrandsPage(){
-        app.brandsPage().gotoPage();
+        app.myAccountPage().gotoPage();
 
     }
 
