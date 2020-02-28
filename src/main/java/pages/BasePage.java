@@ -1,6 +1,7 @@
 package pages;
 
 import enums.Checked;
+import enums.Currency;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.Validate;
 import org.openqa.selenium.*;
@@ -28,6 +29,12 @@ public class BasePage {
 
     protected final String BASE_URL = System.getProperty("url");
 
+    @FindBy(css = "[name=\"title\"]")
+    private WebElement pageTitle;
+
+    @FindBy(how = How.CSS, using = "body > div.page-wrapper > header > div > div.header-top > div > div.logo > a")
+    private WebElement logoButton;
+
     protected WebDriver driver;
 
 
@@ -35,7 +42,6 @@ public class BasePage {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
-
 
 
     protected void typeText(WebElement element, String text) {
@@ -180,6 +186,16 @@ public class BasePage {
         return elementToGetText.getText();
     }
 
+    /**
+     * @param elementToGetText
+     * @param attribute
+     * @return
+     */
+    protected String getTextFromAttribute(WebElement elementToGetText, String attribute) {
+
+        return elementToGetText.getAttribute(attribute);
+    }
+
 
     /**
      * Selects an option from a dropdown based on the visible text
@@ -234,7 +250,6 @@ public class BasePage {
 
         return wait.until(jQueryLoad) && wait.until(jsLoad);
     }
-
 
 
     /**
@@ -325,6 +340,37 @@ public class BasePage {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         //This will scroll the page till the element is found
         js.executeScript("arguments[0].scrollIntoView();", element);
+    }
+
+    /**
+     * Getting title of a page to assert we landed on the correct page before testing it.
+     *
+     * @return
+     */
+    public String getPageTitle() {
+
+        return getTextFromAttribute(pageTitle, "content");
+    }
+
+
+    public BasePage setCurrency(Currency currenncy) {
+        if (currenncy == Currency.EU) {
+
+        }
+
+        return this;
+
+    }
+
+    /**
+     * Method that clicks on the logo from any page to bring you back to home page.
+     */
+    public void clickLogoButton() {
+        LOGGER.info("Clicking on logo button");
+        click(logoButton);
+
+
+
     }
 
 

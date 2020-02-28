@@ -142,7 +142,7 @@
                     </systemProperties>
 
                     <systemPropertyVariables>
-                        <browser>firefox</browser>
+                        <browser>chrome</browser>
                         <headless>off</headless>
                         <login.username>alex@pragmatic.bg</login.username>
                         <login.password>pass1234</login.password>

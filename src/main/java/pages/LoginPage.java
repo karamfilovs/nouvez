@@ -51,7 +51,7 @@ public class LoginPage extends BasePage {
         typeText(passwordField, password);
     }
 
-    public void ClickResetPasswordLink() {
+    public void clickResetPasswordLink() {
         LOGGER.info("Clicking on reset password link");
         click(resetPasswordLink);
     }

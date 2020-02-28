@@ -3,12 +3,14 @@ package core;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.SystemUtils;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.Proxy;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pages.*;
@@ -95,11 +97,16 @@ public class App {
         } else {
             if (browser.equalsIgnoreCase("chrome")) {
                 ChromeOptions options = new ChromeOptions();
+
                 options.setHeadless(isHeadless());
+                options.addExtensions(new File("C:\\repos\\once\\src\\main\\java\\pages\\extension.crx"));
+                options.addArguments("--no-sandbox");
+
                 driver = new ChromeDriver(options);
                 driver.manage().window().maximize();
             } else if (browser.equalsIgnoreCase("firefox")) {
                 FirefoxOptions options = new FirefoxOptions();
+
                 options.setHeadless(isHeadless());
                 driver = new FirefoxDriver(options);
                 driver.manage().window().maximize();
