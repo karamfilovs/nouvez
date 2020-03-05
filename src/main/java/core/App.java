@@ -1,16 +1,15 @@
 package core;
 
+import components.Components;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.SystemUtils;
 import org.openqa.selenium.OutputType;
-import org.openqa.selenium.Proxy;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pages.*;
@@ -31,6 +30,9 @@ public class App {
     private ResetPasswordPage resetPasswordPage;
     private RegisterPage registerPage;
     private HomePage homePage;
+    private Components components;
+    private ProductDetailsPage productDetailsPage;
+    private ProductListingPage productListingPage;
 
 
 
@@ -40,6 +42,13 @@ public class App {
             loginPage = new LoginPage(driver);
         }
         return loginPage;
+    }
+
+    public Components components() {
+        if (components == null) {
+            components = new Components(driver);
+        }
+        return components;
     }
 
     public MyAccountPage myAccountPage() {
@@ -75,6 +84,20 @@ public class App {
             registerPage = new RegisterPage(driver);
         }
         return registerPage;
+    }
+
+    public ProductDetailsPage productDetailsPage() {
+        if (productDetailsPage == null) {
+            productDetailsPage = new ProductDetailsPage(driver);
+        }
+        return productDetailsPage;
+    }
+
+    public ProductListingPage productListingPage() {
+        if (productListingPage == null) {
+            productListingPage = new ProductListingPage(driver);
+        }
+        return productListingPage;
     }
 
 

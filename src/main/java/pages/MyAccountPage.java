@@ -15,8 +15,6 @@ public class MyAccountPage extends BasePage {
     @FindBy(how = How.CSS, using = ".icon.icon-account")
     private WebElement myAccountIcon;
 
-    @FindBy(how = How.CSS, using = ".icon.icon-account")
-    private WebElement pageTitle;
 
     @FindBy(how = How.CSS, using = ".authorization-link > a:nth-child(1)")
     private WebElement signOutLink;
@@ -43,7 +41,5 @@ public class MyAccountPage extends BasePage {
         click(signOutLink);
     }
 
-    public String getPageTitle() {
-        return getText(pageTitle);
-    }
+
 }

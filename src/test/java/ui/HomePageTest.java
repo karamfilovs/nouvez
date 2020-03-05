@@ -1,7 +1,6 @@
 package ui;
 
 import core.BaseTest;
-import enums.Checked;
 import enums.Currency;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -14,23 +13,18 @@ public class HomePageTest extends BaseTest {
     @Tag("positive")
     @Tag("changeCurrency")
     @DisplayName("DD-06: Can login with valid username/password")
-    public void canChangeCurrency(){
+    public void canChangeCurrency() {
         app.homePage().gotoHomePage();
-        app.homePage().clickCurrencyIcon()
-                .getPageTitle();
+        app.homePage().changeCurrency(Currency.EU);
         Assertions.assertEquals("My Account", app.myAccountPage().getPageTitle());
     }
 
     @Test
     @Tag("positive")
     @Tag("changeCurrency")
-    @DisplayName("DD-06: Can login with valid username/password")
-    public void canChangeCurrenc111y(){
-
-        app.homePage().gotoHomePage()
-                .setCurrency(Currency.EU);
-        app.homePage().clickCurrencyIcon()
-                .getPageTitle();
+    @DisplayName("DD-06: Can switch to different currency")
+    public void canSwitchToDifferentCurrency() {
+        app.homePage().gotoHomePage().changeCurrency(Currency.GBP);
         Assertions.assertEquals("My Account", app.myAccountPage().getPageTitle());
     }
 

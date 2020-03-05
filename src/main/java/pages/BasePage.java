@@ -353,12 +353,11 @@ public class BasePage {
     }
 
 
-    public BasePage setCurrency(Currency currenncy) {
-        if (currenncy == Currency.EU) {
+    public void changeCurrency(Currency currency) {
+        if (currency == Currency.EU) {
 
         }
 
-        return this;
 
     }
 

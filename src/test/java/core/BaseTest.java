@@ -27,7 +27,7 @@ public class BaseTest {
     public void setup() {
         app = new App();
         app.startBrowser(System.getProperty("browser"));
-        bypassStoreFrontAuthentication();
+        //bypassStoreFrontAuthentication();
     }
 
     @AfterEach
