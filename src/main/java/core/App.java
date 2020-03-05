@@ -99,7 +99,6 @@ public class App {
                 ChromeOptions options = new ChromeOptions();
 
                 options.setHeadless(isHeadless());
-                options.addExtensions(new File("C:\\repos\\once\\src\\main\\java\\pages\\extension.crx"));
                 options.addArguments("--no-sandbox");
 
                 driver = new ChromeDriver(options);

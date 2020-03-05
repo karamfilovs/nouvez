@@ -53,6 +53,10 @@ public class HomePage extends BasePage {
         LOGGER.info("Clicking on explore button");
         click(shopBrandsButton);
     }
+
+    public BasePage clickCurrencyIcon() {
+        return this;
+    }
 }
 
 

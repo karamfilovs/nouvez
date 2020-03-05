@@ -2,7 +2,7 @@ package enums;
 
 public enum Currency {
 
-    EU("EU");
+    EU("EU"),
     GBP("GBP");
 
     private String currency;
