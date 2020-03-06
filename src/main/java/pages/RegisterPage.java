@@ -32,8 +32,14 @@ public class RegisterPage extends BasePage {
     @FindBy(how = How.ID, using = "captcha_user_login")
     private WebElement captchaField;
 
+    @FindBy(how = How.ID, using = "password-confirmation-error")
+    private WebElement passwordMissMatchError;
+
     @FindBy(how = How.XPATH, using = "//button[@class='action submit primary']")
     private WebElement createAccountButton;
+
+    @FindBy(how = How.CSS, using = "div.message-error.error.message")
+    private WebElement topErrorMessage;
 
 
     public RegisterPage(WebDriver driver) {
@@ -45,5 +51,42 @@ public class RegisterPage extends BasePage {
         navigateTo(PAGE_URL);
     }
 
+    public void enterFirstName(String firstName){
+        LOGGER.info("Entering first name:" + firstName);
+        typeText(firstNameField, firstName);
+    }
+
+    public void enterLastName(String lastName){
+        LOGGER.info("Entering last name:" + lastName);
+        typeText(lastNameField, lastName);
+    }
+
+    public void enterEmail(String email){
+        LOGGER.info("Entering email: " + email);
+        typeText(emailField, email);
+    }
+
+    public void enterPassword(String password){
+        LOGGER.info("Entering password: " + password);
+        typeText(passwordField, password);
+    }
+
+    public void enterConfirmPassword(String password){
+        LOGGER.info("Entering confirm password: " + password);
+        typeText(confirmPasswordField, password);
+    }
+
+    public void clickCreateAnAccountButton(){
+        LOGGER.info("Clicking Create an Account button");
+        click(createAccountButton);
+    }
+
+    public String topErrorMessage(){
+        return getText(topErrorMessage);
+    }
+
+    public String passwordMissMatchErrorMessage(){
+        return getText(passwordMissMatchError);
+    }
 
 }

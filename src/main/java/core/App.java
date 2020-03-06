@@ -120,10 +120,8 @@ public class App {
         } else {
             if (browser.equalsIgnoreCase("chrome")) {
                 ChromeOptions options = new ChromeOptions();
-
                 options.setHeadless(isHeadless());
                 options.addArguments("--no-sandbox");
-
                 driver = new ChromeDriver(options);
                 driver.manage().window().maximize();
             } else if (browser.equalsIgnoreCase("firefox")) {

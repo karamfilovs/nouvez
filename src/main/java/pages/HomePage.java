@@ -27,11 +27,9 @@ public class HomePage extends BasePage {
         super(driver);
     }
 
-    public HomePage gotoHomePage() {
+    public void gotoHomePage() {
         LOGGER.info("Navigating to Home page");
         navigateTo(PAGE_URL);
-
-        return this;
     }
 
     public void clickExploreButton() {

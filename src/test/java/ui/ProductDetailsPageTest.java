@@ -15,6 +15,7 @@ public class ProductDetailsPageTest extends BaseTest {
     @DisplayName("DD-01: Can navigate to PDP page")
     public void canNavigateToPDPPage(){
         app.homePage().gotoHomePage();
+        Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle());
         app.components().mainMenu().clickOnShop();
         app.components().subCategoryMenu().clickOnEarrings();
         app.productListingPage().clickOnProductByName("Bulgari");

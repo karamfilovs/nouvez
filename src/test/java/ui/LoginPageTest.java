@@ -75,10 +75,25 @@ public class LoginPageTest extends BaseTest {
     @DisplayName("MVP-05: Cant login with invalid password")
     public void cantLoginWithInvalidPassword(){
         app.loginPage().gotoLoginPage();
+        Assertions.assertEquals("Customer Login", app.myAccountPage().getPageTitle());
         app.loginPage().enterUsername("alex@pragmatic.bg");
         app.loginPage().enterPassword("test");
         app.loginPage().clickLoginButton();
         Assertions.assertEquals("The account sign-in was incorrect or your account is disabled temporarily. Please wait and try again later.", app.loginPage().getInvalidCombinationErrorMessage());
+    }
+
+
+    @Test
+    @Tag("positive")
+    @DisplayName("MVP-04: Can navigate to Login page from Home page")
+    public void canNavigateToLoginPageFromHomePage(){
+        app.homePage().gotoHomePage();
+        Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle());
+        app.components().myAccountMenu().clickMyAccountIcon();
+        app.components().myAccountMenu().clickOnMyAccount();
+        Assertions.assertEquals("Customer Login", app.myAccountPage().getPageTitle());
+        app.loginPage().clickCompanyLogo();
+        Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle());
     }
 
 

@@ -20,11 +20,13 @@ public class MyAccountMenu extends BasePage {
     @FindBy(how = How.XPATH, using = "//li[@class='authorization-link']")
     private WebElement signOutLink;
 
+    @FindBy(how = How.XPATH, using = "//a[text()='Create an Account']")
+    private WebElement createAccountLink;
+
     @FindBy(how = How.CSS, using = ".icon.icon-account")
     private WebElement myAccountIcon;
 
 
-    private WebElement create;
     public MyAccountMenu(WebDriver driver) {
         super(driver);
     }
@@ -51,6 +53,12 @@ public class MyAccountMenu extends BasePage {
         LOGGER.info("Clicking on My Account icon");
         click(myAccountIcon);
     }
+
+    public void clickCreateAnAccount () {
+        LOGGER.info("Clicking on Create an Account link");
+        click(createAccountLink);
+    }
+
 
     private void clickSignOutLink () {
         LOGGER.info("Clicking on Sign out link");

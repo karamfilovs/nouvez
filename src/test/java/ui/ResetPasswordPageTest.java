@@ -14,6 +14,7 @@ public class ResetPasswordPageTest extends BaseTest {
     @DisplayName("DD-01: Can reset password with valid email")
     public void canResetPasswordWithValidEmail() {
         app.loginPage().gotoLoginPage();
+        Assertions.assertEquals("Customer Login", app.myAccountPage().getPageTitle());
         app.loginPage().clickResetPasswordLink();
         app.resetPasswordPage().enterEmail("alex@pragmatic.bg");
         app.resetPasswordPage().clickResetPasswordButton();
@@ -25,6 +26,7 @@ public class ResetPasswordPageTest extends BaseTest {
     @DisplayName("DD-02: Cant reset password with blank email")
     public void cantResetPasswordWithBlankEmail(){
         app.loginPage().gotoLoginPage();
+        Assertions.assertEquals("Customer Login", app.myAccountPage().getPageTitle());
         app.loginPage().clickResetPasswordLink();
         app.resetPasswordPage().clickResetPasswordButton();
         Assertions.assertEquals("Email is required.", app.resetPasswordPage().getRequiredEmailMessage() );

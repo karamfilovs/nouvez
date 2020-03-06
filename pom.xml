@@ -156,7 +156,7 @@
                         <login.username>alex@pragmatic.bg</login.username>
                         <login.password>pass1234</login.password>
                         <url>http://youronce.brmcloud.co.uk</url>
-                        <take.screenshots.enabled>false</take.screenshots.enabled>
+                        <take.screenshots.enabled>true</take.screenshots.enabled>
                     </systemPropertyVariables>
 
                     <properties>

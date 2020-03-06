@@ -11,21 +11,36 @@ public class HomePageTest extends BaseTest {
 
     @Test
     @Tag("positive")
-    @Tag("changeCurrency")
-    @DisplayName("DD-06: Can login with valid username/password")
+    @Tag("homepage")
+    @DisplayName("MVP-06: Can login with valid username/password")
     public void canChangeCurrency() {
         app.homePage().gotoHomePage();
+        Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle());
         app.homePage().changeCurrency(Currency.EU);
         Assertions.assertEquals("My Account", app.myAccountPage().getPageTitle());
     }
 
     @Test
     @Tag("positive")
-    @Tag("changeCurrency")
+    @Tag("homepage")
     @DisplayName("DD-06: Can switch to different currency")
     public void canSwitchToDifferentCurrency() {
-        app.homePage().gotoHomePage().changeCurrency(Currency.GBP);
+        app.homePage().gotoHomePage();
+        Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle());
+        app.homePage().changeCurrency(Currency.EU);
         Assertions.assertEquals("My Account", app.myAccountPage().getPageTitle());
     }
+
+    @Test
+    @Tag("positive")
+    @Tag("homepage")
+    @DisplayName("MVP-X: Can search for existing product")
+    public void canSearchForExistingProduct() {
+        app.homePage().gotoHomePage();
+        Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle());
+        app.homePage().searchProduct("Bulgari");
+        Assertions.assertEquals("Search results for: \'Bulgari\'", app.myAccountPage().getPageTitle());
+    }
+
 
 }

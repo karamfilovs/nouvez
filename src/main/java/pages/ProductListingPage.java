@@ -13,7 +13,6 @@ public class ProductListingPage extends BasePage {
     @FindBy(how = How.ID, using = "product-addtocart-button")
     private WebElement addToCartButton;
 
-
     @FindAll({
             @FindBy(how = How.XPATH, using = "//a[@class='product-item-link']")
     })
@@ -24,9 +23,9 @@ public class ProductListingPage extends BasePage {
     }
 
 
-    public void clickOnProductByName(String name){
+    public void clickOnProductByName(String name) {
         products.forEach(product -> {
-            if(getText(product).contains(name));
+            if (getText(product).contains(name)) ;
             click(product);
         });
     }

@@ -3,7 +3,6 @@ package pages;
 import enums.Checked;
 import enums.Currency;
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang3.Validate;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -18,10 +17,8 @@ import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.time.LocalTime;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-import java.util.stream.Collectors;
 
 public class BasePage {
 
@@ -32,8 +29,17 @@ public class BasePage {
     @FindBy(css = "[name=\"title\"]")
     private WebElement pageTitle;
 
-    @FindBy(how = How.CSS, using = "body > div.page-wrapper > header > div > div.header-top > div > div.logo > a")
-    private WebElement logoButton;
+    @FindBy(how = How.XPATH, using = "//div[@class='logo']")
+    private WebElement companyLogo;
+
+    @FindBy(how = How.XPATH, using = "//span[@class='icon icon-search']")
+    private WebElement searchIcon;
+
+    @FindBy(how = How.XPATH, using = "//button[@title='Search']")
+    private WebElement searchButton;
+
+    @FindBy(how = How.ID, using = "search")
+    private WebElement searchField;
 
     protected WebDriver driver;
 
@@ -296,39 +302,6 @@ public class BasePage {
         }
     }
 
-    protected List<WebElement> getTableRowsByCriteria(WebElement table, String criteria) {
-        List<WebElement> rows = getTableRows(table);
-        List<WebElement> filteredRows = rows.stream()
-                .filter(x -> x.getText().contains(criteria))
-                .collect(Collectors.toList());
-        LOGGER.info("Rows after filtering:");
-        filteredRows.forEach(row -> LOGGER.info(row.getText()));
-        return filteredRows;
-    }
-
-
-    protected List<WebElement> getTableRows(WebElement table) {
-        Validate.notNull(table, "Table element should not be null");
-        List<WebElement> rows = table.findElements(By.tagName("tr"))   // get table rows
-                .stream()
-                .collect(Collectors.toList());
-        return rows;
-    }
-
-    private List<WebElement> getCells(WebElement row) {
-        Validate.notNull(row, "Row element should not be null");
-        List<WebElement> cells = row.findElements(By.tagName("td"))   // get table rows
-                .stream()
-                .collect(Collectors.toList());
-        return cells;
-    }
-
-
-    protected List<WebElement> getTableCells(WebElement table) {
-        List<WebElement> cells = new ArrayList<>();
-        getTableRows(table).forEach(row -> cells.addAll(getCells(row)));
-        return cells;
-    }
 
     /**
      * Scrolling down to element
@@ -348,7 +321,6 @@ public class BasePage {
      * @return
      */
     public String getPageTitle() {
-
         return getTextFromAttribute(pageTitle, "content");
     }
 
@@ -358,18 +330,21 @@ public class BasePage {
 
         }
 
-
     }
 
     /**
      * Method that clicks on the logo from any page to bring you back to home page.
      */
-    public void clickLogoButton() {
-        LOGGER.info("Clicking on logo button");
-        click(logoButton);
+    public void clickCompanyLogo() {
+        LOGGER.info("Clicking on logo image");
+        click(companyLogo);
+    }
 
-
-
+    public void searchProduct(String productName) {
+        LOGGER.info("Searching for product: " + productName);
+        click(searchIcon);
+        typeText(searchField, productName);
+        click(searchButton);
     }
 
 
