@@ -50,7 +50,7 @@ public class RegisterPageTest extends BaseTest {
         app.registerPage().enterPassword("Test22222");
         app.registerPage().enterConfirmPassword("Test1111");
         app.registerPage().clickCreateAnAccountButton();
-        Assertions.assertEquals("There is already an account with this email address. If you are sure that it is your email address, click here to get your password and access your account.", app.registerPage().passwordMissMatchErrorMessage());
+        Assertions.assertEquals("Please enter the same value again.", app.registerPage().passwordMissMatchErrorMessage());
     }
 
 
