@@ -11,70 +11,74 @@ public class LoginPageTest extends BaseTest {
     @Test
     @Tag("positive")
     @Tag("login")
-    @DisplayName("DD-01: Can login with valid username/password")
+    @DisplayName("MVP-01: Can login with valid username/password")
     public void canLoginWithValidCredentials(){
         app.loginPage().gotoLoginPage();
+        Assertions.assertEquals("Customer Login", app.myAccountPage().getPageTitle());
         app.loginPage().enterUsername("alex@pragmatic.bg");
-        app.loginPage().enterPassword("Test2020$");
+        app.loginPage().enterPassword("Test2019$");
         app.loginPage().clickLoginButton();
+        app.components().myAccountMenu().clickMyAccountIcon();
         Assertions.assertEquals("My Account", app.myAccountPage().getPageTitle());
     }
 
     @Test
     @Tag("positive")
-    @Tag("yasho")
     @Tag("login")
-    @DisplayName("DD-01: Can login with valid username/password and logout")
+    @DisplayName("MVP-01: Can login with valid username/password and sign out")
     public void canLoginWithValidCredentialsAndLogout(){
         app.loginPage().gotoLoginPage();
+        Assertions.assertEquals("Customer Login", app.myAccountPage().getPageTitle());
         app.loginPage().enterUsername("alex@pragmatic.bg");
-        app.loginPage().enterPassword("Test2020$");
+        app.loginPage().enterPassword("Test2019$");
         app.loginPage().clickLoginButton();
         Assertions.assertEquals("My Account", app.myAccountPage().getPageTitle());
-        app.myAccountPage().logout();
+        app.components().myAccountMenu().signOut();
         Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle());
     }
 
     @Test
     @Tag("negative")
-    @DisplayName("DD-02: Cant login with invalid username")
+    @DisplayName("MVP-02: Cant login with invalid username")
     public void cantLoginWithInvalidUsername(){
         app.loginPage().gotoLoginPage();
-        app.loginPage().enterUsername("thomas");
-        app.loginPage().enterPassword("pass1234");
+        Assertions.assertEquals("Customer Login", app.myAccountPage().getPageTitle());
+        app.loginPage().enterUsername("alex@pragmatic");
+        app.loginPage().enterPassword("Test2019$");
         app.loginPage().clickLoginButton();
-        Assertions.assertEquals("Incorrect email or password", app.loginPage().getBadLoginErrorMessage());
+        Assertions.assertEquals("Please enter a valid email address (Ex: johndoe@domain.com).", app.loginPage().getBadEmailErrorMessage());
     }
 
     @Test
     @Tag("negative")
-    @DisplayName("DD-03: Cant login with blank username field")
+    @DisplayName("MVP-03: Cant login with blank username field")
     public void cantLoginWithBlankUsername(){
         app.loginPage().gotoLoginPage();
+        Assertions.assertEquals("Customer Login", app.myAccountPage().getPageTitle());
         app.loginPage().enterPassword("pass1234");
         app.loginPage().clickLoginButton();
-        Assertions.assertEquals("Username is required", app.loginPage().getUsernameRequiredMessage());
+        Assertions.assertEquals("This is a required field.", app.loginPage().getUsernameRequiredMessage());
     }
 
     @Test
     @Tag("negative")
-    @DisplayName("DD-04: Cant login with blank password field")
+    @DisplayName("MVP-04: Cant login with blank password field")
     public void cantLoginWithBlankPassword(){
         app.loginPage().gotoLoginPage();
         app.loginPage().enterUsername("alex@pragmatic.bg");
         app.loginPage().clickLoginButton();
-        Assertions.assertEquals("Password is required", app.loginPage().getPasswordRequiredMessageText());
+        Assertions.assertEquals("This is a required field.", app.loginPage().getPasswordRequiredMessageText());
     }
 
     @Test
     @Tag("negative")
-    @DisplayName("DD-05: Cant login with invalid password")
+    @DisplayName("MVP-05: Cant login with invalid password")
     public void cantLoginWithInvalidPassword(){
         app.loginPage().gotoLoginPage();
         app.loginPage().enterUsername("alex@pragmatic.bg");
         app.loginPage().enterPassword("test");
         app.loginPage().clickLoginButton();
-        Assertions.assertEquals("Incorrect email or password", app.loginPage().getBadLoginErrorMessage());
+        Assertions.assertEquals("The account sign-in was incorrect or your account is disabled temporarily. Please wait and try again later.", app.loginPage().getInvalidCombinationErrorMessage());
     }
 
 

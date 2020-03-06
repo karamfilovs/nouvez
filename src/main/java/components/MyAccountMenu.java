@@ -9,13 +9,19 @@ import org.slf4j.LoggerFactory;
 import pages.BasePage;
 
 public class MyAccountMenu extends BasePage {
-    private static final Logger LOGGER = LoggerFactory.getLogger(MainMenu.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(MyAccountMenu.class);
 
     @FindBy(how = How.XPATH, using = "//a[text()='My Account']")
     private WebElement myAccount;
 
     @FindBy(how = How.XPATH, using = "//li[@class='link wishlist']")
     private WebElement myWishlist;
+
+    @FindBy(how = How.XPATH, using = "//li[@class='authorization-link']")
+    private WebElement signOutLink;
+
+    @FindBy(how = How.CSS, using = ".icon.icon-account")
+    private WebElement myAccountIcon;
 
 
     private WebElement create;
@@ -40,4 +46,23 @@ public class MyAccountMenu extends BasePage {
         click(myWishlist);
         waitForFullPageOrJsAjaxToLoad();
     }
+
+    public void clickMyAccountIcon () {
+        LOGGER.info("Clicking on My Account icon");
+        click(myAccountIcon);
+    }
+
+    private void clickSignOutLink () {
+        LOGGER.info("Clicking on Sign out link");
+        click(signOutLink);
+    }
+
+    /**
+     * clicks logout button
+     */
+    public void signOut() {
+        clickMyAccountIcon();
+        clickSignOutLink();
+    }
+
 }

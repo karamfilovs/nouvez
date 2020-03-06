@@ -32,6 +32,9 @@ public class LoginPage extends BasePage {
     @FindBy(how = How.ID, using = "email-error")
     private WebElement requiredUsernameMessage;
 
+    @FindBy(how = How.CSS, using = "div.message-error.error.message")
+    private WebElement invalidLoginCombinationMessage;
+
     @FindBy(how = How.PARTIAL_LINK_TEXT, using = "My Account")
     private WebElement registrationLink;
 
@@ -71,9 +74,14 @@ public class LoginPage extends BasePage {
         click(registrationLink);
     }
 
-    public String getBadLoginErrorMessage() {
+    public String getBadEmailErrorMessage() {
         return getText(badLoginErrorMessage);
     }
+
+    public String getInvalidCombinationErrorMessage() {
+        return getText(invalidLoginCombinationMessage);
+    }
+
 
     public String getPasswordRequiredMessageText() {
         return getText(requiredPasswordMessage);
