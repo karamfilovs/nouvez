@@ -1,8 +1,6 @@
 package core;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import io.restassured.RestAssured;
-import io.restassured.response.Response;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -27,7 +25,6 @@ public class BaseTest {
     public void setup() {
         app = new App();
         app.startBrowser(System.getProperty("browser"));
-        //bypassStoreFrontAuthentication();
     }
 
     @AfterEach
@@ -40,14 +37,5 @@ public class BaseTest {
             }
         }
         app.quit();
-    }
-
-    public static void bypassStoreFrontAuthentication(){
-        String baseURL = System.getProperty("url");
-        RestAssured.baseURI = baseURL;
-        RestAssured.authentication = RestAssured.preemptive().basic("brmdev", "lMW5&*2hLw2S");
-        Response  response = RestAssured.given().log().all().when().get(baseURL);
-        response.prettyPrint();
-        System.out.println("Status code:" + response.getStatusCode());
     }
 }
