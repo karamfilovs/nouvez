@@ -2,26 +2,20 @@ package core;
 
 import components.Components;
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang3.SystemUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pages.*;
 
 import java.io.File;
 import java.time.LocalTime;
-import java.util.concurrent.TimeUnit;
 
 public class App {
     private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
+    private Browser browser = new Browser();
     private WebDriver driver;
-
 
     //pages
     private LoginPage loginPage;
@@ -33,7 +27,6 @@ public class App {
     private Components components;
     private ProductDetailsPage productDetailsPage;
     private ProductListingPage productListingPage;
-
 
 
     //lazy instantiating methods
@@ -101,60 +94,6 @@ public class App {
     }
 
 
-    public void startBrowser(String browser) {
-        if (SystemUtils.IS_OS_LINUX) {
-            if (browser.equalsIgnoreCase("chrome")) {
-                ChromeOptions options = new ChromeOptions();
-                options.setHeadless(isHeadless());
-                options.addArguments("--window-size=1920,1080");
-                driver = new ChromeDriver(options);
-            } else if (browser.equalsIgnoreCase("firefox")) {
-                FirefoxOptions options = new FirefoxOptions();
-                options.addArguments("-width=1920");
-                options.addArguments("-height=1080");
-                options.setHeadless(isHeadless());
-                driver = new FirefoxDriver(options);
-            } else {
-                throw new RuntimeException("Not supported browser");
-            }
-        } else {
-            if (browser.equalsIgnoreCase("chrome")) {
-                ChromeOptions options = new ChromeOptions();
-                options.setHeadless(isHeadless());
-                options.addArguments("--no-sandbox");
-                driver = new ChromeDriver(options);
-                driver.manage().window().maximize();
-            } else if (browser.equalsIgnoreCase("firefox")) {
-                FirefoxOptions options = new FirefoxOptions();
-
-                options.setHeadless(isHeadless());
-                driver = new FirefoxDriver(options);
-                driver.manage().window().maximize();
-            } else {
-                throw new RuntimeException("Not supported browser");
-            }
-
-
-            LOGGER.info("******************************************************************");
-            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-            driver.manage().deleteAllCookies();
-        }
-    }
-
-    private boolean isHeadless() {
-        if (System.getProperty("headless").equals("on")) {
-            LOGGER.info("Starting headless browser execution");
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public void quit() {
-        driver.quit();
-    }
-
-
     /**
      * Takes screenshot of the current screen
      *
@@ -179,5 +118,24 @@ public class App {
         } else {
             LOGGER.info("Driver '{}' can't take screenshots so skipping it.", driver.getClass());
         }
+    }
+
+    public void startBrowser(String browserType) {
+        if (browserType.equalsIgnoreCase("chrome")) {
+            //Create chrome browser
+            driver = browser.createChrome();
+        } else if (browserType.equalsIgnoreCase("firefox")) {
+            //Create firefox
+            this.driver = browser.createFirefox();
+
+        } else {
+            //Throw exception
+            throw new RuntimeException("Not supported browser. Please check environment variables");
+        }
+
+    }
+
+    public void quit() {
+        this.driver.quit();
     }
 }
