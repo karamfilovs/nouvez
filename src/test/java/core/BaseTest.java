@@ -1,7 +1,6 @@
 package core;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -22,14 +21,13 @@ public class BaseTest {
         WebDriverManager.chromedriver().setup();
         if(isFirefox())
         WebDriverManager.firefoxdriver().setup();
-        app = new App();
-        app.startBrowser(System.getProperty("browser"));
     }
 
     @BeforeEach
     public void setup() {
-        app.deleteCookies();
         System.out.println("*******************************************************");
+        app = new App();
+        app.startBrowser(System.getProperty("browser"));
     }
 
     @AfterEach
@@ -41,12 +39,11 @@ public class BaseTest {
                 app.takeScreenshot(testMethod.getDeclaringClass().getSimpleName(), testMethod.getName(), LocalTime.now());
             }
         }
-    }
 
-    @AfterAll
-    public static void afterAll(ExtensionContext context) {
         app.quit();
     }
+
+
 
     private boolean shouldBeCaptured(){
         return System.getProperty("take.screenshots.enabled").equalsIgnoreCase("true");

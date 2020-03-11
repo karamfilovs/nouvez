@@ -14,7 +14,7 @@ public class LoginPageTest extends BaseTest {
     @DisplayName("MVP-01: Can login with valid username/password")
     public void canLoginWithValidCredentials(){
         app.loginPage().gotoLoginPage();
-        Assertions.assertEquals("Customer Login", app.myAccountPage().getPageTitle());
+        Assertions.assertEquals("Customer Login", app.loginPage().getPageTitle());
         app.loginPage().enterUsername("alex@pragmatic.bg");
         app.loginPage().enterPassword("Test2019$");
         app.loginPage().clickLoginButton();
@@ -28,7 +28,7 @@ public class LoginPageTest extends BaseTest {
     @DisplayName("MVP-01: Can login with valid username/password and sign out")
     public void canLoginWithValidCredentialsAndLogout(){
         app.loginPage().gotoLoginPage();
-        Assertions.assertEquals("Customer Login", app.myAccountPage().getPageTitle());
+        Assertions.assertEquals("Customer Login", app.loginPage().getPageTitle());
         app.loginPage().enterUsername("alex@pragmatic.bg");
         app.loginPage().enterPassword("Test2019$");
         app.loginPage().clickLoginButton();
@@ -42,7 +42,7 @@ public class LoginPageTest extends BaseTest {
     @DisplayName("MVP-02: Cant login with invalid username")
     public void cantLoginWithInvalidUsername(){
         app.loginPage().gotoLoginPage();
-        Assertions.assertEquals("Customer Login", app.myAccountPage().getPageTitle());
+        Assertions.assertEquals("Customer Login", app.loginPage().getPageTitle());
         app.loginPage().enterUsername("alex@pragmatic");
         app.loginPage().enterPassword("Test2019$");
         app.loginPage().clickLoginButton();
@@ -54,7 +54,7 @@ public class LoginPageTest extends BaseTest {
     @DisplayName("MVP-03: Cant login with blank username field")
     public void cantLoginWithBlankUsername(){
         app.loginPage().gotoLoginPage();
-        Assertions.assertEquals("Customer Login", app.myAccountPage().getPageTitle());
+        Assertions.assertEquals("Customer Login", app.loginPage().getPageTitle());
         app.loginPage().enterPassword("pass1234");
         app.loginPage().clickLoginButton();
         Assertions.assertEquals("This is a required field.", app.loginPage().getUsernameRequiredMessage());
@@ -62,9 +62,10 @@ public class LoginPageTest extends BaseTest {
 
     @Test
     @Tag("negative")
-    @DisplayName("MVP-04: Cant login with blank password field")
+    @DisplayName("MVP-04: Cant login with blank password")
     public void cantLoginWithBlankPassword(){
         app.loginPage().gotoLoginPage();
+        Assertions.assertEquals("Customer Login", app.loginPage().getPageTitle());
         app.loginPage().enterUsername("alex@pragmatic.bg");
         app.loginPage().clickLoginButton();
         Assertions.assertEquals("This is a required field.", app.loginPage().getPasswordRequiredMessageText());
@@ -75,7 +76,7 @@ public class LoginPageTest extends BaseTest {
     @DisplayName("MVP-05: Cant login with invalid password")
     public void cantLoginWithInvalidPassword(){
         app.loginPage().gotoLoginPage();
-        Assertions.assertEquals("Customer Login", app.myAccountPage().getPageTitle());
+        Assertions.assertEquals("Customer Login", app.loginPage().getPageTitle());
         app.loginPage().enterUsername("alex@pragmatic.bg");
         app.loginPage().enterPassword("test");
         app.loginPage().clickLoginButton();
@@ -88,12 +89,12 @@ public class LoginPageTest extends BaseTest {
     @DisplayName("MVP-04: Can navigate to Login page from Home page")
     public void canNavigateToLoginPageFromHomePage(){
         app.homePage().gotoHomePage();
-        Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle());
+        Assertions.assertEquals("Home Page", app.homePage().getPageTitle());
         app.components().myAccountMenu().clickMyAccountIcon();
         app.components().myAccountMenu().clickOnMyAccount();
-        Assertions.assertEquals("Customer Login", app.myAccountPage().getPageTitle());
+        Assertions.assertEquals("Customer Login", app.loginPage().getPageTitle());
         app.loginPage().clickCompanyLogo();
-        Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle());
+        Assertions.assertEquals("Home Page", app.homePage().getPageTitle());
     }
 
 
