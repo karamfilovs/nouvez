@@ -33,6 +33,7 @@ public class Browser {
     }
 
 
+
     public WebDriver createFirefox() {
         FirefoxOptions options = new FirefoxOptions();
         options.setHeadless(isHeadless());

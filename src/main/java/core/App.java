@@ -121,6 +121,7 @@ public class App {
     }
 
     public void startBrowser(String browserType) {
+        LOGGER.info("Starting browser: " + browserType.toUpperCase());
         if (browserType.equalsIgnoreCase("chrome")) {
             //Create chrome browser
             driver = browser.createChrome();
@@ -137,5 +138,9 @@ public class App {
 
     public void quit() {
         this.driver.quit();
+    }
+
+    public void deleteCookies(){
+        driver.manage().deleteAllCookies();
     }
 }
