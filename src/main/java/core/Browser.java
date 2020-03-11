@@ -20,8 +20,6 @@ public class Browser {
     }
 
 
-
-
     protected boolean isHeadless() {
         return System.getProperty("headless").equals("on");
     }
@@ -31,7 +29,6 @@ public class Browser {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().deleteAllCookies();
     }
-
 
 
     public WebDriver createFirefox() {

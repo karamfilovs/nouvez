@@ -18,7 +18,9 @@ public class BaseTest {
     @BeforeAll
     public static void beforeAll() {
         //Configures browsers
+        if(isChrome())
         WebDriverManager.chromedriver().setup();
+        if(isFirefox())
         WebDriverManager.firefoxdriver().setup();
         app = new App();
         app.startBrowser(System.getProperty("browser"));
@@ -48,5 +50,13 @@ public class BaseTest {
 
     private boolean shouldBeCaptured(){
         return System.getProperty("take.screenshots.enabled").equalsIgnoreCase("true");
+    }
+
+    private static boolean isChrome(){
+        return System.getProperty("browser").equalsIgnoreCase("chrome");
+    }
+
+    private static boolean isFirefox(){
+        return System.getProperty("browser").equalsIgnoreCase("firefox");
     }
 }

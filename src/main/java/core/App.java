@@ -127,7 +127,7 @@ public class App {
             driver = browser.createChrome();
         } else if (browserType.equalsIgnoreCase("firefox")) {
             //Create firefox
-            this.driver = browser.createFirefox();
+            driver = browser.createFirefox();
 
         } else {
             //Throw exception
@@ -137,7 +137,7 @@ public class App {
     }
 
     public void quit() {
-        this.driver.quit();
+        driver.quit();
     }
 
     public void deleteCookies(){
