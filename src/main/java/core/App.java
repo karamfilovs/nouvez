@@ -20,7 +20,6 @@ public class App {
     //pages
     private LoginPage loginPage;
     private MyAccountPage myAccountPage;
-    private DashboardPage dashboardPage;
     private ResetPasswordPage resetPasswordPage;
     private RegisterPage registerPage;
     private HomePage homePage;
@@ -58,12 +57,6 @@ public class App {
         return homePage;
     }
 
-    public DashboardPage dashboardPage() {
-        if (dashboardPage == null) {
-            dashboardPage = new DashboardPage(driver);
-        }
-        return dashboardPage;
-    }
 
     public ResetPasswordPage resetPasswordPage() {
         if (resetPasswordPage == null) {
