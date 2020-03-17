@@ -12,7 +12,7 @@ import java.util.List;
 
 public class CheckoutPage extends BasePage {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(LoginPage.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(CheckoutPage.class);
     private final String PAGE_URL = "checkout/#shipping";
 
     @FindBy(how = How.ID, using = "customer-email")

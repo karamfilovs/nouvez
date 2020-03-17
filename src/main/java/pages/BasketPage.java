@@ -1,9 +1,80 @@
 package pages;
 
+import enums.CheckoutQuantity;
+import enums.Country;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class BasketPage extends BasePage {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(BasketPage.class);
+    private final String PAGE_URL = "checkout/cart/";
+
+    @FindBy(how = How.XPATH, using = "//a[@class='action continue']")
+    private WebElement continueShoppingButton;
+
+    @FindBy(how = How.ID, using = "cart-162-qty")
+    private WebElement selectQTYDropDown;
+
+    @FindBy(how = How.CSS, using = "a.use-ajax.action")
+    private WebElement moveToWishlistButton;
+
+    @FindBy(how = How.CSS, using = "a.action.action-delete")
+    private WebElement removeButton;
+
+    @FindBy(how = How.ID, using = "coupon_code")
+    private WebElement couponCodeField;
+
+    @FindBy(how = How.CSS, using = "button.action.apply")
+    private WebElement applyCouponButton;
+
+    @FindBy(how = How.XPATH, using = "//button[@title='Proceed to Checkout']")
+    private WebElement checkoutButton;
+
     public BasketPage(WebDriver driver) {
         super(driver);
+    }
+
+    public void gotoBasketPage() {
+        LOGGER.info("Navigating to Basket page");
+        navigateTo(PAGE_URL);
+    }
+
+    public void clickContinueShoppingButton() {
+        LOGGER.info("Click continue shopping button");
+        continueShoppingButton.click();
+    }
+
+    public BasketPage selectQuantity(CheckoutQuantity checkoutQuantity) {
+        super.selectDropDownOptionByVisibleText(selectQTYDropDown, checkoutQuantity.getCheckoutQuantity());
+        return this;
+    }
+
+    public void clickMoveToWishlistButton() {
+        LOGGER.info("Click move to wishlist button");
+        moveToWishlistButton.click();
+    }
+
+    public void clickRemoveButton() {
+        LOGGER.info("Click remove button");
+        removeButton.click();
+    }
+
+    public void enterCouponCode(String couponCode) {
+        LOGGER.info("Entering coupon code:" + couponCode);
+        typeText(couponCodeField, couponCode);
+    }
+
+    public void clickApplyCouponButton() {
+        LOGGER.info("Click apply coupon button");
+        applyCouponButton.click();
+    }
+    public void clickCheckoutButton() {
+        LOGGER.info("Click checkout button");
+        checkoutButton.click();
     }
 }

@@ -26,6 +26,8 @@ public class App {
     private Components components;
     private ProductDetailsPage productDetailsPage;
     private ProductListingPage productListingPage;
+    private CheckoutPage checkoutPage;
+    private BasketPage basketPage;
 
 
     //lazy instantiating methods
@@ -86,6 +88,17 @@ public class App {
         return productListingPage;
     }
 
+    public CheckoutPage checkoutPage() {
+        if (checkoutPage == null) {
+            checkoutPage = new CheckoutPage(driver);
+        }
+        return checkoutPage;
+
+        public BasketPage basketPage() {
+            if (basketPage == null) {
+                basketPage = new BasketPage(driver);
+            }
+            return basketPage;
 
     /**
      * Takes screenshot of the current screen
