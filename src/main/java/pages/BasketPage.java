@@ -1,7 +1,5 @@
 package pages;
 
-import enums.CheckoutQuantity;
-import enums.Country;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -49,8 +47,8 @@ public class BasketPage extends BasePage {
         continueShoppingButton.click();
     }
 
-    public BasketPage selectQuantity(CheckoutQuantity checkoutQuantity) {
-        super.selectDropDownOptionByVisibleText(selectQTYDropDown, checkoutQuantity.getCheckoutQuantity());
+    public BasketPage selectQuantity(String quantity) {
+        super.selectDropDownOptionByVisibleText(selectQTYDropDown, quantity);
         return this;
     }
 

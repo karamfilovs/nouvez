@@ -93,12 +93,14 @@ public class App {
             checkoutPage = new CheckoutPage(driver);
         }
         return checkoutPage;
+    }
 
         public BasketPage basketPage() {
             if (basketPage == null) {
                 basketPage = new BasketPage(driver);
             }
             return basketPage;
+        }
 
     /**
      * Takes screenshot of the current screen
