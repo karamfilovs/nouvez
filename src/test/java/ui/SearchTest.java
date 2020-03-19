@@ -26,7 +26,8 @@ public class SearchTest extends BaseTest {
         app.homePage().gotoHomePage();
         Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle());
         app.homePage().searchProduct("Alex");
-        Assertions.assertEquals("Search results for: 'Bulgari'", app.myAccountPage().getPageTitle());
+        Assertions.assertEquals("Search results for: 'Alex'", app.homePage().getPageTitle());
+        Assertions.assertEquals("Your search returned no results.", app.homePage().getSearchNoticeMessage());
     }
 
 }

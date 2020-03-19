@@ -12,6 +12,9 @@ public class HomePage extends BasePage {
     private static final Logger LOGGER = LoggerFactory.getLogger(HomePage.class);
     private final String PAGE_URL = "/";
 
+    @FindBy(how = How.XPATH, using = "//div[@class='message notice']")
+    private WebElement searchMessage;
+
 
     @FindBy(how = How.CSS, using = ".pagebuilder-collage-content > div:nth-child(1) > div:nth-child(1) > p:nth-child(3) > a:nth-child(1)")
     private WebElement exploreButton;
@@ -30,6 +33,10 @@ public class HomePage extends BasePage {
     public void gotoHomePage() {
         LOGGER.info("Navigating to Home page");
         navigateTo(PAGE_URL);
+    }
+
+    public String getSearchNoticeMessage(){
+        return getText(searchMessage);
     }
 
     public void clickExploreButton() {
