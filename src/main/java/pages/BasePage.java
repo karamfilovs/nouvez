@@ -2,8 +2,9 @@ package pages;
 
 import enums.Checked;
 import enums.Currency;
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.*;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -15,8 +16,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.File;
-import java.time.LocalTime;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -147,25 +146,7 @@ public class BasePage {
         return foundElementAfterWait;
 
     }
-
-    /**
-     * Waits for a specified element to be visible to work with it for a specified time frame
-     *
-     * @param elementToBeVisible
-     * @return
-     * @int timeOutInSeconds  wait for specific time
-     */
-    protected WebElement waitForElementVisibility(WebElement elementToBeVisible, int timeOutInSeconds) {
-        waitForFullPageOrJsAjaxToLoad();
-        driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-        WebDriverWait wait = new WebDriverWait(driver, timeOutInSeconds);
-        WebElement foundElementAfterWait = wait.until(ExpectedConditions.visibilityOf(elementToBeVisible));
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        return foundElementAfterWait;
-
-    }
-
-
+    
     /**
      * Waits for a specified element to be clickable to work with it for a specified time frame
      * *
@@ -257,50 +238,6 @@ public class BasePage {
         return wait.until(jQueryLoad) && wait.until(jsLoad);
     }
 
-
-    /**
-     * wait specific time in miliseconds.
-     *
-     * @param timeInMillisecond
-     */
-    public void waitTime(int timeInMillisecond) {
-
-        LOGGER.info("Waiting " + timeInMillisecond / 1000 + " seconds");
-        try {
-
-            Thread.sleep(timeInMillisecond);
-        } catch (Exception a) {
-            throw new RuntimeException("Couldn't wait time  in milliseconds " + timeInMillisecond);
-        }
-
-    }
-
-
-    /**
-     * Takes screenshot of the current screen
-     *
-     * @param className Name of the class from which it was invoked
-     * @param method    Test method name
-     * @param timestamp Current time stamp
-     */
-    public void takeScreenshot(String className, String method, LocalTime timestamp) {
-        if (driver instanceof TakesScreenshot) {
-            TakesScreenshot screenshotTakingDriver = (TakesScreenshot) this.driver;
-            try {
-                File localScreenshots = new File(new File("target"), "screenshots");
-                if (!localScreenshots.exists() || !localScreenshots.isDirectory()) {
-                    localScreenshots.mkdirs();
-                }
-                File screenshot = new File(localScreenshots, className + "_" + method + "_" + timestamp.getHour() + "." + timestamp.getMinute() + ".png");
-                FileUtils.copyFile(screenshotTakingDriver.getScreenshotAs(OutputType.FILE), screenshot);
-                LOGGER.info("Screenshot for class={} method={} saved in: {}", className, method, screenshot.getAbsolutePath());
-            } catch (Exception e1) {
-                LOGGER.error("Unable to take screenshot", e1);
-            }
-        } else {
-            LOGGER.info("Driver '{}' can't take screenshots so skipping it.", driver.getClass());
-        }
-    }
 
 
     /**
