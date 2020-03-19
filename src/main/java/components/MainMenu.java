@@ -31,9 +31,9 @@ public class MainMenu extends BasePage {
     /**
      * Clicks on Shop category link
      */
-    public void clickOnShop() {
+    public void hoverOnShop() {
         LOGGER.info("Clicking on Shop link from main menu");
-        click(shop);
+        hoverOver(shop);
         waitForFullPageOrJsAjaxToLoad();
     }
 

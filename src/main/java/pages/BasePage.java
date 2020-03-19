@@ -146,7 +146,7 @@ public class BasePage {
         return foundElementAfterWait;
 
     }
-    
+
     /**
      * Waits for a specified element to be clickable to work with it for a specified time frame
      * *
@@ -285,4 +285,8 @@ public class BasePage {
     }
 
 
+    public void hoverOver(WebElement element){
+        Actions action = new Actions(driver);
+        action.moveToElement(element).perform();
+    }
 }

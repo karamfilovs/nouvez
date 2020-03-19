@@ -16,8 +16,9 @@ public class ProductDetailsPageTest extends BaseTest {
     public void canNavigateToPDPPage(){
         app.homePage().gotoHomePage();
         Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle());
-        app.components().mainMenu().clickOnShop();
+        app.components().mainMenu().hoverOnShop();
         app.components().subCategoryMenu().clickOnEarrings();
+        Assertions.assertEquals("Earnings", app.components().subCategoryMenu().getPageTitle());
         app.productListingPage().clickOnProductByName("Bulgari");
         app.productDetailsPage().changeCurrency(Currency.EU);
         Assertions.assertTrue(app.productDetailsPage().getProductPrice().contains("€"), "Product price is not with the correct currency");
