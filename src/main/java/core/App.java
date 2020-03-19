@@ -30,6 +30,7 @@ public class App {
     private BasketPage basketPage;
 
 
+
     //lazy instantiating methods
     public LoginPage loginPage() {
         if (loginPage == null) {
@@ -101,6 +102,7 @@ public class App {
             }
             return basketPage;
         }
+
 
     /**
      * Takes screenshot of the current screen

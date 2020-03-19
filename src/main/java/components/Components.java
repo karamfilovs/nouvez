@@ -7,6 +7,7 @@ public class Components extends BasePage {
     private MainMenu mainMenu;
     private MyAccountMenu myAccountMenu;
     private SubCategoryMenu subCategoryMenu;
+    private MiniCart miniCart;
 
     public Components(WebDriver driver) {
         super(driver);
@@ -33,6 +34,14 @@ public class Components extends BasePage {
             return new MyAccountMenu(driver);
         } else {
             return myAccountMenu;
+        }
+    }
+
+    public MiniCart miniCart() {
+        if (miniCart == null) {
+            return new MiniCart(driver);
+        } else {
+            return miniCart;
         }
     }
 }

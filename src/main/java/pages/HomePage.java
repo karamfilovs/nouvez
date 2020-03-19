@@ -16,15 +16,17 @@ public class HomePage extends BasePage {
     private WebElement searchMessage;
 
 
-    @FindBy(how = How.CSS, using = ".pagebuilder-collage-content > div:nth-child(1) > div:nth-child(1) > p:nth-child(3) > a:nth-child(1)")
+    @FindBy(how = How.XPATH, using = "//a[@title='Explore']")
     private WebElement exploreButton;
 
-
-    @FindBy(how = How.CSS, using = "#maincontent > div.columns > div.column.main > div.product-slider > div > div.special-link > p > a")
+    @FindBy(how = How.XPATH, using = "//a[contains(text(),'View Latest Products')]")
     private WebElement viewLatestProductsButton;
 
-    @FindBy(how = How.CSS, using = "#maincontent > div.columns > div.column.main > div.featured-brands > div > div.special-link > p > a")
+    @FindBy(how = How.XPATH, using = "//a[contains(text(),'Shop Brands')]")
     private WebElement shopBrandsButton;
+
+    @FindBy(how = How.XPATH, using = "//a[contains(text(),'Shop Our Minimal Collection')]")
+    private WebElement shopOurMinimalCollectionButton;
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -50,12 +52,16 @@ public class HomePage extends BasePage {
     }
 
     public void clickShopBrandsButton() {
-        LOGGER.info("Clicking on explore button");
+        LOGGER.info("Clicking on shop brands button");
         click(shopBrandsButton);
     }
 
-    public void clickCurrencyIcon() {
+    public void clickShopOurMinimalCollectionButton() {
+        LOGGER.info("Clicking on shop our minimal collection button");
+        click(shopOurMinimalCollectionButton);
     }
+
+
 }
 
 

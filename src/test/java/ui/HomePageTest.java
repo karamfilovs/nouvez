@@ -17,7 +17,7 @@ public class HomePageTest extends BaseTest {
         app.homePage().gotoHomePage();
         Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle());
         app.homePage().changeCurrency(Currency.EU);
-        Assertions.assertEquals("My Account", app.myAccountPage().getPageTitle());
+        Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle());
     }
 
     @Test
@@ -28,7 +28,7 @@ public class HomePageTest extends BaseTest {
         app.homePage().gotoHomePage();
         Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle());
         app.homePage().changeCurrency(Currency.EU);
-        Assertions.assertEquals("My Account", app.myAccountPage().getPageTitle());
+        Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle());
     }
 
     @Test
@@ -39,7 +39,7 @@ public class HomePageTest extends BaseTest {
         app.homePage().gotoHomePage();
         Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle());
         app.homePage().searchProduct("Bulgari");
-        Assertions.assertEquals("Search results for: \'Bulgari\'", app.myAccountPage().getPageTitle());
+        Assertions.assertEquals("Search results for: 'Bulgari'", app.myAccountPage().getPageTitle());
     }
 
 

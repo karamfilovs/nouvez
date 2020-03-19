@@ -40,6 +40,7 @@ public class BasePage {
     @FindBy(how = How.ID, using = "search")
     private WebElement searchField;
 
+
     protected WebDriver driver;
 
 
@@ -276,6 +277,8 @@ public class BasePage {
         LOGGER.info("Clicking on logo image");
         click(companyLogo);
     }
+
+
 
     public void searchProduct(String productName) {
         LOGGER.info("Searching for product: " + productName);
