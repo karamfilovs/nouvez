@@ -24,9 +24,12 @@ public class ProductListingPage extends BasePage {
 
 
     public void clickOnProductByName(String name) {
-        products.forEach(product -> {
-            if (getText(product).contains(name)) ;
-            click(product);
-        });
+        LOGGER.info("Clicking on:" + name);
+        for(WebElement product : products){
+            if (getText(product).contains(name)){
+                click(product);
+                break;
+            }
+        }
     }
 }

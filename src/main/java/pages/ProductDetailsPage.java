@@ -36,6 +36,11 @@ public class ProductDetailsPage extends BasePage {
         click(addToCartButton);
     }
 
+    public void hoverOnAddToCartButton(){
+        LOGGER.info("Hover on Add to Cart button");
+        hoverOver(addToCartButton);
+    }
+
     public void clickAddToWishList() {
         LOGGER.info("Clicking Add to Wishlist");
         click(addToWishListLink);

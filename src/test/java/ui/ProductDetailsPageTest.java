@@ -1,7 +1,6 @@
 package ui;
 
 import core.BaseTest;
-import enums.Currency;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -18,9 +17,10 @@ public class ProductDetailsPageTest extends BaseTest {
         Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle());
         app.components().mainMenu().hoverOnShop();
         app.components().subCategoryMenu().clickOnEarrings();
-        Assertions.assertEquals("Earnings", app.components().subCategoryMenu().getPageTitle());
+        Assertions.assertEquals("Earrings - Shop by Category - Shop", app.components().subCategoryMenu().getPageTitle());
         app.productListingPage().clickOnProductByName("Bulgari");
-        app.productDetailsPage().changeCurrency(Currency.EU);
-        Assertions.assertTrue(app.productDetailsPage().getProductPrice().contains("€"), "Product price is not with the correct currency");
+        Assertions.assertEquals("Bulgari", app.components().subCategoryMenu().getPageTitle());
+        app.productDetailsPage().hoverOnAddToCartButton();
+        app.productDetailsPage().clickAddToCartButton();
     }
 }
