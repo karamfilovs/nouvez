@@ -18,7 +18,9 @@ public class NewsFeedTest extends BaseTest {
         app.homePage().gotoHomePage();
         Assertions.assertEquals("Home Page", app.homePage().getPageTitle());
         app.newsFeedPage().subscribeToNewsFeed(email);
+        Assertions.assertEquals("Thank you for your subscription.", app.newsFeedPage().getSuccessMessage());
     }
+
 
 
     @Test
@@ -41,6 +43,6 @@ public class NewsFeedTest extends BaseTest {
         app.homePage().gotoHomePage();
         Assertions.assertEquals("Home Page", app.homePage().getPageTitle());
         app.newsFeedPage().subscribeToNewsFeed("alex@pragmatic");
-        Assertions.assertEquals("Please enter a valid email address (Ex: johndoe@domain.com).", app.newsFeedPage().getNewsFeedError());
+        Assertions.assertEquals("Please enter a valid email address (Ex: johndoe@domain.com).", app.newsFeedPage().getEmailValidationError());
     }
 }

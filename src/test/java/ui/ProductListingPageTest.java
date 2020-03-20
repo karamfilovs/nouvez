@@ -18,7 +18,7 @@ public class ProductListingPageTest extends BaseTest {
         app.homePage().gotoHomePage();
         Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle());
         app.productListingPage().clickOnProductByName("Bulgari");
-        Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle());
+        Assertions.assertEquals("Bulgari", app.myAccountPage().getPageTitle());
     }
 
 }

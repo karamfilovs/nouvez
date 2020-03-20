@@ -18,42 +18,53 @@ public class ResetPasswordPageTest extends BaseTest {
         app.loginPage().clickResetPasswordLink();
         app.resetPasswordPage().enterEmail("alex@pragmatic.bg");
         app.resetPasswordPage().clickResetPasswordButton();
-        Assertions.assertEquals("Login", app.loginPage().getLoginButton());
+        Assertions.assertEquals("Customer Login", app.loginPage().getPageTitle());
+        Assertions.assertEquals("If there is an account associated with alex@pragmatic.bg you will receive an email with a link to reset your password.", app.loginPage().getSuccessMessage());
     }
 
     @Test
     @Tag("negative")
     @DisplayName("DD-02: Cant reset password with blank email")
-    public void cantResetPasswordWithBlankEmail(){
+    public void cantResetPasswordWithBlankEmail() {
         app.loginPage().gotoLoginPage();
         Assertions.assertEquals("Customer Login", app.myAccountPage().getPageTitle());
         app.loginPage().clickResetPasswordLink();
         app.resetPasswordPage().clickResetPasswordButton();
-        Assertions.assertEquals("Email is required.", app.resetPasswordPage().getRequiredEmailMessage() );
+        Assertions.assertEquals("This is a required field.", app.resetPasswordPage().getRequiredEmailMessage());
     }
 
     @Test
     @Tag("negative")
     @DisplayName("DD-03: Cant reset password with incorrect email")
-    public void cantResetPasswordWithIncorrectEmail(){
+    public void cantResetPasswordWithIncorrectEmail() {
         app.loginPage().gotoLoginPage();
         app.loginPage().clickResetPasswordLink();
         app.resetPasswordPage().enterEmail("thomasmail");
         app.resetPasswordPage().clickResetPasswordButton();
-        Assertions.assertEquals("The email format is invalid", app.resetPasswordPage().getIncorrectEmailMessage() );
+        Assertions.assertEquals("Please enter a valid email address (Ex: johndoe@domain.com).", app.resetPasswordPage().getIncorrectEmailMessage());
     }
 
     @Test
-    @Tag("negative")
-    @DisplayName("DD-04: Cant reset password with valid upper case email")
-    public void cantResetPasswordWithValidUppercaseEmail(){
+    @Tag("positive")
+    @DisplayName("MVP-04: Can reset password with valid upper case email")
+    public void cantResetPasswordWithValidUppercaseEmail() {
         app.loginPage().gotoLoginPage();
         app.loginPage().clickResetPasswordLink();
-        app.resetPasswordPage().enterEmail("alex@pragmtic.bg");
+        app.resetPasswordPage().enterEmail("alex@pragmtic.bg".toUpperCase());
         app.resetPasswordPage().clickResetPasswordButton();
-        Assertions.assertEquals("Reset your password", app.resetPasswordPage().getHeaderText());
+        Assertions.assertEquals("Customer Login", app.loginPage().getPageTitle());
     }
 
+    @Test
+    @Tag("positive")
+    @DisplayName("MVP-05: Can navigate from login page to reset password page and vice-versa")
+    public void canNavigateFromLoginPageToResetPasswordPage() {
+        app.loginPage().gotoLoginPage();
+        app.loginPage().clickResetPasswordLink();
+        Assertions.assertEquals("Forgot Your Password?", app.resetPasswordPage().getHeaderText());
+        app.resetPasswordPage().clickGoBackButton();
+        Assertions.assertEquals("Customer Login", app.loginPage().getPageTitle());
+    }
 
 }
 

@@ -9,22 +9,24 @@ import org.slf4j.LoggerFactory;
 
 public class ResetPasswordPage extends BasePage{
     private static final Logger LOGGER = LoggerFactory.getLogger(ResetPasswordPage.class);
-    private final String PAGE_URL = "/reset-password";
+    private final String PAGE_URL = "/customer/account/forgotpassword/";
 
-    @FindBy(how = How.XPATH, using = "//h2[@class='ng-star-inserted']")
+
+    @FindBy(how = How.CSS, using = "span.base")
     private WebElement pageHeader;
 
-    @FindBy(how = How.NAME, using = "email")
+    @FindBy(how = How.ID, using = "email_address")
     private WebElement emailField;
 
-    @FindBy(how = How.ID, using = "btn-password-reset")
+    @FindBy(how = How.CSS, using = "button.action.submit")
     private WebElement resetPasswordButton;
 
-    @FindBy(how = How.XPATH, using = "//div[@class='feedback text-danger ng-star-inserted']")
+    @FindBy(how = How.CSS, using = "a.action.back")
+    private WebElement goBackButton;
+
+    @FindBy(how = How.ID, using = "email_address-error")
     private WebElement requiredEmailMessage;
 
-    @FindBy(how = How.XPATH, using = "//div[@class='feedback text-danger ng-star-inserted']")
-    private WebElement incorrectEmailMessage;
 
     public ResetPasswordPage(WebDriver driver) {
         super(driver);
@@ -39,7 +41,7 @@ public class ResetPasswordPage extends BasePage{
     }
 
     public String getIncorrectEmailMessage(){
-        return getText(incorrectEmailMessage);
+        return getText(requiredEmailMessage);
     }
 
     public void enterEmail(String email){
@@ -50,6 +52,10 @@ public class ResetPasswordPage extends BasePage{
     public void clickResetPasswordButton(){
         LOGGER.info("Clicking on reset password button");
         click(resetPasswordButton);
+    }
+    public void clickGoBackButton(){
+        LOGGER.info("Clicking on go back button");
+        click(goBackButton);
     }
 
 }

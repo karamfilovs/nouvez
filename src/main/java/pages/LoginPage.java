@@ -14,7 +14,7 @@ public class LoginPage extends BasePage {
     @FindBy(how = How.NAME, using = "login[username]")
     private WebElement usernameField;
 
-    @FindBy(how = How.XPATH, using = "//a[@href='/testing/reset-password']")
+    @FindBy(how = How.CSS, using = "a.action.remind")
     private WebElement resetPasswordLink;
 
     @FindBy(how = How.NAME, using = "login[password]")
@@ -37,6 +37,9 @@ public class LoginPage extends BasePage {
 
     @FindBy(how = How.PARTIAL_LINK_TEXT, using = "My Account")
     private WebElement registrationLink;
+
+    @FindBy(how = How.CSS, using = "div.message-success")
+    private WebElement successMessage;
 
 
     public LoginPage(WebDriver driver) {
@@ -93,6 +96,10 @@ public class LoginPage extends BasePage {
 
     public String getLoginButton() {
         return getText(loginButton);
+    }
+
+    public String getSuccessMessage() {
+        return getText(successMessage);
     }
 
     public void login() {
