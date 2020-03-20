@@ -12,7 +12,7 @@ public class ProductDetailsPageTest extends BaseTest {
     @Tag("positive")
     @Tag("register")
     @DisplayName("DD-01: Can navigate to PDP page")
-    public void canNavigateToPDPPage(){
+    public void canNavigateToPDPPage() {
         app.homePage().gotoHomePage();
         Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle());
         app.components().mainMenu().hoverOnShop();

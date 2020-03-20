@@ -28,6 +28,7 @@ public class App {
     private ProductListingPage productListingPage;
     private CheckoutPage checkoutPage;
     private BasketPage basketPage;
+    private NewsFeedPage newsFeedPage;
 
 
 
@@ -102,6 +103,13 @@ public class App {
             }
             return basketPage;
         }
+
+    public NewsFeedPage newsFeedPage() {
+        if (newsFeedPage == null) {
+            newsFeedPage = new NewsFeedPage(driver);
+        }
+        return newsFeedPage;
+    }
 
 
     /**
