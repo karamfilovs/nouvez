@@ -13,7 +13,7 @@ public class NewsFeedPage extends BasePage {
     @FindBy(how = How.ID, using = "newsletter")
     private WebElement newsFeedEmailField;
 
-    @FindBy(how = How.ID, using = "newsletter-error")
+    @FindBy(how = How.CSS, using = "div.message-error.error.message")
     private WebElement newsFeedError;
 
     @FindBy(how = How.XPATH, using = "//button[@class='action subscribe primary']")
@@ -44,6 +44,6 @@ public class NewsFeedPage extends BasePage {
     }
 
     public String getNewsFeedError(){
-        return getText(newsFeedEmailField);
+        return getText(newsFeedError);
     }
 }

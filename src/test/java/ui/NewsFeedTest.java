@@ -29,7 +29,7 @@ public class NewsFeedTest extends BaseTest {
         app.homePage().gotoHomePage();
         Assertions.assertEquals("Home Page", app.homePage().getPageTitle());
         app.newsFeedPage().subscribeToNewsFeed("alex@pragmatic.bg");
-        Assertions.assertEquals("text", app.newsFeedPage().getNewsFeedError());
+        Assertions.assertEquals("This email address is already subscribed.", app.newsFeedPage().getNewsFeedError());
     }
 
 
