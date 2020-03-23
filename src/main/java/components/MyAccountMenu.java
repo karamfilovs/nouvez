@@ -12,19 +12,22 @@ public class MyAccountMenu extends BasePage {
     private static final Logger LOGGER = LoggerFactory.getLogger(MyAccountMenu.class);
 
     @FindBy(how = How.XPATH, using = "//a[text()='My Account']")
-    private WebElement myAccount;
+    private WebElement myAccountLink;
 
     @FindBy(how = How.XPATH, using = "//li[@class='link wishlist']")
-    private WebElement myWishlist;
+    private WebElement myWishlistLink;
 
-    @FindBy(how = How.XPATH, using = "//li[@class='authorization-link']")
-    private WebElement signOutLink;
+    @FindBy(how = How.CSS, using = ".icon.icon-account")
+    private WebElement myAccountIcon;
 
     @FindBy(how = How.XPATH, using = "//a[text()='Create an Account']")
     private WebElement createAccountLink;
 
-    @FindBy(how = How.CSS, using = ".icon.icon-account")
-    private WebElement myAccountIcon;
+    @FindBy(how = How.XPATH, using = "//li[@class='authorization-link']")
+    private WebElement signInAndOutLink;
+
+    @FindBy(how = How.CSS, using = "a#invitation-send-link")
+    private WebElement sendInvitationsLink;
 
 
     public MyAccountMenu(WebDriver driver) {
@@ -36,41 +39,58 @@ public class MyAccountMenu extends BasePage {
      */
     public void clickOnMyAccount() {
         LOGGER.info("Clicking on My Account link from main menu");
-        click(myAccount);
+        click(myAccountLink);
         waitForFullPageOrJsAjaxToLoad();
     }
 
     /**
-     * Clicks on My Wish List category link
+     * Clicks on My Wish List link
      */
     public void clickOnMyWishList() {
         LOGGER.info("Clicking on My Wish List link from main menu");
-        click(myWishlist);
+        click(myWishlistLink);
         waitForFullPageOrJsAjaxToLoad();
     }
-
-    public void clickMyAccountIcon () {
+    /**
+     * Clicks on My account icon
+     */
+    public void clickMyAccountIcon() {
         LOGGER.info("Clicking on My Account icon");
         click(myAccountIcon);
     }
-
-    public void clickCreateAnAccount () {
+    /**
+     * Clicks on Create an account link
+     */
+    public void clickCreateAnAccount() {
         LOGGER.info("Clicking on Create an Account link");
         click(createAccountLink);
     }
-
-
-    private void clickSignOutLink () {
-        LOGGER.info("Clicking on Sign out link");
-        click(signOutLink);
-    }
-
     /**
-     * clicks logout button
+     * Clicks on Sign out link
      */
-    public void signOut() {
-        clickMyAccountIcon();
-        clickSignOutLink();
+    private void clickSignOut() {
+        LOGGER.info("Clicking on Sign out link");
+        click(signInAndOutLink);
     }
-
+    /**
+     * Clicks on Sign in link
+     */
+    private void clickSignIn() {
+        LOGGER.info("Clicking on Sign out link");
+        click(signInAndOutLink);
+    }
+    /**
+     * Logs out
+     */
+    public void signInAndOut() {
+        clickMyAccountIcon();
+        clickSignOut();
+    }
+    /**
+     * Logs in
+     */
+    public void signIn() {
+        clickMyAccountIcon();
+        clickSignIn();
+    }
 }

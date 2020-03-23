@@ -33,7 +33,7 @@ public class LoginPageTest extends BaseTest {
         app.loginPage().enterPassword("Test2019$");
         app.loginPage().clickLoginButton();
         Assertions.assertEquals("My Account", app.myAccountPage().getPageTitle());
-        app.components().myAccountMenu().signOut();
+        app.components().myAccountMenu().signInAndOut();
         Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle());
     }
 
