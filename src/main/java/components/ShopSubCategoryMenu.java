@@ -2,12 +2,15 @@ package components;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pages.BasePage;
 import pages.BasketPage;
+
+import java.util.List;
 
 
 public class ShopSubCategoryMenu extends BasePage {
@@ -70,10 +73,16 @@ public class ShopSubCategoryMenu extends BasePage {
     @FindBy(how = How.XPATH, using = "//span[text()='Shop Designer']")
     private WebElement shopDesigner;
 
+    @FindAll({
+            @FindBy(how = How.XPATH, using = "//li[@class='level2 category-item first ui-menu-item']")
+    })
+    private List<WebElement> designers;
+
 
     public ShopSubCategoryMenu(WebDriver driver) {
         super(driver);
     }
+
 
     /**
      * Clicks on Shop by category link
@@ -224,6 +233,7 @@ public class ShopSubCategoryMenu extends BasePage {
         click(by1000);
         waitForFullPageOrJsAjaxToLoad();
     }
+
     /**
      * Clicks on By 2000 sub category link
      */
@@ -233,6 +243,7 @@ public class ShopSubCategoryMenu extends BasePage {
         click(by2000);
         waitForFullPageOrJsAjaxToLoad();
     }
+
     /**
      * Clicks on By 5000 sub category link
      */
@@ -252,6 +263,17 @@ public class ShopSubCategoryMenu extends BasePage {
         click(shopDesigner);
         waitForFullPageOrJsAjaxToLoad();
     }
-
+    /**
+     * Clicks on designer from the Shop designer sub category section
+     */
+    public void clickOnDesignerByName(String name) {
+        LOGGER.info("Clicking on:" + name);
+        for(WebElement designer : designers){
+            if (getText(designer).contains(name)){
+                click(designer);
+                break;
+            }
+        }
+    }
 
 }
