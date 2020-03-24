@@ -29,6 +29,7 @@ public class App {
     private CheckoutPage checkoutPage;
     private BasketPage basketPage;
     private NewsFeedPage newsFeedPage;
+    private ShopPage shopPage;
 
 
 
@@ -105,10 +106,16 @@ public class App {
         }
 
     public NewsFeedPage newsFeedPage() {
-        if (newsFeedPage == null) {
-            newsFeedPage = new NewsFeedPage(driver);
-        }
-        return newsFeedPage;
+            if (newsFeedPage == null) {
+                newsFeedPage = new NewsFeedPage(driver);
+            }
+            return newsFeedPage;
+    }
+    public ShopPage shopPage() {
+            if (shopPage == null) {
+                shopPage = new ShopPage(driver);
+            }
+            return shopPage;
     }
 
 
