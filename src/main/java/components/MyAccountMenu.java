@@ -14,8 +14,8 @@ public class MyAccountMenu extends BasePage {
     @FindBy(how = How.XPATH, using = "//a[text()='My Account']")
     private WebElement myAccountLink;
 
-    @FindBy(how = How.XPATH, using = "//li[@class='link wishlist']")
-    private WebElement myWishlistLink;
+    @FindBy(how = How.CSS, using = "li.link.wishlist")
+    private WebElement myWishListLink;
 
     @FindBy(how = How.CSS, using = ".icon.icon-account")
     private WebElement myAccountDropDown;
@@ -48,7 +48,7 @@ public class MyAccountMenu extends BasePage {
      */
     public void clickOnMyWishList() {
         LOGGER.info("Clicking on My Wish List link from main menu");
-        click(myWishlistLink);
+        click(myWishListLink);
         waitForFullPageOrJsAjaxToLoad();
     }
     /**
