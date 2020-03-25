@@ -18,7 +18,7 @@ public class MyAccountMenu extends BasePage {
     private WebElement myWishlistLink;
 
     @FindBy(how = How.CSS, using = ".icon.icon-account")
-    private WebElement myAccountIcon;
+    private WebElement myAccountDropDown;
 
     @FindBy(how = How.XPATH, using = "//a[text()='Create an Account']")
     private WebElement createAccountLink;
@@ -35,7 +35,7 @@ public class MyAccountMenu extends BasePage {
     }
 
     /**
-     * Clicks on My Account category link
+     * Clicks on My Account link
      */
     public void clickOnMyAccount() {
         LOGGER.info("Clicking on My Account link from main menu");
@@ -52,11 +52,11 @@ public class MyAccountMenu extends BasePage {
         waitForFullPageOrJsAjaxToLoad();
     }
     /**
-     * Clicks on My account icon
+     * Clicks on My account drop-down
      */
-    public void clickMyAccountIcon() {
-        LOGGER.info("Clicking on My Account icon");
-        click(myAccountIcon);
+    public void clickMyAccountDropDown() {
+        LOGGER.info("Clicking on My Account drop-down");
+        click(myAccountDropDown);
     }
     /**
      * Clicks on Create an account link
@@ -65,32 +65,10 @@ public class MyAccountMenu extends BasePage {
         LOGGER.info("Clicking on Create an Account link");
         click(createAccountLink);
     }
-    /**
-     * Clicks on Sign out link
-     */
-    private void clickSignOut() {
-        LOGGER.info("Clicking on Sign out link");
-        click(signInAndOutLink);
-    }
-    /**
-     * Clicks on Sign in link
-     */
-    private void clickSignIn() {
-        LOGGER.info("Clicking on Sign out link");
-        click(signInAndOutLink);
-    }
-    /**
-     * Logs out
-     */
+
     public void signInAndOut() {
-        clickMyAccountIcon();
-        clickSignOut();
+        LOGGER.info("Clicking on Sign in and Sign Out links from my account drop-down");
+        click(signInAndOutLink);
     }
-    /**
-     * Logs in
-     */
-    public void signIn() {
-        clickMyAccountIcon();
-        clickSignIn();
-    }
+
 }

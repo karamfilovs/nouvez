@@ -15,7 +15,7 @@ public class RegisterPageTest extends BaseTest {
     public void canNavigateToCreateNewCustomerPage(){
         app.homePage().gotoHomePage();
         Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle());
-        app.components().myAccountMenu().clickMyAccountIcon();
+        app.components().myAccountMenu().clickMyAccountDropDown();
         app.components().myAccountMenu().clickCreateAnAccount();
         Assertions.assertEquals("Create New Customer Account", app.myAccountPage().getPageTitle());
     }
