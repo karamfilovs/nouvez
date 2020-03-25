@@ -40,6 +40,8 @@ public class BasePage {
     @FindBy(how = How.ID, using = "search")
     private WebElement searchField;
 
+    @FindBy(how = How.CSS, using = "span.icon.icon-heart")
+    private WebElement wishListIcon;
 
     protected WebDriver driver;
 
@@ -291,5 +293,10 @@ public class BasePage {
     public void hoverOver(WebElement element){
         Actions action = new Actions(driver);
         action.moveToElement(element).perform();
+    }
+
+    public void clickWishListIcon() {
+        LOGGER.info("Clicking wish list icon from components bar");
+        click(wishListIcon);
     }
 }
