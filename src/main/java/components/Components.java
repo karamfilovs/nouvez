@@ -9,6 +9,7 @@ public class Components extends BasePage {
     private ShopSubCategoryMenu shopSubCategoryMenu;
     private MiniCart miniCart;
 
+
     public Components(WebDriver driver) {
         super(driver);
     }

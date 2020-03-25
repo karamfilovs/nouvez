@@ -42,5 +42,19 @@ public class HomePageTest extends BaseTest {
         Assertions.assertEquals("Search results for: 'Bulgari'", app.myAccountPage().getPageTitle());
     }
 
+    @Test
+    @Tag("positive")
+    @Tag("homepage")
+    @DisplayName("MVP-155: Can navigate to customer login page clicking  on the wish list icon")
+    public void canGoToWishListViaWishListIcon() {
+        app.homePage().gotoHomePage();
+        Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle());
+        app.homePage().clickWishListIcon();
+        Assertions.assertEquals("Customer Login", app.myAccountPage().getPageTitle());
+        app.loginPage().enterUsername("alex@pragmatic.bg");
+        app.loginPage().enterPassword("Test2019$");
+        app.loginPage().clickLoginButton();
+        Assertions.assertEquals("My Wish List", app.myAccountPage().getPageTitle());
+    }
 
 }
