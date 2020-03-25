@@ -1,6 +1,7 @@
 package core;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -21,13 +22,16 @@ public class BaseTest {
         WebDriverManager.chromedriver().setup();
         if(isFirefox())
         WebDriverManager.firefoxdriver().setup();
+
+        // Start browser
+        app = new App();
+        app.startBrowser(System.getProperty("browser"));
+
     }
 
     @BeforeEach
     public void setup() {
         System.out.println("*******************************************************");
-        app = new App();
-        app.startBrowser(System.getProperty("browser"));
     }
 
     @AfterEach
@@ -40,8 +44,17 @@ public class BaseTest {
             }
         }
 
+        app.deleteCookies();
+
+    }
+
+
+    @AfterAll
+    public static void afterAll(){
+        //Kill browser instance
         app.quit();
     }
+
 
 
 
