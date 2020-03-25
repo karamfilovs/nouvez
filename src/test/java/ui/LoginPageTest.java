@@ -18,7 +18,7 @@ public class LoginPageTest extends BaseTest {
         app.loginPage().enterUsername("alex@pragmatic.bg");
         app.loginPage().enterPassword("Test2019$");
         app.loginPage().clickLoginButton();
-        app.components().myAccountMenu().clickMyAccountIcon();
+        app.components().myAccountMenu().clickMyAccountDropDown();
         Assertions.assertEquals("My Account", app.myAccountPage().getPageTitle());
     }
 
@@ -90,7 +90,7 @@ public class LoginPageTest extends BaseTest {
     public void canNavigateToLoginPageFromHomePage(){
         app.homePage().gotoHomePage();
         Assertions.assertEquals("Home Page", app.homePage().getPageTitle());
-        app.components().myAccountMenu().clickMyAccountIcon();
+        app.components().myAccountMenu().clickMyAccountDropDown();
         app.components().myAccountMenu().clickOnMyAccount();
         Assertions.assertEquals("Customer Login", app.loginPage().getPageTitle());
         app.loginPage().clickCompanyLogo();
