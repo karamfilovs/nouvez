@@ -172,7 +172,9 @@ public class App {
         driver.quit();
     }
 
-    public void deleteCookies(){
+    public void clearBrowserState(){
+        driver.manage().deleteAllCookies();
+        driver.navigate().to(System.getProperty("url"));
         driver.manage().deleteAllCookies();
     }
 }
