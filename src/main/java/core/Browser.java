@@ -14,7 +14,7 @@ public class Browser {
     public WebDriver createChrome() {
         ChromeOptions options = new ChromeOptions();
         options.setHeadless(isHeadless());
-      //  options.addArguments("--window-size=1920,1080");
+        options.addArguments("--window-size=1920,1080");
         driver = new ChromeDriver(options);
         defaultSetup();
         return driver;
@@ -25,9 +25,9 @@ public class Browser {
         return System.getProperty("headless").equals("on");
     }
 
-    private void defaultSetup(){
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    private void defaultSetup() {
+        //driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(6, TimeUnit.SECONDS);
         driver.manage().deleteAllCookies();
     }
 
@@ -37,7 +37,7 @@ public class Browser {
         options.setHeadless(isHeadless());
         options.addArguments("-width=1920");
         options.addArguments("-height=1080");
-        driver =  new FirefoxDriver(options);
+        driver = new FirefoxDriver(options);
         defaultSetup();
         return driver;
     }
