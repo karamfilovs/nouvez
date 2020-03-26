@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Test;
 public class HomePageTest extends BaseTest {
 
     @Test
-    @Tag("positive")
     @Tag("homepage")
     @DisplayName("MVP-06: Can login with valid username/password")
     public void canChangeCurrency() {
@@ -21,7 +20,6 @@ public class HomePageTest extends BaseTest {
     }
 
     @Test
-    @Tag("positive")
     @Tag("homepage")
     @DisplayName("DD-06: Can switch to different currency")
     public void canSwitchToDifferentCurrency() {
@@ -32,7 +30,6 @@ public class HomePageTest extends BaseTest {
     }
 
     @Test
-    @Tag("positive")
     @Tag("homepage")
     @DisplayName("MVP-X: Can search for existing product")
     public void canSearchForExistingProduct() {
@@ -43,7 +40,6 @@ public class HomePageTest extends BaseTest {
     }
 
     @Test
-    @Tag("positive")
     @Tag("homepage")
     @DisplayName("MVP-155: Can navigate to customer login page clicking  on the wish list icon")
     public void canGoToWishListViaWishListIcon() {

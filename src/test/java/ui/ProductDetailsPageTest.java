@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 public class ProductDetailsPageTest extends BaseTest {
 
     @Test
-    @Tag("positive")
     @Tag("pdp")
     @DisplayName("DD-01: Can navigate to PDP page")
     public void canNavigateToPDPPage() {

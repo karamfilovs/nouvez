@@ -1,7 +1,6 @@
 package ui;
 
 import core.BaseTest;
-import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -10,7 +9,6 @@ import org.junit.jupiter.api.Test;
 public class MyAccountMenuTest extends BaseTest {
 
     @Test
-    @Tag("positive")
     @Tag("my-account-menu")
     @DisplayName("MVP-154: Can access customer login page clicking my account button from the drop down menu of my account component")
     public void goToCustomerLoginViaMyAccountLink(){
@@ -23,7 +21,6 @@ public class MyAccountMenuTest extends BaseTest {
     }
 
     @Test
-    @Tag("positive")
     @Tag("my-account-menu")
     @DisplayName("MVP-154: Can access customer login page clicking my wish list button from the drop down menu of my account component")
     public void goToCustomerLoginViaMyWishListLink(){
@@ -36,7 +33,6 @@ public class MyAccountMenuTest extends BaseTest {
     }
 
     @Test
-    @Tag("positive")
     @Tag("my-account-menu")
     @DisplayName("MVP-154: Can access customer login page clicking sign in button from the drop down menu of my account component")
     public void goToCustomerLoginViaSignInLink(){
@@ -48,7 +44,6 @@ public class MyAccountMenuTest extends BaseTest {
 
     }
     @Test
-    @Tag("positive")
     @Tag("my-account-menu")
     @DisplayName("MVP-154: Can access create new customer account page clicking create an account button from the drop down menu of my account component")
     public void goToCreateNewCustomerAccountViaCreateAnAccountLink(){

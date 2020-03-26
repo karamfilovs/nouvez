@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 public class RegisterPageTest extends BaseTest {
 
     @Test
-    @Tag("positive")
     @Tag("register")
     @DisplayName("MVP-X: Can navigate to Create New Customer page")
     public void canNavigateToCreateNewCustomerPage(){
@@ -21,7 +20,6 @@ public class RegisterPageTest extends BaseTest {
     }
 
     @Test
-    @Tag("positive")
     @Tag("register")
     @DisplayName("MVP-X: Cant register with already used email address")
     public void cantRegisterWithInvalidCaptcha(){
@@ -38,7 +36,6 @@ public class RegisterPageTest extends BaseTest {
 
 
     @Test
-    @Tag("positive")
     @Tag("register")
     @DisplayName("MVP-X: Cant register with password miss match")
     public void cantRegisterWithPasswordMissMatch(){

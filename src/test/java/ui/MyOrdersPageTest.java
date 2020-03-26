@@ -19,7 +19,6 @@ public class MyOrdersPageTest extends BaseTest {
     }
 
     @Test
-    @Tag("positive")
     @Tag("my-orders")
     @DisplayName("MVP-X: Can reorder already placed order")
     public void canReorderAlreadyPlacedOrder() {

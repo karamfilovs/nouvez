@@ -10,7 +10,6 @@ import utils.DataGenerator;
 public class NewsFeedTest extends BaseTest {
 
     @Test
-    @Tag("positive")
     @Tag("news-feed")
     @DisplayName("MVP-X: Can subscribe to news feed with new email")
     public void canSubscribeToNewsFeed() {
@@ -24,7 +23,6 @@ public class NewsFeedTest extends BaseTest {
 
 
     @Test
-    @Tag("positive")
     @Tag("news-feed")
     @DisplayName("MVP-X: Cant subscribe to news feed with used email")
     public void cantSubscribeToNewsFeedWithAlreadyUsedEmail() {
@@ -36,7 +34,6 @@ public class NewsFeedTest extends BaseTest {
 
 
     @Test
-    @Tag("negative")
     @Tag("news-feed")
     @DisplayName("MVP-X: Cant subscribe to news feed with invalid email")
     public void cantSubscribeToNewsFeedWithInvalidEmail() {

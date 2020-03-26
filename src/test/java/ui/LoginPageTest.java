@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 public class LoginPageTest extends BaseTest {
 
     @Test
-    @Tag("positive")
     @Tag("login")
     @DisplayName("MVP-01: Can login with valid username/password")
     public void canLoginWithValidCredentials(){
@@ -24,7 +23,6 @@ public class LoginPageTest extends BaseTest {
     }
 
     @Test
-    @Tag("positive")
     @Tag("login")
     @DisplayName("MVP-01: Can login with valid username/password and sign out")
     public void canLoginWithValidCredentialsAndLogout(){
