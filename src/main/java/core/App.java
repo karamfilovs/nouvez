@@ -31,6 +31,7 @@ public class App {
     private NewsFeedPage newsFeedPage;
     private ShopPage shopPage;
     private WishListPage wishListPage;
+    private MyOrdersPage myOrdersPage;
 
 
 
@@ -123,6 +124,13 @@ public class App {
                 wishListPage = new WishListPage(driver);
             }
             return wishListPage;
+    }
+
+    public MyOrdersPage myOrdersPage() {
+        if (myOrdersPage == null) {
+            myOrdersPage = new MyOrdersPage(driver);
+        }
+        return myOrdersPage;
     }
 
 
