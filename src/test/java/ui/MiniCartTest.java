@@ -10,7 +10,7 @@ public class MiniCartTest extends BaseTest {
 
     @Test
     @Tag("positive")
-    @Tag("Add and remove item from mini cart")
+    @Tag("mini-cart")
     @DisplayName("MVP-153: Can add an item to cart and remove it from mini cart")
     public void canAddAndRemoveItemFromMiniCart() {
         app.homePage().gotoHomePage();
@@ -28,7 +28,7 @@ public class MiniCartTest extends BaseTest {
     //от тук нататък следва да ги напиша утре
     @Test
     @Tag("positive")
-    @Tag("Can navigate to checkout page from the mini cart and go back to continue shopping")
+    @Tag("mini-cart")
     @DisplayName("MVP-153: Can go to checkout page from View bag button and then go back to continue shopping")
     public void canAddProductToCartGoToCheckoutPageAndContinueShopping() {
         app.homePage().gotoHomePage();
@@ -44,7 +44,7 @@ public class MiniCartTest extends BaseTest {
     }
 //    @Test
 //    @Tag("positive")
-//    @Tag("Can checkout from the mini cart and go back to continue shopping")
+//    @Tag("mini-cart")
 //    @DisplayName("MVP-153: Can add an item to cart and remove it from mini cart")
 //    public void canAddAndRemoveItemFromMiniCart() {
 //        app.homePage().gotoHomePage();

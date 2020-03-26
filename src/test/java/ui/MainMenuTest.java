@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 public class MainMenuTest extends BaseTest {
     @Test
     @Tag("positive")
-    @Tag("Navigate using main menu button Shop")
+    @Tag("main-menu")
     @DisplayName("MVP-152: Can navigate to shop page from main menu and return to home page using breadcrumbs trail")
     public void canNavigateToShopPageAndBackToHomeUsingBreadCrumbs(){
         app.homePage().gotoHomePage();
@@ -23,7 +23,7 @@ public class MainMenuTest extends BaseTest {
 
     @Test
     @Tag("positive")
-    @Tag("Navigate using main menu button Create")
+    @Tag("main-menu")
     @DisplayName("MVP-152: Can navigate to create page from main menu and return to home page using breadcrumbs trail")
     public void canNavigateToCreatePageAndBackToHomeUsingBreadCrumbs(){
         app.homePage().gotoHomePage();
@@ -35,7 +35,7 @@ public class MainMenuTest extends BaseTest {
     }
     @Test
     @Tag("positive")
-    @Tag("Navigate using main menu button Inspire")
+    @Tag("main-menu")
     @DisplayName("MVP-152: Can navigate to inspire page from main menu and return to home page using breadcrumbs trail")
     public void canNavigateToInspirePageAndBackToHomeUsingBreadCrumbs(){
         app.homePage().gotoHomePage();
@@ -48,7 +48,7 @@ public class MainMenuTest extends BaseTest {
 
     @Test
     @Tag("positive")
-    @Tag("Navigate using main menu button About")
+    @Tag("main-menu")
     @DisplayName("MVP-152: Can navigate to about page from main menu and return to home page using breadcrumbs trail")
     public void canNavigateToAboutPageAndBackToHomeUsingBreadCrumbs(){
         app.homePage().gotoHomePage();
@@ -61,7 +61,7 @@ public class MainMenuTest extends BaseTest {
 
     @Test
     @Tag("positive")
-    @Tag("Navigate using main menu button Services")
+    @Tag("main-menu")
     @DisplayName("MVP-152: Can navigate to services page from main menu and return to home page using breadcrumbs trail")
     public void canNavigateToServicesPageAndBackToHomeUsingBreadCrumbs(){
         app.homePage().gotoHomePage();
@@ -73,7 +73,7 @@ public class MainMenuTest extends BaseTest {
     }
     @Test
     @Tag("positive")
-    @Tag("Navigate using main menu button Contact")
+    @Tag("main-menu")
     @DisplayName("MVP-152: Can navigate to contact page from main menu and return to home page using breadcrumbs trail")
     public void canNavigateToContactPageAndBackToHomeUsingBreadCrumbs(){
         app.homePage().gotoHomePage();

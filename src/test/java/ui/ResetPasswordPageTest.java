@@ -24,6 +24,7 @@ public class ResetPasswordPageTest extends BaseTest {
 
     @Test
     @Tag("negative")
+    @Tag("reset-password")
     @DisplayName("DD-02: Cant reset password with blank email")
     public void cantResetPasswordWithBlankEmail() {
         app.loginPage().gotoLoginPage();
@@ -35,6 +36,7 @@ public class ResetPasswordPageTest extends BaseTest {
 
     @Test
     @Tag("negative")
+    @Tag("reset-password")
     @DisplayName("DD-03: Cant reset password with incorrect email")
     public void cantResetPasswordWithIncorrectEmail() {
         app.loginPage().gotoLoginPage();
@@ -46,6 +48,7 @@ public class ResetPasswordPageTest extends BaseTest {
 
     @Test
     @Tag("positive")
+    @Tag("reset-password")
     @DisplayName("MVP-04: Can reset password with valid upper case email")
     public void cantResetPasswordWithValidUppercaseEmail() {
         app.loginPage().gotoLoginPage();
@@ -57,6 +60,7 @@ public class ResetPasswordPageTest extends BaseTest {
 
     @Test
     @Tag("positive")
+    @Tag("reset-password")
     @DisplayName("MVP-05: Can navigate from login page to reset password page and vice-versa")
     public void canNavigateFromLoginPageToResetPasswordPage() {
         app.loginPage().gotoLoginPage();

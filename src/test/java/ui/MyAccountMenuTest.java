@@ -11,7 +11,7 @@ public class MyAccountMenuTest extends BaseTest {
 
     @Test
     @Tag("positive")
-    @Tag("Can navigate to customer login page using my account link")
+    @Tag("my-account-menu")
     @DisplayName("MVP-154: Can access customer login page clicking my account button from the drop down menu of my account component")
     public void goToCustomerLoginViaMyAccountLink(){
         app.homePage().gotoHomePage();
@@ -24,7 +24,7 @@ public class MyAccountMenuTest extends BaseTest {
 
     @Test
     @Tag("positive")
-    @Tag("Can navigate to customer login page using my wish list link")
+    @Tag("my-account-menu")
     @DisplayName("MVP-154: Can access customer login page clicking my wish list button from the drop down menu of my account component")
     public void goToCustomerLoginViaMyWishListLink(){
         app.homePage().gotoHomePage();
@@ -37,7 +37,7 @@ public class MyAccountMenuTest extends BaseTest {
 
     @Test
     @Tag("positive")
-    @Tag("Can navigate to customer login page using sign in link")
+    @Tag("my-account-menu")
     @DisplayName("MVP-154: Can access customer login page clicking sign in button from the drop down menu of my account component")
     public void goToCustomerLoginViaSignInLink(){
         app.homePage().gotoHomePage();
@@ -49,7 +49,7 @@ public class MyAccountMenuTest extends BaseTest {
     }
     @Test
     @Tag("positive")
-    @Tag("Can navigate to create new customer account page using create an account link")
+    @Tag("my-account-menu")
     @DisplayName("MVP-154: Can access create new customer account page clicking create an account button from the drop down menu of my account component")
     public void goToCreateNewCustomerAccountViaCreateAnAccountLink(){
         app.homePage().gotoHomePage();

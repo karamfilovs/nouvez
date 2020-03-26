@@ -11,6 +11,7 @@ public class SearchTest extends BaseTest {
 
     @Test
     @Tag("negative")
+    @Tag("search")
     @DisplayName("MVP-X: Can search for existing product")
     public void canSearchForExistingProduct(){
         app.homePage().gotoHomePage();
@@ -21,6 +22,7 @@ public class SearchTest extends BaseTest {
 
     @Test
     @Tag("negative")
+    @Tag("search")
     @DisplayName("MVP-X: Can search for non-existing product")
     public void canSearchForNonExistingProduct(){
         app.homePage().gotoHomePage();

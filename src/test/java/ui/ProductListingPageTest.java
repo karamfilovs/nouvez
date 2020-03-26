@@ -12,7 +12,7 @@ public class ProductListingPageTest extends BaseTest {
 
     @Test
     @Tag("positive")
-    @Tag("brands")
+    @Tag("plp")
     @DisplayName("DD-X: Can navigate to Product Listing page")
     public void canNavigateToProductListingPage(){
         app.homePage().gotoHomePage();
