@@ -111,14 +111,6 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
-        <dependency>
-            <groupId>io.rest-assured</groupId>
-            <artifactId>rest-assured</artifactId>
-            <version>4.2.0</version>
-            <scope>test</scope>
-        </dependency>
-
     </dependencies>
 
     <build>
@@ -153,7 +145,7 @@
                         <browser>chrome</browser>
                         <headless>off</headless>
                         <login.username>alex@pragmatic.bg</login.username>
-                        <login.password>pass1234</login.password>
+                        <login.password>Test2019$</login.password>
                         <url>http://youronce.brmcloud.co.uk</url>
                         <take.screenshots.enabled>true</take.screenshots.enabled>
                     </systemPropertyVariables>

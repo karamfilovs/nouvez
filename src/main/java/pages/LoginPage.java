@@ -72,10 +72,6 @@ public class LoginPage extends BasePage {
         typeText(usernameField, username);
     }
 
-    public void clickRegistrationLink() {
-        LOGGER.info("Clicking on registration form link");
-        click(registrationLink);
-    }
 
     public String getBadEmailErrorMessage() {
         return getText(badLoginErrorMessage);
@@ -94,9 +90,6 @@ public class LoginPage extends BasePage {
         return getText(requiredUsernameMessage);
     }
 
-    public String getLoginButton() {
-        return getText(loginButton);
-    }
 
     public String getSuccessMessage() {
         return getText(successMessage);

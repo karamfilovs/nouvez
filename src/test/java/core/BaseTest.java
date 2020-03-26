@@ -44,9 +44,10 @@ public class BaseTest {
             }
         }
 
-        app.deleteCookies();
+        app.clearBrowserState();
 
     }
+
 
 
     @AfterAll
