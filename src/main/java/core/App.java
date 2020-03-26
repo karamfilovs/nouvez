@@ -32,6 +32,7 @@ public class App {
     private ShopPage shopPage;
     private WishListPage wishListPage;
     private MyOrdersPage myOrdersPage;
+    private AddressBookPage addressBookPage;
 
 
 
@@ -131,6 +132,13 @@ public class App {
             myOrdersPage = new MyOrdersPage(driver);
         }
         return myOrdersPage;
+    }
+
+    public AddressBookPage addressBookPage() {
+        if (addressBookPage == null) {
+            addressBookPage = new AddressBookPage(driver);
+        }
+        return addressBookPage;
     }
 
 

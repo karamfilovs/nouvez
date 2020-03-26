@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 import java.util.List;
 
 public class MyOrdersPage extends BasePage {
-    private static final Logger LOGGER = LoggerFactory.getLogger(MyAccountPage.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(MyOrdersPage.class);
     private static final String PAGE_URL = "/sales/order/history/";
 
     @FindAll({@FindBy(how = How.XPATH, using = "//span[text()='Reorder']")})
