@@ -54,7 +54,7 @@ public class HomePageTest extends BaseTest {
         app.loginPage().enterUsername("alex@pragmatic.bg");
         app.loginPage().enterPassword("Test2019$");
         app.loginPage().clickLoginButton();
-        Assertions.assertEquals("My Wish List", app.myAccountPage().getPageTitle());
+        Assertions.assertEquals("My Wish List", app.wishListPage().getPageTitle());
     }
 
 }
