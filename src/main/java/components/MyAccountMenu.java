@@ -66,8 +66,12 @@ public class MyAccountMenu extends BasePage {
         click(createAccountLink);
     }
 
-    public void signInAndOut() {
-        LOGGER.info("Clicking on Sign in and Sign Out links from my account drop-down");
+    public void signIn() {
+        LOGGER.info("Clicking on Sign in link from my account drop-down");
+        click(signInAndOutLink);
+    }
+    public void signOut() {
+        LOGGER.info("Clicking on Sign out link from my account drop-down");
         click(signInAndOutLink);
     }
 

@@ -43,7 +43,7 @@ public class MyAccountMenuTest extends BaseTest {
         app.homePage().gotoHomePage();
         Assertions.assertEquals("Home Page", app.homePage().getPageTitle());
         app.components().myAccountMenu().clickMyAccountDropDown();
-        app.components().myAccountMenu().signInAndOut();
+        app.components().myAccountMenu().signIn();
         Assertions.assertEquals("Customer Login", app.loginPage().getPageTitle());
 
     }

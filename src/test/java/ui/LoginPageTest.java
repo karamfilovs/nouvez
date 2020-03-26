@@ -20,6 +20,7 @@ public class LoginPageTest extends BaseTest {
         app.loginPage().clickLoginButton();
         app.components().myAccountMenu().clickMyAccountDropDown();
         Assertions.assertEquals("My Account", app.myAccountPage().getPageTitle());
+        app.components().myAccountMenu().signOut();
     }
 
     @Test
@@ -33,8 +34,9 @@ public class LoginPageTest extends BaseTest {
         app.loginPage().enterPassword("Test2019$");
         app.loginPage().clickLoginButton();
         Assertions.assertEquals("My Account", app.myAccountPage().getPageTitle());
-        app.components().myAccountMenu().signInAndOut();
+        app.components().myAccountMenu().signOut();
         Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle());
+
     }
 
     @Test

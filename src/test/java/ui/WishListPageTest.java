@@ -16,7 +16,7 @@ public class WishListPageTest extends BaseTest {
     @DisplayName("MVP-156: Can change the quantity of displayed items in the wish list")
     public void changeDisplayedItems(){
         app.homePage().gotoHomePage();
-        app.components().myAccountMenu().clickMyAccountIcon();
+        app.components().myAccountMenu().clickOnMyAccount();
         app.components().myAccountMenu().clickOnMyWishList();
         Assertions.assertEquals("Customer Login", app.loginPage().getPageTitle());
         app.loginPage().enterUsername("alex@pragmatic.bg");
