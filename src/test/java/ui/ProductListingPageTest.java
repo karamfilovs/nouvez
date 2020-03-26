@@ -1,14 +1,14 @@
 package ui;
 
 import core.BaseTest;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
 public class ProductListingPageTest extends BaseTest {
 
-    @BeforeEach
-    public void beforeEach(){
-        app.loginPage().login();
-    }
+
 
     @Test
     @Tag("positive")
@@ -18,7 +18,7 @@ public class ProductListingPageTest extends BaseTest {
         app.homePage().gotoHomePage();
         Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle());
         app.productListingPage().clickOnProductByName("Bulgari");
-        Assertions.assertEquals("Bulgari", app.myAccountPage().getPageTitle());
+        Assertions.assertEquals("Bulgari", app.productListingPage().getPageTitle());
     }
 
 }
