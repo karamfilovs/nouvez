@@ -10,7 +10,7 @@ public class SearchTest extends BaseTest {
 
 
     @Test
-    @Tag("negative")
+    @Tag("positive")
     @Tag("search")
     @DisplayName("MVP-X: Can search for existing product")
     public void canSearchForExistingProduct(){

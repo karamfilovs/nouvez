@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -59,6 +60,9 @@ public class WishListPage extends BasePage {
     @FindBy(how = How.XPATH, using = "//button[@data-role='all-tocart']")
     private WebElement addAllToCartButton;
 
+    @FindBy(how = How.XPATH, using = "a.product-item-photo")
+    private WebElement productItem;
+
     public WishListPage(WebDriver driver) {
         super(driver);
     }
@@ -74,6 +78,11 @@ public class WishListPage extends BasePage {
         return getText(currentLimiterOption).trim();
     }
 
+    public String checkItemQuantity() {
+        LOGGER.info("Getting the quantity of items to be added to cart");
+        return getText(itemQuantityCounter) ;
+    }
+
     public void clickItemByName(String name) {
         LOGGER.info("Clicking on:" + name);
         for (WebElement item : itemsList) {
@@ -86,6 +95,7 @@ public class WishListPage extends BasePage {
 
     public void increaseItemQuantity() {
         LOGGER.info("Clicking on increase item quantity button");
+        hoverOver(increaseQuantityButton);
         click(increaseQuantityButton);
     }
 
@@ -128,4 +138,5 @@ public class WishListPage extends BasePage {
         LOGGER.info("Adding all items to cart");
         click(addAllToCartButton);
     }
+
 }
