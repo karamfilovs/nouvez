@@ -143,7 +143,7 @@ public class BasePage {
      */
     protected WebElement waitForElementVisibility(WebElement elementToBeVisible) {
         waitForFullPageOrJsAjaxToLoad();
-        driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         WebDriverWait wait = new WebDriverWait(driver, WAIT_TIME);
         WebElement foundElementAfterWait = wait.until(ExpectedConditions.visibilityOf(elementToBeVisible));
         driver.manage().timeouts().implicitlyWait(WAIT_TIME, TimeUnit.SECONDS);
