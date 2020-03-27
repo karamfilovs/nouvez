@@ -38,6 +38,7 @@ public class MyAccountMenu extends BasePage {
      * Clicks on My Account link
      */
     public void clickOnMyAccount() {
+        clickMyAccountDropDown();
         LOGGER.info("Clicking on My Account link from main menu");
         click(myAccountLink);
         waitForFullPageOrJsAjaxToLoad();
@@ -47,6 +48,7 @@ public class MyAccountMenu extends BasePage {
      * Clicks on My Wish List link
      */
     public void clickOnMyWishList() {
+        clickMyAccountDropDown();
         LOGGER.info("Clicking on My Wish List link from main menu");
         click(myWishListLink);
         waitForFullPageOrJsAjaxToLoad();
@@ -54,7 +56,7 @@ public class MyAccountMenu extends BasePage {
     /**
      * Clicks on My account drop-down
      */
-    public void clickMyAccountDropDown() {
+    private void clickMyAccountDropDown() {
         LOGGER.info("Clicking on My Account drop-down");
         click(myAccountDropDown);
     }
@@ -62,18 +64,19 @@ public class MyAccountMenu extends BasePage {
      * Clicks on Create an account link
      */
     public void clickCreateAnAccount() {
+        clickMyAccountDropDown();
         LOGGER.info("Clicking on Create an Account link");
         click(createAccountLink);
     }
 
     public void signIn() {
+        clickMyAccountDropDown();
         LOGGER.info("Clicking on Sign in link from my account drop-down");
-        click(myAccountDropDown);
         click(signInAndOutLink);
     }
     public void signOut() {
+        clickMyAccountDropDown();
         LOGGER.info("Clicking on Sign out link from my account drop-down");
-        click(myAccountDropDown);
         click(signInAndOutLink);
     }
 

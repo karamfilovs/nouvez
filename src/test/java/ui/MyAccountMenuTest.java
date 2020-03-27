@@ -14,7 +14,6 @@ public class MyAccountMenuTest extends BaseTest {
     public void goToCustomerLoginViaMyAccountLink(){
         app.homePage().gotoHomePage();
         Assertions.assertEquals("Home Page", app.homePage().getPageTitle());
-        app.components().myAccountMenu().clickMyAccountDropDown();
         app.components().myAccountMenu().clickOnMyAccount();
         Assertions.assertEquals("Customer Login", app.loginPage().getPageTitle());
 
@@ -26,7 +25,6 @@ public class MyAccountMenuTest extends BaseTest {
     public void goToCustomerLoginViaMyWishListLink(){
         app.homePage().gotoHomePage();
         Assertions.assertEquals("Home Page", app.homePage().getPageTitle());
-        app.components().myAccountMenu().clickMyAccountDropDown();
         app.components().myAccountMenu().clickOnMyWishList();
         Assertions.assertEquals("Customer Login", app.loginPage().getPageTitle());
 
@@ -38,7 +36,6 @@ public class MyAccountMenuTest extends BaseTest {
     public void goToCustomerLoginViaSignInLink(){
         app.homePage().gotoHomePage();
         Assertions.assertEquals("Home Page", app.homePage().getPageTitle());
-        app.components().myAccountMenu().clickMyAccountDropDown();
         app.components().myAccountMenu().signIn();
         Assertions.assertEquals("Customer Login", app.loginPage().getPageTitle());
 
@@ -49,7 +46,6 @@ public class MyAccountMenuTest extends BaseTest {
     public void goToCreateNewCustomerAccountViaCreateAnAccountLink(){
         app.homePage().gotoHomePage();
         Assertions.assertEquals("Home Page", app.homePage().getPageTitle());
-        app.components().myAccountMenu().clickMyAccountDropDown();
         app.components().myAccountMenu().clickCreateAnAccount();
         Assertions.assertEquals("Create New Customer Account", app.loginPage().getPageTitle());
 
