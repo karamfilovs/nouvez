@@ -129,7 +129,7 @@
 
                     <systemPropertyVariables>
                         <browser>chrome</browser>
-                        <headless>off</headless>
+                        <headless>on</headless>
                         <login.username>alex@pragmatic.bg</login.username>
                         <login.password>Test2019$</login.password>
                         <url>http://youronce.brmcloud.co.uk</url>

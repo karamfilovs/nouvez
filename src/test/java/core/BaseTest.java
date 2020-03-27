@@ -1,7 +1,6 @@
 package core;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,7 +12,7 @@ import java.time.LocalTime;
 
 @ExtendWith(CustomParameterResolver.class)
 public class BaseTest {
-    protected static App app;
+    protected  App app;
 
     @BeforeAll
     public static void beforeAll() {
@@ -42,17 +41,13 @@ public class BaseTest {
             }
         }
 
-        app.clearBrowserState();
-
-    }
-
-
-
-    @AfterAll
-    public static void afterAll(){
-        //Kill browser instance
         app.quit();
+
     }
+
+
+
+
 
 
 
