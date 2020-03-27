@@ -22,16 +22,14 @@ public class BaseTest {
         WebDriverManager.chromedriver().setup();
         if(isFirefox())
         WebDriverManager.firefoxdriver().setup();
-
-        // Start browser
-        app = new App();
-        app.startBrowser(System.getProperty("browser"));
-
     }
 
     @BeforeEach
     public void setup() {
         System.out.println("*******************************************************");
+        // Start browser
+        app = new App();
+        app.startBrowser(System.getProperty("browser"));
     }
 
     @AfterEach
