@@ -128,7 +128,7 @@
                     </systemProperties>
 
                     <systemPropertyVariables>
-                        <browser>chrome</browser>
+                        <browser>firefox</browser>
                         <headless>off</headless>
                         <login.username>alex@pragmatic.bg</login.username>
                         <login.password>Test2019$</login.password>
