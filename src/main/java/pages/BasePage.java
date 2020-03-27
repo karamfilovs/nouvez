@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class BasePage {
+    private static int WAIT_TIME = 10;
 
     public static final Logger LOGGER = LoggerFactory.getLogger(BasePage.class);
 
@@ -143,9 +144,9 @@ public class BasePage {
     protected WebElement waitForElementVisibility(WebElement elementToBeVisible) {
         waitForFullPageOrJsAjaxToLoad();
         driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-        WebDriverWait wait = new WebDriverWait(driver, 25);
+        WebDriverWait wait = new WebDriverWait(driver, WAIT_TIME);
         WebElement foundElementAfterWait = wait.until(ExpectedConditions.visibilityOf(elementToBeVisible));
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(WAIT_TIME, TimeUnit.SECONDS);
         return foundElementAfterWait;
 
     }
@@ -159,9 +160,9 @@ public class BasePage {
      */
     protected WebElement waitForElementToBeClickable(WebElement elementToBeVisible) {
         driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-        WebDriverWait wait = new WebDriverWait(driver, 25);
+        WebDriverWait wait = new WebDriverWait(driver, WAIT_TIME);
         WebElement foundElementAfterWait = wait.until(ExpectedConditions.elementToBeClickable(elementToBeVisible));
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(WAIT_TIME, TimeUnit.SECONDS);
         return foundElementAfterWait;
     }
 
