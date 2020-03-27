@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 public class ResetPasswordPageTest extends BaseTest {
 
     @Test
-    @Tag("positive")
     @Tag("reset-password")
     @DisplayName("DD-01: Can reset password with valid email")
     public void canResetPasswordWithValidEmail() {
@@ -23,7 +22,6 @@ public class ResetPasswordPageTest extends BaseTest {
     }
 
     @Test
-    @Tag("negative")
     @Tag("reset-password")
     @DisplayName("DD-02: Cant reset password with blank email")
     public void cantResetPasswordWithBlankEmail() {
@@ -35,7 +33,6 @@ public class ResetPasswordPageTest extends BaseTest {
     }
 
     @Test
-    @Tag("negative")
     @Tag("reset-password")
     @DisplayName("DD-03: Cant reset password with incorrect email")
     public void cantResetPasswordWithIncorrectEmail() {
@@ -47,7 +44,6 @@ public class ResetPasswordPageTest extends BaseTest {
     }
 
     @Test
-    @Tag("positive")
     @Tag("reset-password")
     @DisplayName("MVP-04: Can reset password with valid upper case email")
     public void cantResetPasswordWithValidUppercaseEmail() {
@@ -59,7 +55,6 @@ public class ResetPasswordPageTest extends BaseTest {
     }
 
     @Test
-    @Tag("positive")
     @Tag("reset-password")
     @DisplayName("MVP-05: Can navigate from login page to reset password page and vice-versa")
     public void canNavigateFromLoginPageToResetPasswordPage() {

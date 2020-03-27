@@ -19,7 +19,6 @@ public class AddressBookPageTest extends BaseTest {
     }
 
     @Test
-    @Tag("positive")
     @Tag("address-book")
     @DisplayName("MVP-X: Can navigate to Address Book page")
     public void canNavigateToAddressBookPage() {

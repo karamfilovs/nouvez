@@ -15,7 +15,6 @@ public class WishListPageTest extends BaseTest {
     }
 
     @Test
-    @Tag("positive")
     @Tag("wish-list")
     @DisplayName("MVP-156: Can change the quantity of displayed items in the wish list")
     public void changeDisplayedItems() {

@@ -1,6 +1,5 @@
 package ui;
 
-import components.Components;
 import core.BaseTest;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -9,7 +8,6 @@ import org.junit.jupiter.api.Test;
 
 public class MainMenuTest extends BaseTest {
     @Test
-    @Tag("positive")
     @Tag("main-menu")
     @DisplayName("MVP-152: Can navigate to shop page from main menu and return to home page using breadcrumbs trail")
     public void canNavigateToShopPageAndBackToHomeUsingBreadCrumbs(){
@@ -22,7 +20,6 @@ public class MainMenuTest extends BaseTest {
     }
 
     @Test
-    @Tag("positive")
     @Tag("main-menu")
     @DisplayName("MVP-152: Can navigate to create page from main menu and return to home page using breadcrumbs trail")
     public void canNavigateToCreatePageAndBackToHomeUsingBreadCrumbs(){
@@ -34,7 +31,6 @@ public class MainMenuTest extends BaseTest {
         Assertions.assertEquals("Home Page", app.homePage().getPageTitle());
     }
     @Test
-    @Tag("positive")
     @Tag("main-menu")
     @DisplayName("MVP-152: Can navigate to inspire page from main menu and return to home page using breadcrumbs trail")
     public void canNavigateToInspirePageAndBackToHomeUsingBreadCrumbs(){
@@ -47,7 +43,6 @@ public class MainMenuTest extends BaseTest {
     }
 
     @Test
-    @Tag("positive")
     @Tag("main-menu")
     @DisplayName("MVP-152: Can navigate to about page from main menu and return to home page using breadcrumbs trail")
     public void canNavigateToAboutPageAndBackToHomeUsingBreadCrumbs(){
@@ -60,7 +55,6 @@ public class MainMenuTest extends BaseTest {
     }
 
     @Test
-    @Tag("positive")
     @Tag("main-menu")
     @DisplayName("MVP-152: Can navigate to services page from main menu and return to home page using breadcrumbs trail")
     public void canNavigateToServicesPageAndBackToHomeUsingBreadCrumbs(){
@@ -72,7 +66,6 @@ public class MainMenuTest extends BaseTest {
         Assertions.assertEquals("Home Page", app.homePage().getPageTitle());
     }
     @Test
-    @Tag("positive")
     @Tag("main-menu")
     @DisplayName("MVP-152: Can navigate to contact page from main menu and return to home page using breadcrumbs trail")
     public void canNavigateToContactPageAndBackToHomeUsingBreadCrumbs(){

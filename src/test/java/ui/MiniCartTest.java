@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 public class MiniCartTest extends BaseTest {
 
     @Test
-    @Tag("positive")
     @Tag("mini-cart")
     @DisplayName("MVP-153: Can add an item to cart and remove it from mini cart")
     public void canAddAndRemoveItemFromMiniCart() {
@@ -27,7 +26,6 @@ public class MiniCartTest extends BaseTest {
 
     //от тук нататък следва да ги напиша утре
     @Test
-    @Tag("positive")
     @Tag("mini-cart")
     @DisplayName("MVP-153: Can go to checkout page from View bag button and then go back to continue shopping")
     public void canAddProductToCartGoToCheckoutPageAndContinueShopping() {
