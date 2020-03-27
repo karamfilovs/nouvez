@@ -31,13 +31,13 @@ public class BasePage {
     @FindBy(how = How.XPATH, using = "//div[@class='logo']")
     private WebElement companyLogo;
 
-    @FindBy(how = How.XPATH, using = "//span[@class='icon icon-search']")
+    @FindBy(how = How.CSS, using = "span.icon.icon-search")
     private WebElement searchIcon;
 
     @FindBy(how = How.XPATH, using = "//button[@title='Search']")
     private WebElement searchButton;
 
-    @FindBy(how = How.ID, using = "search")
+    @FindBy(how = How.CSS, using = "input#search.input-text")
     private WebElement searchField;
 
     @FindBy(how = How.CSS, using = "span.icon.icon-heart")
