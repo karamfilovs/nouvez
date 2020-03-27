@@ -33,7 +33,8 @@ public class App {
     private WishListPage wishListPage;
     private MyOrdersPage myOrdersPage;
     private AddressBookPage addressBookPage;
-
+    private MyAccountNavigation myAccountNavigation;
+    private OrderBySKUPage orderBySKUPage;
 
 
     //lazy instantiating methods
@@ -101,31 +102,34 @@ public class App {
         return checkoutPage;
     }
 
-        public BasketPage basketPage() {
-            if (basketPage == null) {
-                basketPage = new BasketPage(driver);
-            }
-            return basketPage;
+    public BasketPage basketPage() {
+        if (basketPage == null) {
+            basketPage = new BasketPage(driver);
         }
+        return basketPage;
+    }
 
     public NewsFeedPage newsFeedPage() {
-            if (newsFeedPage == null) {
-                newsFeedPage = new NewsFeedPage(driver);
-            }
-            return newsFeedPage;
+        if (newsFeedPage == null) {
+            newsFeedPage = new NewsFeedPage(driver);
+        }
+        return newsFeedPage;
     }
+
     public ShopPage shopPage() {
-            if (shopPage == null) {
-                shopPage = new ShopPage(driver);
-            }
-            return shopPage;
+        if (shopPage == null) {
+            shopPage = new ShopPage(driver);
+        }
+        return shopPage;
     }
+
     public WishListPage wishListPage() {
-            if (wishListPage == null) {
-                wishListPage = new WishListPage(driver);
-            }
-            return wishListPage;
+        if (wishListPage == null) {
+            wishListPage = new WishListPage(driver);
+        }
+        return wishListPage;
     }
+
 
     public MyOrdersPage myOrdersPage() {
         if (myOrdersPage == null) {
@@ -139,6 +143,20 @@ public class App {
             addressBookPage = new AddressBookPage(driver);
         }
         return addressBookPage;
+    }
+
+
+    public MyAccountNavigation myAccountNavigation() {
+        if (myAccountNavigation == null) {
+            myAccountNavigation = new MyAccountNavigation(driver);
+        }
+        return myAccountNavigation;
+    }
+    public OrderBySKUPage orderBySKUPage() {
+        if (orderBySKUPage == null) {
+            orderBySKUPage = new OrderBySKUPage(driver);
+        }
+        return orderBySKUPage;
     }
 
 
@@ -188,7 +206,7 @@ public class App {
         driver.quit();
     }
 
-    public void clearBrowserState(){
+    public void clearBrowserState() {
         driver.manage().deleteAllCookies();
         driver.navigate().to(System.getProperty("url"));
         driver.manage().deleteAllCookies();
