@@ -19,7 +19,7 @@ public class WishListPage extends BasePage {
     @FindBy(how = How.CSS, using = "p.toolbar-amount")
     private WebElement amountToolbar;
 
-    @FindBy(how = How.ID, using = "limiter")
+    @FindBy(how = How.CSS, using = "select#limiter")
     private WebElement limiterDropDown;
 
     @FindBy(how = How.XPATH, using = "//option[@selected='selected']")

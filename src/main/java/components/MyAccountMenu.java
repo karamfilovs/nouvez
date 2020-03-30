@@ -23,7 +23,7 @@ public class MyAccountMenu extends BasePage {
     @FindBy(how = How.XPATH, using = "//a[text()='Create an Account']")
     private WebElement createAccountLink;
 
-    @FindBy(how = How.XPATH, using = "//li[@class='authorization-link']")
+    @FindBy(how = How.CSS, using = "li.authorization-link")
     private WebElement signInAndOutLink;
 
     @FindBy(how = How.CSS, using = "a#invitation-send-link")
