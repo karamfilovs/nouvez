@@ -13,7 +13,15 @@ public class Browser {
 
     public WebDriver createChrome() {
         ChromeOptions options = new ChromeOptions();
-        options.setHeadless(isHeadless());
+        options.addArguments("ignore-certificate-errors");
+        options.addArguments("start-maximized");
+        options.addArguments("enable-automation");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-infobars");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--disable-browser-side-navigation");
+        options.addArguments("--disable-gpu");
+        driver = new ChromeDriver(options);
         driver = new ChromeDriver(options);
         defaultSetup();
         return driver;
@@ -25,7 +33,6 @@ public class Browser {
     }
 
     private void defaultSetup() {
-        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(6, TimeUnit.SECONDS);
         driver.manage().deleteAllCookies();
     }
