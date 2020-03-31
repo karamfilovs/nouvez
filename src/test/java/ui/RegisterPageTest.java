@@ -48,6 +48,16 @@ public class RegisterPageTest extends BaseTest {
         app.registerPage().clickCreateAnAccountButton();
         Assertions.assertEquals("Please enter the same value again.", app.registerPage().passwordMissMatchErrorMessage());
     }
+//    @Test
+//    @Tag("register")
+//    @DisplayName("MVP-2: Cant register new user")
 
+//    @Test
+//    @Tag("register")
+//    @DisplayName("MVP-3: Cant register user with duplicate email")
+
+    //    @Test
+//    @Tag("register")
+//    @DisplayName("MVP-4: Cant register user with invalid email")
 
 }

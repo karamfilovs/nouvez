@@ -27,7 +27,7 @@ public class App {
     private ProductDetailsPage productDetailsPage;
     private ProductListingPage productListingPage;
     private CheckoutPage checkoutPage;
-    private BasketPage basketPage;
+    private CartPage basketPage;
     private NewsFeedPage newsFeedPage;
     private ShopPage shopPage;
     private WishListPage wishListPage;
@@ -102,9 +102,9 @@ public class App {
         return checkoutPage;
     }
 
-    public BasketPage basketPage() {
+    public CartPage basketPage() {
         if (basketPage == null) {
-            basketPage = new BasketPage(driver);
+            basketPage = new CartPage(driver);
         }
         return basketPage;
     }

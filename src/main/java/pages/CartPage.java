@@ -7,9 +7,9 @@ import org.openqa.selenium.support.How;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class BasketPage extends BasePage {
+public class CartPage extends BasePage {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(BasketPage.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(CartPage.class);
     private final String PAGE_URL = "checkout/cart/";
 
     @FindBy(how = How.XPATH, using = "//a[@class='action continue']")
@@ -33,7 +33,7 @@ public class BasketPage extends BasePage {
     @FindBy(how = How.XPATH, using = "//button[@title='Proceed to Checkout']")
     private WebElement checkoutButton;
 
-    public BasketPage(WebDriver driver) {
+    public CartPage(WebDriver driver) {
         super(driver);
     }
 
@@ -47,7 +47,7 @@ public class BasketPage extends BasePage {
         continueShoppingButton.click();
     }
 
-    public BasketPage selectQuantity(String quantity) {
+    public CartPage selectQuantity(String quantity) {
         super.selectDropDownOptionByVisibleText(selectQTYDropDown, quantity);
         return this;
     }

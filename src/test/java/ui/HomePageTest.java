@@ -11,7 +11,7 @@ public class HomePageTest extends BaseTest {
 
     @Test
     @Tag("homepage")
-    @DisplayName("MVP-06: Can login with valid username/password")
+    @DisplayName("MVP-07: Can change currency")
     public void canChangeCurrency() {
         app.homePage().gotoHomePage();
         Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle());
@@ -19,38 +19,36 @@ public class HomePageTest extends BaseTest {
         Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle());
     }
 
-    @Test
-    @Tag("homepage")
-    @DisplayName("DD-06: Can switch to different currency")
-    public void canSwitchToDifferentCurrency() {
-        app.homePage().gotoHomePage();
-        Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle());
-        app.homePage().changeCurrency(Currency.EU);
-        Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle());
-    }
+//    @Test
+//    @Tag("homepage")
+//    @DisplayName("MVP-163: Can navigate between home page and explore page")
 
-    @Test
-    @Tag("homepage")
-    @DisplayName("MVP-X: Can search for existing product")
-    public void canSearchForExistingProduct() {
-        app.homePage().gotoHomePage();
-        Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle());
-        app.homePage().searchProduct("Bulgari");
-        Assertions.assertEquals("Search results for: 'Bulgari'", app.myAccountPage().getPageTitle());
-    }
+//    @Test
+//    @Tag("homepage")
+//    @DisplayName("MVP-164: Can navigate between home page and new in page ")
 
-    @Test
-    @Tag("homepage")
-    @DisplayName("MVP-155: Can navigate to customer login page clicking  on the wish list icon")
-    public void canGoToWishListViaWishListIcon() {
-        app.homePage().gotoHomePage();
-        Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle());
-        app.homePage().clickWishListIcon();
-        Assertions.assertEquals("Customer Login", app.myAccountPage().getPageTitle());
-        app.loginPage().enterUsername("alex@pragmatic.bg");
-        app.loginPage().enterPassword("Test2019$");
-        app.loginPage().clickLoginButton();
-        Assertions.assertEquals("My Wish List", app.wishListPage().getPageTitle());
-    }
+//    @Test
+//    @Tag("homepage")
+//    @DisplayName("MVP-165: Can navigate between home page and brands page ")
+
+
+
+
+//    @Test
+//    @Tag("homepage")
+//    @DisplayName("MVP-166: Can navigate between home page and the style edit page ")
+
+//    @Test
+//    @Tag("homepage")
+//    @DisplayName("MVP-169: Can navigate between home page and the personal stories page ")
+
+//    @Test
+//    @Tag("homepage")
+//    @DisplayName("MVP-168: Can navigate between home page and the minimal collection page ")
+
+//    @Test
+//    @Tag("homepage")
+//    @DisplayName("MVP-169: Can navigate between home page and the personal stories page ")
+
 
 }

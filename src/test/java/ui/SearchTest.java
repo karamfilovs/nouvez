@@ -11,7 +11,7 @@ public class SearchTest extends BaseTest {
 
     @Test
     @Tag("search")
-    @DisplayName("MVP-X: Can search for existing product")
+    @DisplayName("MVP-6: Can search for existing product full match")
     public void canSearchForExistingProduct(){
         app.homePage().gotoHomePage();
         Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle());
@@ -21,7 +21,7 @@ public class SearchTest extends BaseTest {
 
     @Test
     @Tag("search")
-    @DisplayName("MVP-X: Can search for non-existing product")
+    @DisplayName("MVP-162: Can search for non-existing product")
     public void canSearchForNonExistingProduct(){
         app.homePage().gotoHomePage();
         Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle());

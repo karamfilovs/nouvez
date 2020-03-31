@@ -2,7 +2,6 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -14,7 +13,7 @@ import java.util.List;
 
 public class WishListPage extends BasePage {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(BasketPage.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(CartPage.class);
 
     @FindBy(how = How.CSS, using = "p.toolbar-amount")
     private WebElement amountToolbar;

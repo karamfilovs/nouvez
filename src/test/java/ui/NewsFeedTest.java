@@ -11,7 +11,7 @@ public class NewsFeedTest extends BaseTest {
 
     @Test
     @Tag("news-feed")
-    @DisplayName("MVP-X: Can subscribe to news feed with new email")
+    @DisplayName("MVP-21: Can subscribe to news feed with new email")
     public void canSubscribeToNewsFeed() {
         String email = DataGenerator.generateRandomString(8) + "@" + "qaground.com";
         app.homePage().gotoHomePage();
@@ -24,7 +24,7 @@ public class NewsFeedTest extends BaseTest {
 
     @Test
     @Tag("news-feed")
-    @DisplayName("MVP-X: Cant subscribe to news feed with used email")
+    @DisplayName("MVP-24: Cant subscribe to news feed with used email")
     public void cantSubscribeToNewsFeedWithAlreadyUsedEmail() {
         app.homePage().gotoHomePage();
         Assertions.assertEquals("Home Page", app.homePage().getPageTitle());
@@ -35,11 +35,15 @@ public class NewsFeedTest extends BaseTest {
 
     @Test
     @Tag("news-feed")
-    @DisplayName("MVP-X: Cant subscribe to news feed with invalid email")
+    @DisplayName("MVP-23: Cant subscribe to news feed with invalid email")
     public void cantSubscribeToNewsFeedWithInvalidEmail() {
         app.homePage().gotoHomePage();
         Assertions.assertEquals("Home Page", app.homePage().getPageTitle());
         app.newsFeedPage().subscribeToNewsFeed("alex@pragmatic");
         Assertions.assertEquals("Please enter a valid email address (Ex: johndoe@domain.com).", app.newsFeedPage().getEmailValidationError());
     }
+
+//    @Test
+//    @Tag("news-feed")
+//    @DisplayName("MVP-22: Cant subscribe to news feed with blank email")
 }

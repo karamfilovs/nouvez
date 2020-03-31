@@ -8,7 +8,6 @@ import org.openqa.selenium.support.How;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pages.BasePage;
-import pages.BasketPage;
 
 import java.util.List;
 

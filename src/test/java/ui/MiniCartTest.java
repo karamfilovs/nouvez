@@ -10,7 +10,7 @@ public class MiniCartTest extends BaseTest {
 
     @Test
     @Tag("mini-cart")
-    @DisplayName("MVP-153: Can add an item to cart and remove it from mini cart")
+    @DisplayName("MVP-48: Can add an item to cart and remove it from mini cart")
     public void canAddAndRemoveItemFromMiniCart() {
         app.homePage().gotoHomePage();
         Assertions.assertEquals("Home Page", app.loginPage().getPageTitle());
@@ -27,7 +27,7 @@ public class MiniCartTest extends BaseTest {
     //от тук нататък следва да ги напиша утре
     @Test
     @Tag("mini-cart")
-    @DisplayName("MVP-153: Can go to checkout page from View bag button and then go back to continue shopping")
+    @DisplayName("MVP-182:Can navigate to shopping cart page from minicart")
     public void canAddProductToCartGoToCheckoutPageAndContinueShopping() {
         app.homePage().gotoHomePage();
         Assertions.assertEquals("Home Page", app.loginPage().getPageTitle());
@@ -41,19 +41,7 @@ public class MiniCartTest extends BaseTest {
         Assertions.assertEquals("Home Page", app.homePage().getPageTitle());
     }
 //    @Test
-//    @Tag("positive")
 //    @Tag("mini-cart")
-//    @DisplayName("MVP-153: Can add an item to cart and remove it from mini cart")
-//    public void canAddAndRemoveItemFromMiniCart() {
-//        app.homePage().gotoHomePage();
-//        Assertions.assertEquals("Home Page", app.loginPage().getPageTitle());
-//        app.productListingPage().clickOnProductByName("Gucci");
-//        Assertions.assertEquals("Gucci", app.productDetailsPage().getPageTitle());
-//        app.productDetailsPage().clickAddToCartButton();
-//        Assertions.assertEquals("Your Cart", app.components().miniCart().getMiniCartTitle());
-//        app.components().miniCart().removeItem();
-//        app.components().miniCart().checkOK();
-//        app.components().miniCart().closeMiniCart();
-//        Assertions.assertEquals("0", app.components().miniCart().getCounterNumber());
-//    }
+//    @DisplayName("MVP-183: Can navigate to checkout page from mini-cart")
+
 }

@@ -10,7 +10,7 @@ public class ResetPasswordPageTest extends BaseTest {
 
     @Test
     @Tag("reset-password")
-    @DisplayName("DD-01: Can reset password with valid email")
+    @DisplayName("MVP-5: Can reset password with valid email")
     public void canResetPasswordWithValidEmail() {
         app.loginPage().gotoLoginPage();
         Assertions.assertEquals("Customer Login", app.myAccountPage().getPageTitle());
@@ -23,7 +23,7 @@ public class ResetPasswordPageTest extends BaseTest {
 
     @Test
     @Tag("reset-password")
-    @DisplayName("DD-02: Cant reset password with blank email")
+    @DisplayName("MVP-158: Cant reset password with blank email")
     public void cantResetPasswordWithBlankEmail() {
         app.loginPage().gotoLoginPage();
         Assertions.assertEquals("Customer Login", app.myAccountPage().getPageTitle());
@@ -34,7 +34,7 @@ public class ResetPasswordPageTest extends BaseTest {
 
     @Test
     @Tag("reset-password")
-    @DisplayName("DD-03: Cant reset password with incorrect email")
+    @DisplayName("MVP-159: Cant reset password with incorrect email")
     public void cantResetPasswordWithIncorrectEmail() {
         app.loginPage().gotoLoginPage();
         app.loginPage().clickResetPasswordLink();
@@ -45,7 +45,7 @@ public class ResetPasswordPageTest extends BaseTest {
 
     @Test
     @Tag("reset-password")
-    @DisplayName("MVP-04: Can reset password with valid upper case email")
+    @DisplayName("MVP-160: Can reset password with valid upper case email")
     public void cantResetPasswordWithValidUppercaseEmail() {
         app.loginPage().gotoLoginPage();
         app.loginPage().clickResetPasswordLink();
@@ -56,7 +56,7 @@ public class ResetPasswordPageTest extends BaseTest {
 
     @Test
     @Tag("reset-password")
-    @DisplayName("MVP-05: Can navigate from login page to reset password page and vice-versa")
+    @DisplayName("MVP-161: Can navigate from login page to reset password page and vice-versa")
     public void canNavigateFromLoginPageToResetPasswordPage() {
         app.loginPage().gotoLoginPage();
         app.loginPage().clickResetPasswordLink();
