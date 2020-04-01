@@ -203,6 +203,7 @@ public class App {
     }
 
     public void quit() {
+        driver.close();
         driver.quit();
     }
 
