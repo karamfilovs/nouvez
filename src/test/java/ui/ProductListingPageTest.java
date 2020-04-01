@@ -51,6 +51,6 @@ public class ProductListingPageTest extends BaseTest {
     @Tag("pdp")
     @DisplayName("MVP-17: Can filter items by stone type ")
     public void canFilterItemsByStoneType(){
-        
+
     }
 }

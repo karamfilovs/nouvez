@@ -23,15 +23,24 @@ public class ProductDetailsPageTest extends BaseTest {
         app.productDetailsPage().clickAddToCartButton();
     }
 
-//    @Test
-//    @Tag("pdp")
-//    @DisplayName("MVP-20: Can add product to wish-list")
+    @Test
+    @Tag("pdp")
+    @DisplayName("MVP-20: Can add product to wish-list")
+    public void canAddProductToWishList(){
 
-//    @Test
-//    @Tag("pdp")
-//    @DisplayName("MVP-47: Can share product from pdp")
+    }
 
-//    @Test
-//    @Tag("pdp")
-//    @DisplayName("MVP-46: Can increase product quantity by clicking Add to Cart button multiple times")
+    @Test
+    @Tag("pdp")
+    @DisplayName("MVP-47: Can share product from pdp")
+    public void canShareProductFromPDP(){
+
+    }
+
+    @Test
+    @Tag("pdp")
+    @DisplayName("MVP-46: Can increase product quantity by clicking Add to Cart button multiple times")
+    public void canIncreaseProductQuantityByClickingAddToCartMultipleTimes(){
+        
+    }
 }
