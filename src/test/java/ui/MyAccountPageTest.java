@@ -43,5 +43,9 @@ public class MyAccountPageTest extends BaseTest {
 //    @Tag("my-account-page")
 //    @DisplayName("MVP-70: Cant update password with miss-matched password strings")
 
+//    @Test
+//    @Tag("my-account-page")
+//    @DisplayName("MVP-89: Can update user account password ")
+
 
 }

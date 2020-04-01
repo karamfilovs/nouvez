@@ -37,7 +37,7 @@ public class LoginPageTest extends BaseTest {
     }
 
     @Test
-    @Tag("negative")
+    @Tag("login")
     @DisplayName("MVP-31: Cant login with invalid username")
     public void cantLoginWithInvalidUsername(){
         app.loginPage().gotoLoginPage();
@@ -49,7 +49,7 @@ public class LoginPageTest extends BaseTest {
     }
 
     @Test
-    @Tag("negative")
+    @Tag("login")
     @DisplayName("MVP-30: Cant login with blank username field")
     public void cantLoginWithBlankUsername(){
         app.loginPage().gotoLoginPage();
@@ -60,7 +60,7 @@ public class LoginPageTest extends BaseTest {
     }
 
     @Test
-    @Tag("negative")
+    @Tag("login")
     @DisplayName("MVP-171: Cant login with blank password")
     public void cantLoginWithBlankPassword(){
         app.loginPage().gotoLoginPage();
@@ -71,7 +71,7 @@ public class LoginPageTest extends BaseTest {
     }
 
     @Test
-    @Tag("negative")
+    @Tag("login")
     @DisplayName("MVP-31: Cant login with invalid password")
     public void cantLoginWithInvalidPassword(){
         app.loginPage().gotoLoginPage();
@@ -84,7 +84,7 @@ public class LoginPageTest extends BaseTest {
 
 
     @Test
-    @Tag("positive")
+    @Tag("login")
     @DisplayName("MVP-132: Can navigate to Login page from Home page")
     public void canNavigateToLoginPageFromHomePage(){
         app.homePage().gotoHomePage();
@@ -94,6 +94,8 @@ public class LoginPageTest extends BaseTest {
         app.loginPage().clickCompanyLogo();
         Assertions.assertEquals("Home Page", app.homePage().getPageTitle());
     }
-
+//    @Test
+//    @Tag("login")
+//    @DisplayName("MVP-80: Can login with valid email (upper case)")
 
 }
