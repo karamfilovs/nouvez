@@ -54,10 +54,14 @@ public class RegisterPageTest extends BaseTest {
 
 //    @Test
 //    @Tag("register")
-//    @DisplayName("MVP-3: Cant register user with duplicate email")
+//    @DisplayName("MVP-3: Can register user with duplicate email")
 
-    //    @Test
+//    @Test
 //    @Tag("register")
 //    @DisplayName("MVP-4: Cant register user with invalid email")
+
+//    @Test
+//    @Tag("register")
+//    @DisplayName("MVP-51: Can register new sellers account")
 
 }

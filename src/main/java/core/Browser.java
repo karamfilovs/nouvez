@@ -22,7 +22,6 @@ public class Browser {
         options.addArguments("--disable-browser-side-navigation");
         options.addArguments("--disable-gpu");
         driver = new ChromeDriver(options);
-        driver = new ChromeDriver(options);
         defaultSetup();
         return driver;
     }
