@@ -64,4 +64,8 @@ public class RegisterPageTest extends BaseTest {
 //    @Tag("register")
 //    @DisplayName("MVP-51: Can register new sellers account")
 
+//    @Test
+//    @Tag("register")
+//    @DisplayName("MVP-52: Cant register new account with weak password (less than 8 symbols)")
+
 }

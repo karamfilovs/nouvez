@@ -59,6 +59,7 @@ public class MyAccountMenu extends BasePage {
     private void clickMyAccountDropDown() {
         LOGGER.info("Clicking on My Account drop-down");
         click(myAccountDropDown);
+        waitForFullPageOrJsAjaxToLoad();
     }
     /**
      * Clicks on Create an account link
