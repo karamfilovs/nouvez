@@ -19,23 +19,38 @@ public class ProductListingPageTest extends BaseTest {
         app.productListingPage().clickOnProductByName("Bulgari");
         Assertions.assertEquals("Bulgari", app.productListingPage().getPageTitle());
     }
-//    @Test
-//    @Tag("pdp")
-//    @DisplayName("MVP-12: Can filter products by existing category")
+    @Test
+    @Tag("pdp")
+    @DisplayName("MVP-12: Can filter products by existing category")
+    public void canFilterProductsByExistingCategory(){
 
-//    @Test
-//    @Tag("pdp")
-//    @DisplayName("MVP-13: Can filter items by price - single range")
+    }
 
-//    @Test
-//    @Tag("pdp")
-//    @DisplayName("MVP-14: Can filter items by price - multi range")
+    @Test
+    @Tag("pdp")
+    @DisplayName("MVP-13: Can filter items by price - single range")
+    public void canFilterProductsByItemPriceSingleRange(){
 
-//    @Test
-//    @Tag("pdp")
-//    @DisplayName("MVP-15: Can remove price filters ")
+    }
 
-//    @Test
-//    @Tag("pdp")
-//    @DisplayName("MVP-17: Can filter items by stone type ")
+    @Test
+    @Tag("pdp")
+    @DisplayName("MVP-14: Can filter items by price - multi range")
+    public void canFilterItemsByPriceMultiRange(){
+
+    }
+
+    @Test
+    @Tag("pdp")
+    @DisplayName("MVP-15: Can remove price filters ")
+    public void canRemovePriceFilters(){
+
+    }
+
+    @Test
+    @Tag("pdp")
+    @DisplayName("MVP-17: Can filter items by stone type ")
+    public void canFilterItemsByStoneType(){
+        
+    }
 }
