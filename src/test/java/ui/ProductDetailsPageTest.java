@@ -41,6 +41,6 @@ public class ProductDetailsPageTest extends BaseTest {
     @Tag("pdp")
     @DisplayName("MVP-46: Can increase product quantity by clicking Add to Cart button multiple times")
     public void canIncreaseProductQuantityByClickingAddToCartMultipleTimes(){
-        
+
     }
 }

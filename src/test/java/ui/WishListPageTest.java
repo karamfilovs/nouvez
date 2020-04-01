@@ -35,13 +35,19 @@ public class WishListPageTest extends BaseTest {
         app.loginPage().clickLoginButton();
         Assertions.assertEquals("My Wish List", app.wishListPage().getPageTitle());
     }
-//    @Test
-//    @Tag("wish-list")
-//    @DisplayName("MVP-56: Can share wish-list - single email recipient")
+    @Test
+    @Tag("wish-list")
+    @DisplayName("MVP-56: Can share wish-list - single email recipient")
+    public void canShareMyWishListWithSingleEmailRecipient(){
 
-//    @Test
-//    @Tag("wish-list")
-//    @DisplayName("MVP-57: Can share wish-list - multiple email recipient")
+    }
+
+    @Test
+    @Tag("wish-list")
+    @DisplayName("MVP-57: Can share wish-list - multiple email recipient")
+    public void canShareMyWishListWithMultipleEmailRecipients(){
+
+    }
 
 //    @Test
 //    @Tag("wish-list")
