@@ -35,4 +35,32 @@ public class WishListPageTest extends BaseTest {
         app.loginPage().clickLoginButton();
         Assertions.assertEquals("My Wish List", app.wishListPage().getPageTitle());
     }
+//    @Test
+//    @Tag("wish-list")
+//    @DisplayName("MVP-56: Can share wish-list - single email recipient")
+
+//    @Test
+//    @Tag("wish-list")
+//    @DisplayName("MVP-57: Can share wish-list - multiple email recipient")
+
+//    @Test
+//    @Tag("wish-list")
+//    @DisplayName("MVP-57: Can share wish-list - multiple email recipient")
+
+//    @Test
+//    @Tag("wish-list")
+//    @DisplayName("MVP-184: Can add an item from wish-list to cart")
+
+//    @Test
+//    @Tag("wish-list")
+//    @DisplayName("MVP-60: Can add all items from wish-list to cart")
+
+//    @Test
+//    @Tag("wish-list")
+//    @DisplayName("MVP-58: Cant share wish-list with message exceeding 255 symbols")
+
+//    @Test
+//    @Tag("wish-list")
+//    @DisplayName("MVP-59: Cant share wish-list to an invalid email")
+
 }

@@ -10,5 +10,7 @@ public class CheckoutPageTest {
 
     //@Test
     //@Tag("checkout")
-    //@DisplayName("MVP-8: Can checkout as guest")
+    //@DisplayName("MVP-61: Can place order with Credit Card")
+
+
 }
