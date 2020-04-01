@@ -69,4 +69,8 @@ public class WishListPageTest extends BaseTest {
 //    @Tag("wish-list")
 //    @DisplayName("MVP-59: Cant share wish-list to an invalid email")
 
+//    @Test
+//    @Tag("wish-list")
+//    @DisplayName("MVP-83: Cant add product to wish-list if logged out")
+
 }

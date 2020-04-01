@@ -34,7 +34,7 @@ public class ResetPasswordPageTest extends BaseTest {
 
     @Test
     @Tag("reset-password")
-    @DisplayName("MVP-159: Cant reset password with incorrect email")
+    @DisplayName("MVP-159: Cant reset password with invalid email")
     public void cantResetPasswordWithIncorrectEmail() {
         app.loginPage().gotoLoginPage();
         app.loginPage().clickResetPasswordLink();
@@ -64,6 +64,9 @@ public class ResetPasswordPageTest extends BaseTest {
         app.resetPasswordPage().clickGoBackButton();
         Assertions.assertEquals("Customer Login", app.loginPage().getPageTitle());
     }
+//    @Test
+//    @Tag("reset-password")
+//    @DisplayName("MVP-79: Cant reset password with not registered email")
 
 }
 
