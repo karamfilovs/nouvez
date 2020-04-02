@@ -35,6 +35,7 @@ public class App {
     private AddressBookPage addressBookPage;
     private MyAccountNavigation myAccountNavigation;
     private OrderBySKUPage orderBySKUPage;
+    private InvitationsPage invitationsPage;
 
 
     //lazy instantiating methods
@@ -157,6 +158,12 @@ public class App {
             orderBySKUPage = new OrderBySKUPage(driver);
         }
         return orderBySKUPage;
+    }
+    public InvitationsPage invitationsPage() {
+        if (invitationsPage == null) {
+            invitationsPage = new InvitationsPage(driver);
+        }
+        return invitationsPage;
     }
 
 
