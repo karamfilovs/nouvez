@@ -26,7 +26,7 @@ public class MyOrdersPageTest extends BaseTest {
         Assertions.assertEquals("My Orders", app.myOrdersPage().getPageTitle());
         app.myOrdersPage().reorderFirst();
         Assertions.assertEquals("Shopping Cart", app.checkoutPage().getPageTitle());
-        app.basketPage().clickCheckoutButton();
+        app.cartPage().clickCheckoutButton();
     }
 
 //    @Test

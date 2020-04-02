@@ -27,7 +27,7 @@ public class App {
     private ProductDetailsPage productDetailsPage;
     private ProductListingPage productListingPage;
     private CheckoutPage checkoutPage;
-    private CartPage basketPage;
+    private CartPage cartPage;
     private NewsFeedPage newsFeedPage;
     private ShopPage shopPage;
     private WishListPage wishListPage;
@@ -35,8 +35,8 @@ public class App {
     private AddressBookPage addressBookPage;
     private MyAccountNavigation myAccountNavigation;
     private OrderBySKUPage orderBySKUPage;
-    private InvitationsPage invitationsPage;
-
+    private SendInvitationsPage sendInvitationsPage;
+    private MyInvitationsPage myInvitationsPage;
 
     //lazy instantiating methods
     public LoginPage loginPage() {
@@ -103,11 +103,11 @@ public class App {
         return checkoutPage;
     }
 
-    public CartPage basketPage() {
-        if (basketPage == null) {
-            basketPage = new CartPage(driver);
+    public CartPage cartPage() {
+        if (cartPage == null) {
+            cartPage = new CartPage(driver);
         }
-        return basketPage;
+        return cartPage;
     }
 
     public NewsFeedPage newsFeedPage() {
@@ -159,11 +159,18 @@ public class App {
         }
         return orderBySKUPage;
     }
-    public InvitationsPage invitationsPage() {
-        if (invitationsPage == null) {
-            invitationsPage = new InvitationsPage(driver);
+    public SendInvitationsPage sendInvitationsPage() {
+        if (sendInvitationsPage == null) {
+            sendInvitationsPage = new SendInvitationsPage(driver);
         }
-        return invitationsPage;
+        return sendInvitationsPage;
+    }
+
+    public MyInvitationsPage myInvitationsPage() {
+        if (myInvitationsPage == null) {
+            myInvitationsPage = new MyInvitationsPage(driver);
+        }
+        return myInvitationsPage;
     }
 
 

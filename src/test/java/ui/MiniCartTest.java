@@ -36,8 +36,8 @@ public class MiniCartTest extends BaseTest {
         app.productDetailsPage().clickAddToCartButton();
         Assertions.assertEquals("Your Cart", app.components().miniCart().getMiniCartTitle());
         app.components().miniCart().viewBag();
-        Assertions.assertEquals("Shopping Cart", app.basketPage().getPageTitle());
-        app.basketPage().clickContinueShoppingButton();
+        Assertions.assertEquals("Shopping Cart", app.cartPage().getPageTitle());
+        app.cartPage().clickContinueShoppingButton();
         Assertions.assertEquals("Home Page", app.homePage().getPageTitle());
     }
 
