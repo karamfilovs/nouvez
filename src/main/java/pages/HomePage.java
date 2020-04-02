@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 
 public class HomePage extends BasePage {
     private static final Logger LOGGER = LoggerFactory.getLogger(HomePage.class);
-    private final String PAGE_URL = "/";
+    private final String PAGE_URL = "";
 
     @FindBy(how = How.XPATH, using = "//div[@class='message notice']")
     private WebElement searchMessage;

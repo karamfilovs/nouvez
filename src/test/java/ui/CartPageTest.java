@@ -1,16 +1,33 @@
 package ui;
 
 import core.BaseTest;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
 public class CartPageTest extends BaseTest {
 
-//    @Test
-//    @Tag("Cart")
-//    @DisplayName("MVP-41: Can update product quantity at the cart page")
+    @Test
+    @Tag("Cart")
+    @DisplayName("MVP-41: Can update product quantity at the cart page")
+    public void  canUpdateProductQuantityAtTheCartPage(){
+        app.homePage().gotoHomePage();
+        Assertions.assertEquals("Home Page", app.homePage().getPageTitle());
+        app.productDetailsPage().navigateToSpecificProduct("/58254811.html");
+        app.productDetailsPage().clickAddToCartButton();
+        app.basketPage().gotoBasketPage();
+        app.basketPage().selectQuantity("3");
 
-//    @Test
-//    @Tag("Cart")
-//    @DisplayName("MVP-42: Cant increase product quantity in the cart above the predefined limits")
+
+    }
+
+    @Test
+    @Tag("Cart")
+    @DisplayName("MVP-42: Cant increase product quantity in the cart above the predefined limits")
+    public void cantIncreaseProductQuantityInTheCartAboveThePredefinedLimits(){
+
+    }
 
 //    @Test
 //    @Tag("Cart")

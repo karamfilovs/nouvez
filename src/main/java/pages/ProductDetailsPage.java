@@ -58,4 +58,8 @@ public class ProductDetailsPage extends BasePage {
     public String getProductPrice() {
         return getText(productPrice);
     }
+
+    public void navigateToSpecificProduct(String productURL) {
+        navigateTo(productURL);
+    }
 }
