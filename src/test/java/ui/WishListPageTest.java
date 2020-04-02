@@ -13,6 +13,11 @@ public class WishListPageTest extends BaseTest {
         app.loginPage().login();
     }
 
+    @AfterEach
+    public void afterEach() {
+        app.components().myAccountMenu().signOut();
+    }
+
     @Test
     @Tag("wish-list")
     @DisplayName("MVP-180: Can change the quantity of displayed items in the wish list")
@@ -26,14 +31,9 @@ public class WishListPageTest extends BaseTest {
     @Tag("wish-list")
     @DisplayName("MVP-181: Can navigate to customer login page clicking on the wish list icon")
     public void canGoToWishListViaWishListIcon() {
-        app.homePage().gotoHomePage();
-        Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle());
         app.homePage().clickWishListIcon();
-        Assertions.assertEquals("Customer Login", app.myAccountPage().getPageTitle());
-        app.loginPage().enterUsername("alex@pragmatic.bg");
-        app.loginPage().enterPassword("Test2019$");
-        app.loginPage().clickLoginButton();
-        Assertions.assertEquals("My Wish List", app.wishListPage().getPageTitle());
+        Assertions.assertEquals("My Wish List", app.myAccountPage().getPageTitle());
+
     }
     @Test
     @Tag("wish-list")
