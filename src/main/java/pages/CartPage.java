@@ -10,12 +10,12 @@ import org.slf4j.LoggerFactory;
 public class CartPage extends BasePage {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CartPage.class);
-    private final String PAGE_URL = "checkout/cart/";
+    private final String PAGE_URL = "/checkout/cart/";
 
     @FindBy(how = How.XPATH, using = "//a[@class='action continue']")
     private WebElement continueShoppingButton;
 
-    @FindBy(how = How.ID, using = "cart-162-qty")
+    @FindBy(how = How.ID, using = "qty")
     private WebElement selectQTYDropDown;
 
     @FindBy(how = How.CSS, using = "a.use-ajax.action")
@@ -33,11 +33,14 @@ public class CartPage extends BasePage {
     @FindBy(how = How.XPATH, using = "//button[@title='Proceed to Checkout']")
     private WebElement checkoutButton;
 
+    @FindBy(how = How.CSS, using = "span.cart-price")
+    private WebElement productTotal;
+
     public CartPage(WebDriver driver) {
         super(driver);
     }
 
-    public void gotoBasketPage() {
+    public void gotoCartPage() {
         LOGGER.info("Navigating to Basket page");
         navigateTo(PAGE_URL);
     }
@@ -74,5 +77,10 @@ public class CartPage extends BasePage {
     public void clickCheckoutButton() {
         LOGGER.info("Click checkout button");
         checkoutButton.click();
+    }
+
+    public String getProductTotalPrice() {
+        LOGGER.info("Getting product total price");
+       return getText(productTotal);
     }
 }

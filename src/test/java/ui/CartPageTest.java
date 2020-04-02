@@ -16,8 +16,9 @@ public class CartPageTest extends BaseTest {
         Assertions.assertEquals("Home Page", app.homePage().getPageTitle());
         app.productDetailsPage().navigateToSpecificProduct("/58254811.html");
         app.productDetailsPage().clickAddToCartButton();
-        app.basketPage().gotoBasketPage();
-        app.basketPage().selectQuantity("3");
+        app.components().miniCart().viewBag();
+        app.cartPage().selectQuantity("3");
+        Assertions.assertEquals("£2,940.00",app.cartPage().getProductTotalPrice());
 
 
     }
