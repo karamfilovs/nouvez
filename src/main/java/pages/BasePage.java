@@ -26,7 +26,7 @@ public class BasePage {
 
     protected final String BASE_URL = System.getProperty("url");
 
-    @FindBy(css = "[name=\"title\"]")
+    @FindBy(how = How.NAME, using = "title")
     private WebElement pageTitle;
 
     @FindBy(how = How.XPATH, using = "//div[@class='logo']")

@@ -45,7 +45,7 @@ public class MiniCartTest extends BaseTest {
     @Tag("mini-cart")
     @DisplayName("MVP-183: Can navigate to checkout page from mini-cart")
     public void canNavigateToCheckoutPageFromMiniCart(){
-        
+
     }
 
 }

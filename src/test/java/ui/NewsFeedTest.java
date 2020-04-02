@@ -43,7 +43,14 @@ public class NewsFeedTest extends BaseTest {
         Assertions.assertEquals("Please enter a valid email address (Ex: johndoe@domain.com).", app.newsFeedPage().getEmailValidationError());
     }
 
-//    @Test
-//    @Tag("news-feed")
-//    @DisplayName("MVP-22: Cant subscribe to news feed with blank email")
+    @Test
+    @Tag("news-feed")
+    @DisplayName("MVP-22: Cant subscribe to news feed with blank email")
+    public void cantSubscribeToNewsFeedWithBlankEmail(){
+        app.homePage().gotoHomePage();
+        Assertions.assertEquals("Home Page", app.homePage().getPageTitle());
+        app.newsFeedPage().subscribeToNewsFeed("  ");
+        Assertions.assertEquals("This is a required field.", app.newsFeedPage().getEmailValidationError());
+    }
+
 }
