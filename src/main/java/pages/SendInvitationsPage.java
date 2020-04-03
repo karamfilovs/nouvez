@@ -1,6 +1,5 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,6 +13,9 @@ public class SendInvitationsPage extends BasePage {
     @FindBy(how = How.ID, using = "email_0")
     private WebElement emailField;
 
+    @FindBy(how = How.ID, using = "email_1")
+    private WebElement emailField2;
+
     @FindBy(how = How.ID, using = "message")
     private WebElement messageField;
 
@@ -24,7 +26,10 @@ public class SendInvitationsPage extends BasePage {
     private WebElement addButton;
 
     @FindBy(how = How.CSS, using = "div.message-notice.notice.message")
-    private WebElement notification;
+    private WebElement confirmation;
+
+    @FindBy(how = How.ID, using = "email_0-error")
+    private WebElement errorMessageEmail;
 
 
     public SendInvitationsPage(WebDriver driver) {
@@ -33,6 +38,10 @@ public class SendInvitationsPage extends BasePage {
     public void enterEmail(String email) {
         LOGGER.info("Entering email:" + email);
         typeText(emailField, email);
+    }
+    public void enterEmail2(String email) {
+        LOGGER.info("Entering email:" + email);
+        typeText(emailField2, email);
     }
 
     public void enterMessage(String message) {
@@ -52,9 +61,13 @@ public class SendInvitationsPage extends BasePage {
         LOGGER.info("Clicking send invitations button");
         click(sendButton);
     }
-    public String getNotification(){
-        LOGGER.info("Getting the text of the notification");
-        return getText(notification);
+    public String getConfirmation(){
+        LOGGER.info("Getting the text of the confirmation");
+        return getText(confirmation);
+    }
+    public String getErrorMessageEmail(){
+        LOGGER.info("Getting the text of the error message of the e-mail field");
+        return getText(errorMessageEmail);
     }
 
 
