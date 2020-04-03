@@ -68,7 +68,7 @@ public class WishListPageTest extends BaseTest {
         app.wishListSharingPage().enterEmails("alex@pragmatic.bg,yavor@pragmatic.bg");
         app.wishListSharingPage().enterMessage("Hey People");
         app.wishListSharingPage().clickShareWishListButton();
-        Assertions.assertEquals("Please enter valid email addresses, separated by commas. For example, johndoe@domain.com, johnsmith@domain.com.", app.wishListSharingPage().getEmailAddressError());
+        Assertions.assertEquals("Your wish list has been shared.", app.wishListSharingPage().getSuccessMessage());
     }
 
     @Test
@@ -100,6 +100,7 @@ public class WishListPageTest extends BaseTest {
         app.wishListSharingPage().enterEmails("alex@pragmatic");
         app.wishListSharingPage().enterMessage("Hey Alex");
         app.wishListSharingPage().clickShareWishListButton();
+        Assertions.assertEquals("Please enter valid email addresses, separated by commas. For example, johndoe@domain.com, johnsmith@domain.com.", app.wishListSharingPage().getEmailAddressError());
     }
 
 
