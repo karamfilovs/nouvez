@@ -13,7 +13,7 @@ import java.util.List;
 
 public class WishListPage extends BasePage {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(CartPage.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(WishListPage.class);
 
     @FindBy(how = How.CSS, using = "p.toolbar-amount")
     private WebElement amountToolbar;
@@ -24,9 +24,7 @@ public class WishListPage extends BasePage {
     @FindBy(how = How.XPATH, using = "//option[@selected='selected']")
     private WebElement currentLimiterOption;
 
-    @FindAll({
-            @FindBy(how = How.XPATH, using = "//ol[@class='product-items']")
-    })
+    @FindAll({@FindBy(how = How.XPATH, using = "//ol[@class='product-items']")})
     private List<WebElement> itemsList;
 
     @FindBy(how = How.XPATH, using = "//button[@class='action decreaseQty']")

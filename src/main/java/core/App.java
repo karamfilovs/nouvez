@@ -37,6 +37,7 @@ public class App {
     private OrderBySKUPage orderBySKUPage;
     private SendInvitationsPage sendInvitationsPage;
     private MyInvitationsPage myInvitationsPage;
+    private WishListSharingPage wishListSharingPage;
 
     //lazy instantiating methods
     public LoginPage loginPage() {
@@ -129,6 +130,14 @@ public class App {
             wishListPage = new WishListPage(driver);
         }
         return wishListPage;
+    }
+
+
+    public WishListSharingPage wishListSharingPage() {
+        if (wishListSharingPage == null) {
+            wishListSharingPage = new WishListSharingPage(driver);
+        }
+        return wishListSharingPage;
     }
 
 
