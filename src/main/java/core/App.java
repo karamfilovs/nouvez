@@ -38,6 +38,7 @@ public class App {
     private SendInvitationsPage sendInvitationsPage;
     private MyInvitationsPage myInvitationsPage;
     private WishListSharingPage wishListSharingPage;
+    private ShopByCategoryPage shopByCategoryPage;
 
     //lazy instantiating methods
     public LoginPage loginPage() {
@@ -180,6 +181,12 @@ public class App {
             myInvitationsPage = new MyInvitationsPage(driver);
         }
         return myInvitationsPage;
+    }
+    public ShopByCategoryPage shopByCategoryPage() {
+        if (shopByCategoryPage == null) {
+            shopByCategoryPage = new ShopByCategoryPage(driver);
+        }
+        return shopByCategoryPage;
     }
 
 
