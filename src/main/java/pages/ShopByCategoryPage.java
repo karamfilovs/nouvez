@@ -16,47 +16,29 @@ public class ShopByCategoryPage extends BasePage {
     private static final Logger LOGGER = LoggerFactory.getLogger(ShopPage.class);
     private final String PAGE_URL = "/shop/shop-by-category.html";
 
-    @FindBy(how = How.CSS, using = "li.item.home")
-    private WebElement homeBreadCrumb;
 
-    @FindBy(how = How.CSS, using = "li.item.category20")
-    private WebElement shopBreadCrumb;
-
-
-    @FindAll({
-            @FindBy(how = How.CSS, using = "a.img-link")
-    })
+    @FindAll({@FindBy(how = How.XPATH, using = "//div[@class='subcategories']/ul/li")})
     private List<WebElement> categoriesButtons;
 
 
-    @FindAll({
-            @FindBy(how = How.CSS, using = "div.filter-options-title")
-    })
+    @FindAll({@FindBy(how = How.CSS, using = "div.filter-options-item")})
     private List<WebElement> filterByOptions;
 
 
-    @FindAll({
-            @FindBy(how = How.CSS, using = "span.count")
-    })
+    @FindAll({@FindBy(how = How.XPATH, using = "//ol[@id='show_above_products-cat']/li")})
     private List<WebElement> categoryOptionsDropDown;
 
 
-    @FindAll({
-            @FindBy(how = How.CSS, using = "div.swatch-option.color")
-    })
+    @FindAll({@FindBy(how = How.CSS, using = "div.swatch-option.color")})
     private List<WebElement> colorOptionsDropDown;
 
 
-    @FindAll({
-            @FindBy(how = How.CSS, using = "div.swatch-option.text")
-    })
+    @FindAll({@FindBy(how = How.CSS, using = "div.swatch-option.text")})
     private List<WebElement> sizeOptionsDropDown;
 
 
-//    @FindAll({
-//            @FindBy(how = How.CSS, using = "   ")
-//    })
-//    private List<WebElement> priceRangesDropDown;
+    @FindAll({@FindBy(how = How.XPATH, using = " //ol[@id='show_above_products-price']//li  ")})
+    private List<WebElement> priceRangesDropDown;
 
 
 //    @FindAll({
@@ -72,20 +54,16 @@ public class ShopByCategoryPage extends BasePage {
         super(driver);
     }
 
-    public void clickHomeBreadCrumbs(){
-        LOGGER.info("Clicking home from breadcrumbs trail");
-        click(homeBreadCrumb);
+    public void goToShopByCategoryPage() {
+        LOGGER.info("Navigating to shop by category page");
+        navigateTo(PAGE_URL);
     }
 
-    public void clickShopBreadCrumbs(){
-        LOGGER.info("Clicking shop from breadcrumbs trail");
-        click(shopBreadCrumb);
-    }
 
     /**
      * Clicks on a category from the Select a Category menu on the Shop by Category page
      */
-    public void clickOnCategoryByName(String name) {
+    public void clickOnCategoryButtonByName(String name) {
         LOGGER.info("Clicking on:" + name);
         for (WebElement category : categoriesButtons) {
             if (getText(category).contains(name)) {
@@ -107,13 +85,15 @@ public class ShopByCategoryPage extends BasePage {
             }
         }
     }
-       /**
+
+    /**
      * Selects category from the filter by drop-down menu in the Shop by Category page
      */
     public void selectCategoryFromFiltersDropDown(String name) {
         LOGGER.info("Clicking on:" + name);
         for (WebElement category : categoryOptionsDropDown) {
             if (getText(category).contains(name)) {
+                scrollDownToElement(category);
                 click(category);
                 break;
             }
@@ -136,16 +116,16 @@ public class ShopByCategoryPage extends BasePage {
     /**
      * Selects price range from the filter by drop-down menu in the Shop by Category page
      */
-//    public void selectPriceRangeFromPriceDropDown(String option) {
-//        LOGGER.info("Clicking on:" + priceRangesDropDown);
-//        for (WebElement priceRange : categoryOptionsDropDown) {
-//            if (getText(priceRange).contains(option)) {
-//                click(priceRange);
-//                break;
-//            }
-//        }
-//    }
-//
+    public void selectPriceRangeFromPriceDropDown(String option) {
+        LOGGER.info("Clicking on:" + option);
+        for (WebElement priceRange : categoryOptionsDropDown) {
+            if (getText(priceRange).contains(option)) {
+                click(priceRange);
+                break;
+            }
+        }
+    }
+
     /**
      * Selects stone type from the filter by drop-down menu in the Shop by Category page
      */
@@ -158,7 +138,6 @@ public class ShopByCategoryPage extends BasePage {
 //            }
 //        }
 //    }
-
     public void selectDropDownOptionByVisibleText(WebElement sorter, String optionVisibleTextToSelect) {
         waitForElementVisibility(sorter);
         Select select = new Select(sorter);

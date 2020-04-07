@@ -15,10 +15,10 @@ public class ProductDetailsPageTest extends BaseTest {
         app.homePage().gotoHomePage();
         Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle());
         app.components().mainMenu().hoverOnShop();
-        app.components().subCategoryMenu().clickOnEarrings();
-        Assertions.assertEquals("Earrings - Shop by Category - Shop", app.components().subCategoryMenu().getPageTitle());
+        app.components().shopSubCategoryMenu().clickOnEarrings();
+        Assertions.assertEquals("Earrings - Shop by Category - Shop", app.components().shopSubCategoryMenu().getPageTitle());
         app.productListingPage().clickOnProductByName("Bulgari");
-        Assertions.assertEquals("Bulgari", app.components().subCategoryMenu().getPageTitle());
+        Assertions.assertEquals("Bulgari", app.components().shopSubCategoryMenu().getPageTitle());
         app.productDetailsPage().hoverOnAddToCartButton();
         app.productDetailsPage().clickAddToCartButton();
     }
