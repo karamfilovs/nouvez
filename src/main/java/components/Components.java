@@ -8,6 +8,7 @@ public class Components extends BasePage {
     private MyAccountMenu myAccountMenu;
     private ShopSubCategoryMenu shopSubCategoryMenu;
     private MiniCart miniCart;
+    private BreadCrumbsTrail breadCrumbsTrail;
 
 
     public Components(WebDriver driver) {
@@ -22,7 +23,7 @@ public class Components extends BasePage {
         }
     }
 
-    public ShopSubCategoryMenu subCategoryMenu() {
+    public ShopSubCategoryMenu shopSubCategoryMenu() {
         if (shopSubCategoryMenu == null) {
             return new ShopSubCategoryMenu(driver);
         } else {
@@ -43,6 +44,14 @@ public class Components extends BasePage {
             return new MiniCart(driver);
         } else {
             return miniCart;
+        }
+    }
+
+    public BreadCrumbsTrail breadCrumbsTrail() {
+        if (breadCrumbsTrail== null) {
+            return new BreadCrumbsTrail(driver);
+        } else {
+            return breadCrumbsTrail;
         }
     }
 }

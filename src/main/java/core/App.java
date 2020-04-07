@@ -1,5 +1,6 @@
 package core;
 
+import CategoryPages.CategoryPages;
 import components.Components;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -39,6 +40,7 @@ public class App {
     private MyInvitationsPage myInvitationsPage;
     private WishListSharingPage wishListSharingPage;
     private ShopByCategoryPage shopByCategoryPage;
+    private CategoryPages categoryPages;
 
     //lazy instantiating methods
     public LoginPage loginPage() {
@@ -189,7 +191,12 @@ public class App {
         return shopByCategoryPage;
     }
 
-
+    public CategoryPages categoryPages() {
+        if (categoryPages == null) {
+            categoryPages = new CategoryPages(driver);
+        }
+        return categoryPages;
+    }
     /**
      * Takes screenshot of the current screen
      *
