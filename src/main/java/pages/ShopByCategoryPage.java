@@ -16,129 +16,103 @@ public class ShopByCategoryPage extends BasePage {
     private static final Logger LOGGER = LoggerFactory.getLogger(ShopPage.class);
     private final String PAGE_URL = "/shop/shop-by-category.html";
 
-
     @FindAll({@FindBy(how = How.XPATH, using = "//div[@class='subcategories']/ul/li")})
     private List<WebElement> categoriesButtons;
-
 
     @FindAll({@FindBy(how = How.CSS, using = "div.filter-options-item")})
     private List<WebElement> filterByOptions;
 
-
-    @FindAll({@FindBy(how = How.XPATH, using = "//ol[@id='show_above_products-cat']/li")})
+    @FindAll({@FindBy(how = How.XPATH, using = "//ol[@id='show_above_products-cat']/li/a")})
     private List<WebElement> categoryOptionsDropDown;
 
+    @FindAll({@FindBy(how = How.XPATH, using = " //ol[@id='show_above_products-price']//li/a")})
+    private List<WebElement> priceRangeOptionsDropDown;
 
-    @FindAll({@FindBy(how = How.CSS, using = "div.swatch-option.color")})
+    @FindAll({@FindBy(how = How.XPATH, using = "//a[@class='swatch-option-link-layered mana-selected']/div")})
     private List<WebElement> colorOptionsDropDown;
-
 
     @FindAll({@FindBy(how = How.CSS, using = "div.swatch-option.text")})
     private List<WebElement> sizeOptionsDropDown;
 
-
-    @FindAll({@FindBy(how = How.XPATH, using = " //ol[@id='show_above_products-price']//li  ")})
-    private List<WebElement> priceRangesDropDown;
-
-
-//    @FindAll({
-//            @FindBy(how = How.CSS, using = "   ")
-//    })
-//    private List<WebElement> stoneOptionsDropDown;
-
+    @FindAll({@FindBy(how = How.XPATH, using = "//ol[@id='show_above_products-stone']/li/a")})
+    private List<WebElement> stoneOptionsDropDown;
 
     @FindBy(how = How.ID, using = "sorter")
     private WebElement sorter;
 
-    public ShopByCategoryPage(WebDriver driver) {
-        super(driver);
-    }
+    @FindBy(how = How.CSS, using = "a.action.remove")
+    private WebElement remover;
+
+    @FindBy(how = How.CSS, using = "span.filter-value")
+    private WebElement filterValue;
+
+    public ShopByCategoryPage(WebDriver driver) { super(driver);}
 
     public void goToShopByCategoryPage() {
         LOGGER.info("Navigating to shop by category page");
         navigateTo(PAGE_URL);
     }
 
-
     /**
-     * Clicks on a category from the Select a Category menu on the Shop by Category page
+     * Clicks on a category from the Select a Category menu
      */
     public void clickOnCategoryButtonByName(String name) {
-        LOGGER.info("Clicking on:" + name);
-        for (WebElement category : categoriesButtons) {
-            if (getText(category).contains(name)) {
-                click(category);
-                break;
-            }
-        }
-    }
+        clickWebElementByText(name,categoriesButtons); }
 
     /**
-     * Clicks on an option from the filter by options on the Shop by Category page
+     * Clicks on an option from the filters
      */
     public void clickOnFilterByName(String name) {
-        LOGGER.info("Clicking on:" + name);
-        for (WebElement filterName : filterByOptions) {
-            if (getText(filterName).contains(name)) {
-                click(filterName);
-                break;
-            }
-        }
-    }
+        clickWebElementByText(name, filterByOptions); }
+
 
     /**
      * Selects category from the filter by drop-down menu in the Shop by Category page
      */
-    public void selectCategoryFromFiltersDropDown(String name) {
-        LOGGER.info("Clicking on:" + name);
-        for (WebElement category : categoryOptionsDropDown) {
-            if (getText(category).contains(name)) {
-                scrollDownToElement(category);
-                click(category);
-                break;
-            }
-        }
-    }
-
-    /**
-     * Selects size from the filter by drop-down menu in the Shop by Category page
-     */
-    public void selectColorFromFiltersDropDown(String size) {
-        LOGGER.info("Clicking on:" + size);
-        for (WebElement sizeOption : sizeOptionsDropDown) {
-            if (getText(sizeOption).contains(size)) {
-                click(sizeOption);
-                break;
-            }
-        }
-    }
+    public void filterByCategory(String name) {
+        clickWebElementByText(name,categoryOptionsDropDown);}
 
     /**
      * Selects price range from the filter by drop-down menu in the Shop by Category page
      */
-    public void selectPriceRangeFromPriceDropDown(String option) {
-        LOGGER.info("Clicking on:" + option);
-        for (WebElement priceRange : categoryOptionsDropDown) {
-            if (getText(priceRange).contains(option)) {
-                click(priceRange);
-                break;
-            }
-        }
-    }
+    public void filterByPrice(String option) {
+        clickWebElementByText(option, priceRangeOptionsDropDown);}
+
+        /**
+     * Selects color from the filter by drop-down menu in the Shop by Category page
+     */
+    public void filterByColor(String name) {
+        clickWebElementByText(name,colorOptionsDropDown);}
+
+    /**
+     * Selects size from the filter by drop-down menu in the Shop by Category page
+     */
+    public void filterBySize(String size) {
+        clickWebElementByText(size,sizeOptionsDropDown);}
+
 
     /**
      * Selects stone type from the filter by drop-down menu in the Shop by Category page
      */
-//    public void selectStoneFromStoneDropDown(String name) {
-//        LOGGER.info("Clicking on:" + name);
-//        for (WebElement stone : stoneOptionsDropDown) {
-//            if (getText(stone).contains(name)) {
-//                click(stone);
-//                break;
-//            }
-//        }
-//    }
-    public void selectDropDownOptionByVisibleText(WebElement sorter, String optionVisibleTextToSelect) {
+    public void filterByStone(String name) {
+        clickWebElementByText(name, stoneOptionsDropDown);
+    }
+
+    public String getFilterValueText(){
+        LOGGER.info("Getting filter value text");
+        return getText(filterValue);
+    }
+
+    public void clickRemoverButton(){
+        LOGGER.info("Clicking the remove filter button");
+        click(remover);
+    }
+    /**
+     *
+     * @param sorter
+     * @param optionVisibleTextToSelect the option in the dropdown you would like to see selected
+     */
+    public void setSorter(WebElement sorter, String optionVisibleTextToSelect) {
         waitForElementVisibility(sorter);
         Select select = new Select(sorter);
         select.selectByVisibleText(optionVisibleTextToSelect);

@@ -300,4 +300,14 @@ public class BasePage {
         LOGGER.info("Clicking wish list icon from components bar");
         click(wishListIcon);
     }
+
+    protected void clickWebElementByText(String text, List<WebElement> listToGetFrom){
+        LOGGER.info("Clicking element with text :" + text);
+        for (WebElement curElement : listToGetFrom) {
+            if (getText(curElement).contains(text)) {
+                click(curElement);
+                break;
+            }
+        }
+    }
 }
