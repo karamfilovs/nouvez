@@ -70,8 +70,9 @@ public class ShopByCategoryPage extends BasePage {
      * Selects category from the filter by drop-down menu in the Shop by Category page
      */
     public void filterByCategory(String name) {
-        clickWebElementByText(name,categoryOptionsDropDown);}
-
+        clickWebElementByText(name,categoryOptionsDropDown);
+       try {Thread.sleep(10000);} catch(Exception e){};
+    }
     /**
      * Selects price range from the filter by drop-down menu in the Shop by Category page
      */
