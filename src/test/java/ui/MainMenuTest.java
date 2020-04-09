@@ -15,7 +15,7 @@ public class MainMenuTest extends BaseTest {
         Assertions.assertEquals("Home Page", app.loginPage().getPageTitle());
         app.components().mainMenu().clickOnShop();
         Assertions.assertEquals("Shop", app.shopPage().getPageTitle());
-        app.shopPage().clickHomeBreadCrumb();
+        app.components().breadCrumbsTrail().clickBreadCrumb("Home");
         Assertions.assertEquals("Home Page", app.homePage().getPageTitle());
     }
 
@@ -27,7 +27,7 @@ public class MainMenuTest extends BaseTest {
         Assertions.assertEquals("Home Page", app.loginPage().getPageTitle());
         app.components().mainMenu().clickOnCreate();
         Assertions.assertEquals("Create", app.shopPage().getPageTitle());
-        app.shopPage().clickHomeBreadCrumb();
+        app.components().breadCrumbsTrail().clickBreadCrumb("Home");
         Assertions.assertEquals("Home Page", app.homePage().getPageTitle());
     }
     @Test
@@ -38,7 +38,7 @@ public class MainMenuTest extends BaseTest {
         Assertions.assertEquals("Home Page", app.loginPage().getPageTitle());
         app.components().mainMenu().clickOnInspire();
         Assertions.assertEquals("Inspire", app.shopPage().getPageTitle());
-        app.shopPage().clickHomeBreadCrumb();
+        app.components().breadCrumbsTrail().clickBreadCrumb("Home");
         Assertions.assertEquals("Home Page", app.homePage().getPageTitle());
     }
 
@@ -50,7 +50,7 @@ public class MainMenuTest extends BaseTest {
         Assertions.assertEquals("Home Page", app.loginPage().getPageTitle());
         app.components().mainMenu().clickOnAbout();
         Assertions.assertEquals("About", app.shopPage().getPageTitle());
-        app.shopPage().clickHomeBreadCrumb();
+        app.components().breadCrumbsTrail().clickBreadCrumb("Home");
         Assertions.assertEquals("Home Page", app.homePage().getPageTitle());
     }
 
@@ -62,18 +62,18 @@ public class MainMenuTest extends BaseTest {
         Assertions.assertEquals("Home Page", app.loginPage().getPageTitle());
         app.components().mainMenu().clickOnServices();
         Assertions.assertEquals("Services", app.shopPage().getPageTitle());
-        app.shopPage().clickHomeBreadCrumb();
+        app.components().breadCrumbsTrail().clickBreadCrumb("Home");
         Assertions.assertEquals("Home Page", app.homePage().getPageTitle());
     }
     @Test
     @Tag("main-menu")
     @DisplayName("MVP-152: Can navigate to contact page from main menu and return to home page using breadcrumbs trail")
-    public void canNavigateToContactPageAndBackToHomeUsingBreadCrumbs(){
+    public void canNavigateToContactPageAndBackToHomeClickinOnTheLogo(){
         app.homePage().gotoHomePage();
         Assertions.assertEquals("Home Page", app.loginPage().getPageTitle());
         app.components().mainMenu().clickOnContact();
         Assertions.assertEquals("Contact", app.shopPage().getPageTitle());
-        app.shopPage().clickHomeBreadCrumb();
+        app.components().clickCompanyLogo();
         Assertions.assertEquals("Home Page", app.homePage().getPageTitle());
     }
 

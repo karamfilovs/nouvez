@@ -15,7 +15,7 @@ public class ProductDetailsPageTest extends BaseTest {
         app.homePage().gotoHomePage();
         Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle());
         app.components().mainMenu().hoverOnShop();
-        app.components().shopSubCategoryMenu().clickOnEarrings();
+        app.components().shopSubCategoryMenu().clickOnCategoryButtonByName("Earrings");
         Assertions.assertEquals("Earrings - Shop by Category - Shop", app.components().shopSubCategoryMenu().getPageTitle());
         app.productListingPage().clickOnProductByName("Bulgari");
         Assertions.assertEquals("Bulgari", app.components().shopSubCategoryMenu().getPageTitle());

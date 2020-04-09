@@ -41,6 +41,7 @@ public class App {
     private WishListSharingPage wishListSharingPage;
     private ShopByCategoryPage shopByCategoryPage;
     private CategoryPages categoryPages;
+    private DesignerPage designerPage;
 
     //lazy instantiating methods
     public LoginPage loginPage() {
@@ -196,6 +197,13 @@ public class App {
             categoryPages = new CategoryPages(driver);
         }
         return categoryPages;
+    }
+
+    public DesignerPage designerPage() {
+        if (designerPage == null) {
+            designerPage = new DesignerPage(driver);
+        }
+        return designerPage;
     }
     /**
      * Takes screenshot of the current screen
