@@ -94,8 +94,16 @@ public class LoginPageTest extends BaseTest {
         app.loginPage().clickCompanyLogo();
         Assertions.assertEquals("Home Page", app.homePage().getPageTitle());
     }
-//    @Test
-//    @Tag("login")
-//    @DisplayName("MVP-80: Can login with valid email (upper case)")
+    @Test
+    @Tag("login")
+    @DisplayName("MVP-80: Can login with valid email (upper case)")
+    public void canLoginWithValidUpperCaseEmail(){
+        app.loginPage().gotoLoginPage();
+        Assertions.assertEquals("Customer Login", app.loginPage().getPageTitle());
+        app.loginPage().enterUsername("alex@pragmatic.bg".toUpperCase());
+        app.loginPage().enterPassword("Test2019$");
+        app.loginPage().clickLoginButton();
+        Assertions.assertEquals("My Account", app.myAccountPage().getPageTitle());
+    }
 
 }

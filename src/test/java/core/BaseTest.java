@@ -45,13 +45,6 @@ public class BaseTest {
 
     }
 
-
-
-
-
-
-
-
     private boolean shouldBeCaptured(){
         return System.getProperty("take.screenshots.enabled").equalsIgnoreCase("true");
     }
@@ -63,4 +56,5 @@ public class BaseTest {
     private static boolean isFirefox(){
         return System.getProperty("browser").equalsIgnoreCase("firefox");
     }
+
 }

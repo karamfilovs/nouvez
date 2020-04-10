@@ -19,7 +19,7 @@ import org.slf4j.LoggerFactory;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class BasePage {
+public abstract class BasePage {
     private static int WAIT_TIME = 10;
 
     public static final Logger LOGGER = LoggerFactory.getLogger(BasePage.class);
