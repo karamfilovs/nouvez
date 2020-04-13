@@ -45,12 +45,12 @@ public class MainMenuTest extends BaseTest {
     @Test
     @Tag("main-menu")
     @DisplayName("MVP-152: Can navigate to about page from main menu and return to home page using breadcrumbs trail")
-    public void canNavigateToAboutPageAndBackToHomeUsingBreadCrumbs(){
+    public void canNavigateToAboutPageAndBackToHomeUsingLogo(){
         app.homePage().gotoHomePage();
         Assertions.assertEquals("Home Page", app.loginPage().getPageTitle());
         app.components().mainMenu().clickOnAbout();
-        Assertions.assertEquals("About", app.shopPage().getPageTitle());
-        app.components().breadCrumbsTrail().clickBreadCrumb("Home");
+        Assertions.assertEquals("About us", app.shopPage().getPageTitle());
+        app.components().clickCompanyLogo();
         Assertions.assertEquals("Home Page", app.homePage().getPageTitle());
     }
 
@@ -68,7 +68,7 @@ public class MainMenuTest extends BaseTest {
     @Test
     @Tag("main-menu")
     @DisplayName("MVP-152: Can navigate to contact page from main menu and return to home page using breadcrumbs trail")
-    public void canNavigateToContactPageAndBackToHomeClickinOnTheLogo(){
+    public void canNavigateToContactPageAndBackToHomeClickingOnTheLogo(){
         app.homePage().gotoHomePage();
         Assertions.assertEquals("Home Page", app.loginPage().getPageTitle());
         app.components().mainMenu().clickOnContact();
