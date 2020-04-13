@@ -17,6 +17,7 @@ public class CategoryPages extends BasePage {
     private MenPage menPage;
     private WomanPage womanPage;
     private ShopByPricePage shopByPricePage;
+    private AboutPage aboutPage;
 
 
 
@@ -106,6 +107,13 @@ public class CategoryPages extends BasePage {
             return new ShopDesignerPage(driver);
         } else {
             return shopDesignerPage();
+        }
+    }
+    public AboutPage aboutPage() {
+        if (aboutPage() == null) {
+            return new AboutPage(driver);
+        } else {
+            return aboutPage();
         }
     }
 

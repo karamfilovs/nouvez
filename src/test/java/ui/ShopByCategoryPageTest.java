@@ -29,7 +29,7 @@ public class ShopByCategoryPageTest extends BaseTest {
     public void canFilterProductsByCategory() {
         app.shopByCategoryPage().clickOnFilterByName("Category");
         app.shopByCategoryPage().filterByCategory("Necklaces");
-        Assertions.assertEquals("Necklaces - Shop by Category - Shop", app.categoryPages().necklacesPage().getPageTitle());
+        Assertions.assertEquals("Necklaces - Shop by Category - Shop", app.shopByCategoryPage().getPageTitle());
         app.components().breadCrumbsTrail().clickBreadCrumb("Shop by Category");
         Assertions.assertEquals("Shop by Category - Shop", app.shopByCategoryPage().getPageTitle()); }
 
