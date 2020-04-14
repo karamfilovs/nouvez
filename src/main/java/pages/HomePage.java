@@ -15,6 +15,8 @@ public class HomePage extends BasePage {
     @FindBy(how = How.XPATH, using = "//div[@class='message notice']")
     private WebElement searchMessage;
 
+    @FindBy(how = How.XPATH, using = "//dd[@class='item']/a")
+    private WebElement relatedSearchTerm;
 
     @FindBy(how = How.XPATH, using = "//a[@title='Explore']")
     private WebElement exploreButton;
@@ -60,7 +62,9 @@ public class HomePage extends BasePage {
         LOGGER.info("Clicking on shop our minimal collection button");
         click(shopOurMinimalCollectionButton);
     }
-
+    public String getRelatedSearchTermText(){
+        return getText(relatedSearchTerm);
+    }
 
 }
 
