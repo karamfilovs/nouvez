@@ -33,7 +33,7 @@ public class CartPage extends BasePage {
     @FindBy(how = How.XPATH, using = "//button[@title='Proceed to Checkout']")
     private WebElement checkoutButton;
 
-    @FindBy(how = How.CSS, using = "span.cart-price")
+    @FindBy(how = How.XPATH, using = "//span[@data-th='Subtotal']")
     private WebElement productTotal;
 
     public CartPage(WebDriver driver) {
