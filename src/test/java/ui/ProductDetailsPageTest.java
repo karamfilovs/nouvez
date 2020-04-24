@@ -1,33 +1,32 @@
 package ui;
 
 import core.BaseTest;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 public class ProductDetailsPageTest extends BaseTest {
+
+    @BeforeEach
+    public void beforeEach(){
+        app.homePage().gotoHomePage();
+        Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle());
+        app.components().mainMenu().hoverOnShop();
+        app.components().shopSubCategoryMenu().clickOnShopAll();
+        Assertions.assertEquals("Shop by Category - Shop", app.homePage().getPageTitle());
+    }
 
     @Test
     @Tag("pdp")
     @DisplayName("MVP-9: Can navigate to PDP page")
     public void canNavigateToPDPPage() {
-        app.homePage().gotoHomePage();
-        Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle());
-        app.components().mainMenu().hoverOnShop();
-        app.components().shopSubCategoryMenu().clickOnShopByCategory();
-        Assertions.assertEquals("Shop by Category - Shop", app.homePage().getPageTitle());
-        app.productListingPage().clickOnProductByName("Bulgari");
-        Assertions.assertEquals("Bulgari", app.components().shopSubCategoryMenu().getPageTitle());
-        app.productDetailsPage().hoverOnAddToCartButton();
-        app.productDetailsPage().clickAddToCartButton();
+        app.shopByCategoryPage().clickOnProductByName("Gucci");
+        Assertions.assertEquals("Gucci", app.components().shopSubCategoryMenu().getPageTitle());
     }
 
     @Test
     @Tag("pdp")
     @DisplayName("MVP-20: Can add product to wish-list")
     public void canAddProductToWishList(){
-
+        
     }
 
     @Test

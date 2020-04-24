@@ -1,6 +1,7 @@
 package ui;
 
 import core.BaseTest;
+import enums.MyAccountNavMenu;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -18,7 +19,8 @@ public class LoginPageTest extends BaseTest {
         app.loginPage().enterPassword("Test2019$");
         app.loginPage().clickLoginButton();
         Assertions.assertEquals("My Account", app.myAccountPage().getPageTitle());
-        app.components().myAccountMenu().signOut();
+        app.myAccountPage().navigateToMenu(MyAccountNavMenu.SIGN_OUT);
+        Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle());
     }
 
     @Test
@@ -31,7 +33,7 @@ public class LoginPageTest extends BaseTest {
         app.loginPage().enterPassword("Test2019$");
         app.loginPage().clickLoginButton();
         Assertions.assertEquals("My Account", app.myAccountPage().getPageTitle());
-        app.components().myAccountMenu().signOut();
+        app.myAccountPage().navigateToMenu(MyAccountNavMenu.SIGN_OUT);
         Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle());
 
     }
@@ -89,7 +91,7 @@ public class LoginPageTest extends BaseTest {
     public void canNavigateToLoginPageFromHomePage(){
         app.homePage().gotoHomePage();
         Assertions.assertEquals("Home Page", app.homePage().getPageTitle());
-        app.components().myAccountMenu().clickOnMyAccount();
+        app.components().myAccountMenu().clickOnMyAccountButton();
         Assertions.assertEquals("Customer Login", app.loginPage().getPageTitle());
         app.loginPage().clickCompanyLogo();
         Assertions.assertEquals("Home Page", app.homePage().getPageTitle());

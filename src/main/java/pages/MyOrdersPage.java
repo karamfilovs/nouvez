@@ -17,19 +17,43 @@ public class MyOrdersPage extends BasePage {
     @FindAll({@FindBy(how = How.XPATH, using = "//span[text()='Reorder']")})
     private List<WebElement> reorderLinks;
 
-    public MyOrdersPage(WebDriver driver) {
-        super(driver);
-    }
+    @FindAll({@FindBy(how = How.XPATH, using = "//span[text()='View Order']")})
+    private List<WebElement> viewOrderLinks;
+
+    @FindBy(how = How.CSS, using = "div.block-title")
+    private WebElement orderInfo;
+
+    @FindBy(how = How.CSS, using = "a.action.back")
+    private WebElement backButton;
+
+    public MyOrdersPage(WebDriver driver) {super(driver);}
 
     public void gotoMyOrdersPage(){
         LOGGER.info("Navigate to My Orders directly");
         navigateTo(PAGE_URL);
+    }
+    public String getOrderInfo(){
+        LOGGER.info("Getting order info");
+        return getText(orderInfo);
+    }
+
+    public void clickBackButton(){
+        LOGGER.info("Clicking back to my orders button");
+        click(backButton);
     }
 
     public void reorderFirst() {
         LOGGER.info("Clicking on first reorder option");
         for(WebElement reorder : reorderLinks){
             click(reorder);
+            break;
+        }
+    }
+
+    public void viewFirstOrder() {
+        LOGGER.info("Clicking on first view order option");
+        for(WebElement viewOrder : viewOrderLinks){
+            click(viewOrder);
             break;
         }
     }

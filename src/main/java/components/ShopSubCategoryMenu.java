@@ -2,14 +2,11 @@ package components;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pages.BasePage;
-
-import java.util.List;
 
 
 public class ShopSubCategoryMenu extends BasePage {
@@ -18,8 +15,8 @@ public class ShopSubCategoryMenu extends BasePage {
     @FindBy(how = How.ID, using = "ui-id-3")
     private WebElement shop;
 
-    @FindBy(how = How.XPATH, using = "//span[text()='Shop by Category']")
-    private WebElement shopByCategory;
+    @FindBy(how = How.XPATH, using = "//span[text()='Shop All']")
+    private WebElement shopAll;
 
     @FindBy(how = How.XPATH, using = "//span[text()='Shop by Price']")
     private WebElement shopByPrice;
@@ -78,10 +75,10 @@ public class ShopSubCategoryMenu extends BasePage {
     /**
      * Clicks on Shop by category link
      */
-    public void clickOnShopByCategory() {
-        LOGGER.info("Clicking on Shop by category link from main menu");
+    public void clickOnShopAll() {
+        LOGGER.info("Clicking on Shop all link from main menu");
         hoverOver(shop);
-        click(shopByCategory); }
+        click(shopAll); }
 
     /**
      * Clicks on Shop by price sub category link

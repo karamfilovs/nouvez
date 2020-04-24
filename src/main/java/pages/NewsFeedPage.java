@@ -22,7 +22,7 @@ public class NewsFeedPage extends BasePage {
     @FindBy(how = How.ID, using = "newsletter-error")
     private WebElement emailValidationError;
 
-    @FindBy(how = How.XPATH, using = "//button[@class='action subscribe primary']")
+    @FindBy(how = How.CSS, using = "button.action.subscribe")
     private WebElement subscribeButton;
 
     @FindBy(how = How.XPATH, using = "//div[@class='newsletter-container']")
