@@ -13,10 +13,10 @@ public class ProductListingPage extends BasePage {
     @FindBy(how = How.ID, using = "product-addtocart-button")
     private WebElement addToCartButton;
 
-    @FindBy(how = How.XPATH, using = "//strong[@class='product name product-item-name']")
+    @FindBy(how = How.XPATH, using = "//ol[@class='product-items widget-product-grid']  ")
     private WebElement productName;
 
-    @FindAll({@FindBy(how = How.XPATH, using = "//a[@class='product-item-link']")})
+    @FindAll({@FindBy(how = How.XPATH, using = "//strong[@class='product-item-name']/a")})
     private List<WebElement> products;
 
     public ProductListingPage(WebDriver driver) {

@@ -9,7 +9,7 @@ public class ProductListingPageTest extends BaseTest {
     public void beforeEach(){
         app.homePage().gotoHomePage();
         Assertions.assertEquals("Home Page", app.homePage().getPageTitle());
-        app.components().shopSubCategoryMenu().clickOnShopByCategory(); }
+        app.components().shopSubCategoryMenu().clickOnShopAll(); }
 
     @Test
     @Tag("plp")

@@ -1,6 +1,7 @@
 package ui;
 
 import core.BaseTest;
+import enums.MyAccountNavMenu;
 import org.junit.jupiter.api.*;
 
 
@@ -29,7 +30,7 @@ public class WishListPageTest extends BaseTest {
     public void canGoToWishListViaWishListIcon() {
         app.homePage().clickWishListIcon();
         Assertions.assertEquals("My Wish List", app.myAccountPage().getPageTitle());
-        app.components().myAccountMenu().signOut();
+        app.myAccountPage().navigateToMenu(MyAccountNavMenu.SIGN_OUT);
         app.homePage().clickWishListIcon();
         Assertions.assertEquals("Customer Login", app.loginPage().getPageTitle());
 

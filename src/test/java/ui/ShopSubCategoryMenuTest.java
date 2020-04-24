@@ -24,7 +24,7 @@ public class ShopSubCategoryMenuTest extends BaseTest {
     @Tag("shopSubCategory")
     @DisplayName("MVP-240: Can navigate to shop by category page via the shop sub-category menu")
     public void canNavigateToShopByCategoryPageViaSubMenuAndBackToHomeViaBreadCrumbs() {
-        app.components().shopSubCategoryMenu().clickOnShopByCategory();
+        app.components().shopSubCategoryMenu().clickOnShopAll();
         Assertions.assertEquals("Shop by Category - Shop", app.shopByCategoryPage().getPageTitle()); }
 
     @Test

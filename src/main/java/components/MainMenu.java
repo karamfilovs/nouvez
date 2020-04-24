@@ -14,17 +14,14 @@ public class MainMenu extends BasePage {
     @FindBy(how = How.XPATH, using = "//span[text()='Shop']")
     private WebElement shop;
 
-    @FindBy(how = How.XPATH, using = "//span[text()='Create']")
-    private WebElement create;
+    @FindBy(how = How.XPATH, using = "//span[text()='Diary']")
+    private WebElement diary;
 
-    @FindBy(how = How.XPATH, using = "//span[text()='Inspire']")
-    private WebElement inspire;
+    @FindBy(how = How.XPATH, using = "//span[text()='Experience']")
+    private WebElement experience;
 
     @FindBy(how = How.XPATH, using = "//span[text()='About']")
     private WebElement about;
-
-    @FindBy(how = How.XPATH, using = "//span[text()='Services']")
-    private WebElement services;
 
     @FindBy(how = How.XPATH, using = "//span[text()='Contact']")
     private WebElement contact;
@@ -44,98 +41,39 @@ public class MainMenu extends BasePage {
     }
 
     /**
-     * Hovers over Create category link
+     * Clicks on diary link
      */
-    public void hoverOnCreate() {
-        LOGGER.info("Hovering over Create link from main menu");
-        hoverOver(create);
+    public void clickDiary() {
+        LOGGER.info("Clicking on diary link from main menu");
+        click(diary);
         waitForFullPageOrJsAjaxToLoad();
     }
 
     /**
-     * Hovers over Inspire category link
+     * Clicks on experience link
      */
-    public void hoverOnInspire() {
-        LOGGER.info("Hovering over Inspire link from main menu");
-        hoverOver(inspire);
+    public void clickExperience() {
+        LOGGER.info("HClicking on experience link from main menu");
+        click(experience);
         waitForFullPageOrJsAjaxToLoad();
     }
 
     /**
-     * Hovers over About category link
+     * Clicks on about link
      */
-    public void hoverOnAbout() {
-        LOGGER.info("Hovering over About link from main menu");
-        hoverOver(about);
-        waitForFullPageOrJsAjaxToLoad();
-    }
-
-    /**
-     * Hovers over Services category link
-     */
-    public void hoverOnServices() {
-        LOGGER.info("Hovering over Services link from main menu");
-        hoverOver(services);
-        waitForFullPageOrJsAjaxToLoad();
-    }
-    /**
-     * Hovers over Contact category link
-     */
-    public void hoverOnContact() {
-        LOGGER.info("Hovering over Contact link from main menu");
-        hoverOver(contact);
-        waitForFullPageOrJsAjaxToLoad();
-    }
-
-    /**
-     * Clicks on Shop link
-     */
-    public void clickOnShop() {
-        LOGGER.info("Clicking on Shop page link main menu");
-        click(shop);
-        waitForFullPageOrJsAjaxToLoad();
-    }
-
-    /**
-     * Clicks on Create link
-     */
-    public void clickOnCreate() {
-        LOGGER.info("Clicking on Create page link main menu");
-        click(create);
-        waitForFullPageOrJsAjaxToLoad();
-    }
-
-    /**
-     * Clicks on Inspire link
-     */
-    public void clickOnInspire() {
-        LOGGER.info("Clicking on Inspire page link main menu");
-        click(inspire);
-        waitForFullPageOrJsAjaxToLoad();
-    }
-
-    /**
-     * Clicks on About link
-     */
-    public void clickOnAbout() {
-        LOGGER.info("Clicking on About page link main menu");
+    public void clickAbout() {
+        LOGGER.info("Clicking on About link from main menu");
         click(about);
         waitForFullPageOrJsAjaxToLoad();
     }
+
     /**
-     * Clicks on Services link
+     * Clicks on contact link
      */
-    public void clickOnServices() {
-        LOGGER.info("Clicking on Services page link main menu");
-        click(services);
-        waitForFullPageOrJsAjaxToLoad();
-    }
-    /**
-     * Clicks on Contact link
-     */
-    public void clickOnContact() {
-        LOGGER.info("Clicking on Contact page link main menu");
+    public void clickContact() {
+        LOGGER.info("Clicking on contact link from main menu");
         click(contact);
         waitForFullPageOrJsAjaxToLoad();
     }
+
 }

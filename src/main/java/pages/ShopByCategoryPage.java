@@ -19,6 +19,12 @@ public class ShopByCategoryPage extends BasePage {
     @FindAll({@FindBy(how = How.XPATH, using = "//div[@class='subcategories']/ul/li")})
     private List<WebElement> categoriesButtons;
 
+    @FindAll({@FindBy(how = How.XPATH, using = "//strong[@class='product name product-item-name']")})
+    private List<WebElement> products;
+
+    @FindBy(how = How.XPATH, using = "//ol[@class='products list items product-items']")
+    private  WebElement  productRange;
+
     @FindAll({@FindBy(how = How.CSS, using = "div.filter-options-item")})
     private List<WebElement> filterByOptions;
 
@@ -46,6 +52,9 @@ public class ShopByCategoryPage extends BasePage {
     @FindBy(how = How.CSS, using = "span.filter-value")
     private WebElement filterValue;
 
+    @FindBy(how = How.CSS, using = "a.action.towishlist")
+    private List<WebElement> wishListIcons;
+
     public ShopByCategoryPage(WebDriver driver) { super(driver);}
 
     public void goToShopByCategoryPage() {
@@ -53,6 +62,13 @@ public class ShopByCategoryPage extends BasePage {
         navigateTo(PAGE_URL);
     }
 
+    /**
+     * Clicks on product by name
+     * @param name
+     */
+    public void clickOnProductByName(String name){
+        scrollDownToElement(productRange);
+    clickWebElementByText(name, products );}
     /**
      * Clicks on a category from the Select a Category menu
      */
@@ -97,6 +113,13 @@ public class ShopByCategoryPage extends BasePage {
      */
     public void filterByStone(String name) {
         clickWebElementByText(name, stoneOptionsDropDown);
+    }
+
+    public void addFirstItemToWishlist() {
+        LOGGER.info("Adding the first product to wish-list");
+        for(WebElement wishListIcon : wishListIcons){
+            click(wishListIcon);
+            break;}
     }
 
     public String getFilterValueText(){

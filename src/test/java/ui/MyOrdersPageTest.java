@@ -15,7 +15,7 @@ public class MyOrdersPageTest extends BaseTest {
 
     @AfterEach
     public void afterEach(){
-        app.components().myAccountMenu().signOut();
+        app.myAccountPage().navigateToMenu(MyAccountNavMenu.SIGN_OUT);
     }
 
     @Test
@@ -29,16 +29,17 @@ public class MyOrdersPageTest extends BaseTest {
         app.cartPage().clickCheckoutButton();
     }
 
-//    @Test
-//    @Tag("my-orders")
-//    @DisplayName("MVP-62: Can view order details and go back to my orders page ")
-//    public void canReorderAlreadyPlacedOrder() {
-//        app.myAccountPage().navigateToMenu(MyAccountNavMenu.MY_ORDERS);
-//        Assertions.assertEquals("My Orders", app.myOrdersPage().getPageTitle());
-//        app.myOrdersPage().reorderFirst();
-//        Assertions.assertEquals("Shopping Cart", app.checkoutPage().getPageTitle());
-//        app.basketPage().clickCheckoutButton();
-//    }
+    @Test
+    @Tag("my-orders")
+    @DisplayName("MVP-62: Can view order details and go back to my orders page ")
+    public void canViewOrderDetails() {
+        app.myAccountPage().navigateToMenu(MyAccountNavMenu.MY_ORDERS);
+        Assertions.assertEquals("My Orders", app.myOrdersPage().getPageTitle());
+        app.myOrdersPage().viewFirstOrder();
+        Assertions.assertEquals("Order Information",app.myOrdersPage().getOrderInfo());
+        app.myOrdersPage().clickBackButton();
+        Assertions.assertEquals("My Orders", app.myOrdersPage().getPageTitle());
+    }
 
 
 }

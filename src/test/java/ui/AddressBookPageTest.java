@@ -15,7 +15,7 @@ public class AddressBookPageTest extends BaseTest {
 
     @AfterEach
     public void afterEach(){
-        app.components().myAccountMenu().signOut();
+        app.myAccountPage().navigateToMenu(MyAccountNavMenu.SIGN_OUT);
     }
 
     @Test
