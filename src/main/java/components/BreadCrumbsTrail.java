@@ -11,12 +11,14 @@ import java.util.List;
 
 public class BreadCrumbsTrail extends BasePage {
 
-    @FindAll({@FindBy(how = How.CSS, using = " a.icon-breadcrumb")})
+    @FindAll({@FindBy(how = How.XPATH, using = "//ul[@class='items']/li/a")})
     private List<WebElement> breadCrumbOptions;
 
     public BreadCrumbsTrail(WebDriver driver) {
         super(driver);
     }
+
+
 
     public void clickBreadCrumb(String option) {
         LOGGER.info("Clicking on:" + option);
