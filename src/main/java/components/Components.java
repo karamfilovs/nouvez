@@ -6,7 +6,7 @@ import pages.BasePage;
 public class Components extends BasePage {
     private MainMenu mainMenu;
     private MyAccountMenu myAccountMenu;
-    private ShopSubCategoryMenu shopSubCategoryMenu;
+    private ShopSubMenu shopSubCategoryMenu;
     private MiniCart miniCart;
     private BreadCrumbsTrail breadCrumbsTrail;
 
@@ -23,9 +23,9 @@ public class Components extends BasePage {
         }
     }
 
-    public ShopSubCategoryMenu shopSubCategoryMenu() {
+    public ShopSubMenu shopSubCategoryMenu() {
         if (shopSubCategoryMenu == null) {
-            return new ShopSubCategoryMenu(driver);
+            return new ShopSubMenu(driver);
         } else {
             return shopSubCategoryMenu;
         }
