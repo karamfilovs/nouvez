@@ -49,6 +49,18 @@
             <version>${logback.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.applitools</groupId>
+            <artifactId>eyes-selenium-java3</artifactId>
+            <version>3.160.2</version>
+        </dependency>
+
+        <!-- Required for Java 10 -->
+        <dependency>
+            <groupId>javax.activation</groupId>
+            <artifactId>activation</artifactId>
+            <version>1.1.1</version>
+        </dependency>
 
         <dependency>
             <groupId>io.qameta.allure</groupId>
