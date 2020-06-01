@@ -1,5 +1,7 @@
 package pages;
 
+import enums.Emails;
+import enums.MyAccountNavMenu;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,7 +11,7 @@ import org.slf4j.LoggerFactory;
 
 public class RegisterPage extends BasePage {
     private static final Logger LOGGER = LoggerFactory.getLogger(RegisterPage.class);
-    private final String PAGE_URL = "/customer/account/create/";
+    private final String PAGE_URL = "/customer/account/login/";
 
     @FindBy(how = How.ID, using = "firstname")
     private WebElement firstNameField;
@@ -35,6 +37,9 @@ public class RegisterPage extends BasePage {
     @FindBy(how = How.ID, using = "password-confirmation-error")
     private WebElement passwordMissMatchError;
 
+    @FindBy(how = How.ID, using = "password-error")
+    private WebElement weakPasswordError;
+
     @FindBy(how = How.XPATH, using = "//button[@class='action submit primary']")
     private WebElement createAccountButton;
 
@@ -47,7 +52,7 @@ public class RegisterPage extends BasePage {
     }
 
     public void gotoPage(){
-        LOGGER.info("Navigating to Register page");
+        LOGGER.info("Navigating to Customer Login page");
         navigateTo(PAGE_URL);
     }
 
@@ -65,6 +70,7 @@ public class RegisterPage extends BasePage {
         LOGGER.info("Entering email: " + email);
         typeText(emailField, email);
     }
+
 
     public void enterPassword(String password){
         LOGGER.info("Entering password: " + password);
@@ -85,8 +91,8 @@ public class RegisterPage extends BasePage {
         return getText(topErrorMessage);
     }
 
-    public String passwordMissMatchErrorMessage(){
-        return getText(passwordMissMatchError);
-    }
+    public String passwordMissMatchErrorMessage(){ return getText(passwordMissMatchError); }
+
+    public String weakPasswordError(){ return getText(weakPasswordError); }
 
 }

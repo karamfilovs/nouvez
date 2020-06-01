@@ -14,7 +14,7 @@ public class MyAccountMenuTest extends BaseTest {
     public void goToCustomerLoginViaMyAccountLink(){
         app.homePage().gotoHomePage();
         Assertions.assertEquals("Home Page", app.homePage().getPageTitle());
-        app.components().myAccountMenu().clickOnMyAccountButton();
+        app.homePage().clickMyAccountIcon();
         Assertions.assertEquals("Customer Login", app.loginPage().getPageTitle());
 
     }
