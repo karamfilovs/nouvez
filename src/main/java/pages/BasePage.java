@@ -44,6 +44,9 @@ public abstract class BasePage {
     @FindBy(how = How.CSS, using = "span.icon.icon-heart")
     private WebElement wishListIcon;
 
+    @FindBy(how = How.CSS, using = ".icon.icon-account")
+    private WebElement myAccountIcon;
+
     protected WebDriver driver;
 
 
@@ -281,6 +284,11 @@ public abstract class BasePage {
         click(companyLogo);
     }
 
+    public void clickMyAccountIcon() {
+        LOGGER.info("Clicking on My Account link from main menu");
+        click(myAccountIcon);
+        waitForFullPageOrJsAjaxToLoad();
+    }
 
 
     public void searchProduct(String productName) {
