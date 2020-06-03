@@ -35,176 +35,133 @@ public class App {
     private MyOrdersPage myOrdersPage;
     private AddressBookPage addressBookPage;
     private MyAccountNavigation myAccountNavigation;
-    private OrderBySKUPage orderBySKUPage;
     private SendInvitationsPage sendInvitationsPage;
     private MyInvitationsPage myInvitationsPage;
     private WishListSharingPage wishListSharingPage;
     private ShopByCategoryPage shopByCategoryPage;
     private CategoryPages categoryPages;
     private DesignerPage designerPage;
+    private AddNewAddressPage addNewAddressPage;
 
     //lazy instantiating methods
     public LoginPage loginPage() {
         if (loginPage == null) {
-            loginPage = new LoginPage(driver);
-        }
-        return loginPage;
-    }
+            loginPage = new LoginPage(driver); }
+        return loginPage; }
 
     public Components components() {
         if (components == null) {
-            components = new Components(driver);
-        }
-        return components;
-    }
+            components = new Components(driver); }
+        return components; }
 
     public MyAccountPage myAccountPage() {
         if (myAccountPage == null) {
-            myAccountPage = new MyAccountPage(driver);
-        }
-        return myAccountPage;
-    }
+            myAccountPage = new MyAccountPage(driver); }
+        return myAccountPage; }
 
     public HomePage homePage() {
         if (homePage == null) {
-            homePage = new HomePage(driver);
-        }
-        return homePage;
-    }
+            homePage = new HomePage(driver); }
+        return homePage; }
 
 
     public ResetPasswordPage resetPasswordPage() {
         if (resetPasswordPage == null) {
-            resetPasswordPage = new ResetPasswordPage(driver);
-        }
-        return resetPasswordPage;
-    }
+            resetPasswordPage = new ResetPasswordPage(driver); }
+        return resetPasswordPage; }
 
     public RegisterPage registerPage() {
         if (registerPage == null) {
-            registerPage = new RegisterPage(driver);
-        }
-        return registerPage;
-    }
+            registerPage = new RegisterPage(driver); }
+        return registerPage; }
 
     public ProductDetailsPage productDetailsPage() {
         if (productDetailsPage == null) {
-            productDetailsPage = new ProductDetailsPage(driver);
-        }
-        return productDetailsPage;
-    }
+            productDetailsPage = new ProductDetailsPage(driver); }
+        return productDetailsPage; }
 
     public ProductListingPage productListingPage() {
         if (productListingPage == null) {
-            productListingPage = new ProductListingPage(driver);
-        }
-        return productListingPage;
-    }
+            productListingPage = new ProductListingPage(driver); }
+        return productListingPage; }
 
     public CheckoutPage checkoutPage() {
         if (checkoutPage == null) {
-            checkoutPage = new CheckoutPage(driver);
-        }
-        return checkoutPage;
-    }
+            checkoutPage = new CheckoutPage(driver); }
+        return checkoutPage; }
 
     public CartPage cartPage() {
         if (cartPage == null) {
-            cartPage = new CartPage(driver);
-        }
-        return cartPage;
-    }
+            cartPage = new CartPage(driver); }
+        return cartPage; }
 
     public NewsFeedPage newsFeedPage() {
         if (newsFeedPage == null) {
-            newsFeedPage = new NewsFeedPage(driver);
-        }
-        return newsFeedPage;
-    }
+            newsFeedPage = new NewsFeedPage(driver); }
+        return newsFeedPage; }
 
     public ShopPage shopPage() {
         if (shopPage == null) {
-            shopPage = new ShopPage(driver);
-        }
-        return shopPage;
-    }
+            shopPage = new ShopPage(driver); }
+        return shopPage; }
 
     public WishListPage wishListPage() {
         if (wishListPage == null) {
-            wishListPage = new WishListPage(driver);
-        }
-        return wishListPage;
-    }
-
+            wishListPage = new WishListPage(driver); }
+        return wishListPage; }
 
     public WishListSharingPage wishListSharingPage() {
         if (wishListSharingPage == null) {
-            wishListSharingPage = new WishListSharingPage(driver);
-        }
-        return wishListSharingPage;
-    }
+            wishListSharingPage = new WishListSharingPage(driver); }
+        return wishListSharingPage; }
 
 
     public MyOrdersPage myOrdersPage() {
         if (myOrdersPage == null) {
-            myOrdersPage = new MyOrdersPage(driver);
-        }
-        return myOrdersPage;
-    }
+            myOrdersPage = new MyOrdersPage(driver); }
+        return myOrdersPage; }
 
     public AddressBookPage addressBookPage() {
         if (addressBookPage == null) {
-            addressBookPage = new AddressBookPage(driver);
-        }
-        return addressBookPage;
-    }
-
+            addressBookPage = new AddressBookPage(driver); }
+        return addressBookPage; }
 
     public MyAccountNavigation myAccountNavigation() {
         if (myAccountNavigation == null) {
-            myAccountNavigation = new MyAccountNavigation(driver);
-        }
-        return myAccountNavigation;
-    }
-    public OrderBySKUPage orderBySKUPage() {
-        if (orderBySKUPage == null) {
-            orderBySKUPage = new OrderBySKUPage(driver);
-        }
-        return orderBySKUPage;
-    }
+            myAccountNavigation = new MyAccountNavigation(driver); }
+        return myAccountNavigation; }
+
     public SendInvitationsPage sendInvitationsPage() {
         if (sendInvitationsPage == null) {
-            sendInvitationsPage = new SendInvitationsPage(driver);
-        }
-        return sendInvitationsPage;
-    }
+            sendInvitationsPage = new SendInvitationsPage(driver); }
+        return sendInvitationsPage; }
 
     public MyInvitationsPage myInvitationsPage() {
         if (myInvitationsPage == null) {
-            myInvitationsPage = new MyInvitationsPage(driver);
-        }
-        return myInvitationsPage;
-    }
+            myInvitationsPage = new MyInvitationsPage(driver); }
+        return myInvitationsPage; }
+
     public ShopByCategoryPage shopByCategoryPage() {
         if (shopByCategoryPage == null) {
-            shopByCategoryPage = new ShopByCategoryPage(driver);
-        }
-        return shopByCategoryPage;
-    }
+            shopByCategoryPage = new ShopByCategoryPage(driver); }
+        return shopByCategoryPage; }
 
     public CategoryPages categoryPages() {
         if (categoryPages == null) {
-            categoryPages = new CategoryPages(driver);
-        }
-        return categoryPages;
-    }
+            categoryPages = new CategoryPages(driver); }
+        return categoryPages; }
 
     public DesignerPage designerPage() {
         if (designerPage == null) {
-            designerPage = new DesignerPage(driver);
-        }
-        return designerPage;
-    }
+            designerPage = new DesignerPage(driver); }
+        return designerPage; }
+
+         public AddNewAddressPage addNewAddressPage() {
+        if (addNewAddressPage == null) {
+            addNewAddressPage = new AddNewAddressPage(driver); }
+        return addNewAddressPage; }
+
+
     /**
      * Takes screenshot of the current screen
      *

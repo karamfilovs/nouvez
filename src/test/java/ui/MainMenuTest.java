@@ -15,7 +15,7 @@ public class MainMenuTest extends BaseTest {
     @DisplayName("MVP-152: Can navigate to diary page from main menu and return to home page using Once logo")
     public void canNavigateToDiaryPageAndBackToHomeUsingLogo(){
         app.components().mainMenu().clickDiary();
-        Assertions.assertEquals("Diary", app.shopPage().getPageTitle());
+        Assertions.assertEquals("Once | Once", app.shopPage().getPageTitle());
         app.components().clickCompanyLogo();
         Assertions.assertEquals("Home Page", app.homePage().getPageTitle()); }
 

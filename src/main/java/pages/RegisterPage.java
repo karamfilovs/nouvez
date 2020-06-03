@@ -1,5 +1,6 @@
 package pages;
 
+import enums.Checked;
 import enums.Emails;
 import enums.MyAccountNavMenu;
 import org.openqa.selenium.WebDriver;
@@ -29,7 +30,7 @@ public class RegisterPage extends BasePage {
     private WebElement confirmPasswordField;
 
     @FindBy(how = How.ID, using = "is_subscribed")
-    private WebElement signUpForNewsCheckbox;
+    private WebElement newsletterCheckbox;
 
     @FindBy(how = How.ID, using = "captcha_user_login")
     private WebElement captchaField;
@@ -46,6 +47,9 @@ public class RegisterPage extends BasePage {
     @FindBy(how = How.CSS, using = "div.message-error.error.message")
     private WebElement topErrorMessage;
 
+    @FindBy(how = How.XPATH, using = "//div[@class='box box-newsletter']//div/p")
+    private WebElement newsletterSubscriptionText;
+
 
     public RegisterPage(WebDriver driver) {
         super(driver);
@@ -53,39 +57,40 @@ public class RegisterPage extends BasePage {
 
     public void gotoPage(){
         LOGGER.info("Navigating to Customer Login page");
-        navigateTo(PAGE_URL);
-    }
+        navigateTo(PAGE_URL); }
 
     public void enterFirstName(String firstName){
         LOGGER.info("Entering first name:" + firstName);
-        typeText(firstNameField, firstName);
-    }
+        typeText(firstNameField, firstName); }
 
     public void enterLastName(String lastName){
         LOGGER.info("Entering last name:" + lastName);
-        typeText(lastNameField, lastName);
-    }
+        typeText(lastNameField, lastName); }
 
     public void enterEmail(String email){
         LOGGER.info("Entering email: " + email);
-        typeText(emailField, email);
-    }
+        typeText(emailField, email); }
 
 
     public void enterPassword(String password){
         LOGGER.info("Entering password: " + password);
-        typeText(passwordField, password);
-    }
+        typeText(passwordField, password); }
 
     public void enterConfirmPassword(String password){
         LOGGER.info("Entering confirm password: " + password);
-        typeText(confirmPasswordField, password);
-    }
+        typeText(confirmPasswordField, password); }
 
     public void clickCreateAnAccountButton(){
         LOGGER.info("Clicking Create an Account button");
-        click(createAccountButton);
-    }
+        click(createAccountButton); }
+
+        public void checkNewsletterCheckbox(){
+        LOGGER.info("Clicking the newsletter checkbox");
+        click(newsletterCheckbox); }
+
+        public String getNewsletterText(){
+        LOGGER.info("Getting the text of the newsletter textbox");
+        return getText(newsletterSubscriptionText); }
 
     public String topErrorMessage(){
         return getText(topErrorMessage);
