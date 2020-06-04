@@ -2,24 +2,26 @@ package ui;
 
 import core.BaseTest;
 import enums.Emails;
+import enums.RequiredFields;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
+import org.openqa.selenium.WebElement;
 import utils.DataGenerator;
 
 public class RegisterPageTest extends BaseTest {
 
     @BeforeEach
-       public void beforeEach(){
+    public void beforeEach() {
         app.homePage().gotoHomePage();
         Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle());
         app.homePage().clickMyAccountIcon();
-        Assertions.assertEquals("Customer Login", app.myAccountPage().getPageTitle());}
+        Assertions.assertEquals("Customer Login", app.myAccountPage().getPageTitle()); }
 
     @Test
     @Tag("register")
     @DisplayName("MVP-3: Cant register with duplicate email address")
-    public void cantRegisterWithDuplicateEmail(){
+    public void cantRegisterWithDuplicateEmail() {
         app.registerPage().enterFirstName("Alex");
         app.registerPage().enterLastName("Karamfilov");
         app.registerPage().enterEmail("aleksandar.karamfilov@pragmatic.bg");
@@ -31,7 +33,7 @@ public class RegisterPageTest extends BaseTest {
     @Test
     @Tag("register")
     @DisplayName("MVP-244: Cant register with password miss match")
-    public void cantRegisterWithPasswordMissMatch(){
+    public void cantRegisterWithPasswordMissMatch() {
         String email = DataGenerator.generateRandomString(8) + "@" + "pragmatic-qa.com";
         app.registerPage().enterFirstName("Yavor");
         app.registerPage().enterLastName("Todd");
@@ -44,8 +46,8 @@ public class RegisterPageTest extends BaseTest {
 
     @Test
     @Tag("register")
-    @DisplayName("MVP-69: Can't register new user with weak password")
-       public void cantRegisterWithWeakPassword(){
+    @DisplayName("MVP-69: Cant register new user with weak password")
+    public void cantRegisterWithWeakPassword() {
         String email = DataGenerator.generateRandomString(8) + "@" + "pragmatic-qa.com";
         app.registerPage().enterFirstName("Yavor");
         app.registerPage().enterLastName("Todd");
@@ -53,21 +55,7 @@ public class RegisterPageTest extends BaseTest {
         app.registerPage().enterPassword("Test");
         app.registerPage().enterConfirmPassword("Test");
         app.registerPage().clickCreateAnAccountButton();
-        Assertions.assertEquals("Minimum length of this field must be equal or greater than 8 symbols. Leading and trailing spaces will be ignored.", app.registerPage().weakPasswordError());}
-
-    @Test
-    @Tag("register")
-    @DisplayName("MVP-4: Cant register user with invalid email")
-    public void cantRegisterWithInvalidMail(){
-        String email = DataGenerator.generateRandomString(8) + "@" + "pragmatic-qa.com";
-        app.registerPage().enterFirstName("Yavor");
-        app.registerPage().enterLastName("Todd");
-        app.registerPage().enterEmail(email);
-        app.registerPage().enterPassword("Test");
-        app.registerPage().enterConfirmPassword("Test");
-        app.registerPage().clickCreateAnAccountButton();
-        Assertions.assertEquals("Minimum length of this field must be equal or greater than 8 symbols. Leading and trailing spaces will be ignored.", app.registerPage().weakPasswordError());}
-
+        Assertions.assertEquals("Minimum length of this field must be equal or greater than 8 symbols. Leading and trailing spaces will be ignored.", app.registerPage().weakPasswordError()); }
 
     @ParameterizedTest(name = "MVP-4: Cant register user with invalid email => {0}")
     @EnumSource(value = Emails.class)
@@ -79,16 +67,35 @@ public class RegisterPageTest extends BaseTest {
         app.registerPage().enterEmail(emails.getEmails());
         app.registerPage().enterPassword("Test");
         app.registerPage().enterConfirmPassword("Test");
+        app.registerPage().clickCreateAnAccountButton(); }
+
+
+    @ParameterizedTest(name = "MVP-245: Cant register user with blank required field => {0}")
+    @EnumSource(value = RequiredFields.class)
+    @Tag("register")
+    @DisplayName("MVP-4: MVP-245: Cant register user with blank required field")
+    public void cantRegisterWithBlankRequiredField(RequiredFields requiredFields) {
+        app.registerPage().enterFirstName("Yavor");
+        app.registerPage().enterLastName("Todd");
+        app.registerPage().enterEmail(requiredFields.getRequiredFields());
+        app.registerPage().enterPassword("Test");
+        app.registerPage().enterConfirmPassword("Test");
+        app.registerPage().clickCreateAnAccountButton(); }
+
+
+    @Test
+    @Tag("register")
+    @DisplayName("MVP-51: Can register new account and sign up to newsletter")
+    public void registerAccountSignedUpForNewsletter() {
+        String email = DataGenerator.generateRandomString(8) + "@" + "pragmatic-qa.com";
+        app.registerPage().enterFirstName("Yavor");
+        app.registerPage().enterLastName("Todd");
+        app.registerPage().enterEmail(email);
+        app.registerPage().checkNewsletterCheckbox();
+        app.registerPage().enterPassword("Test2021$");
+        app.registerPage().enterConfirmPassword("Test2021$");
         app.registerPage().clickCreateAnAccountButton();
-    }
+        Assertions.assertEquals("You are subscribed to \"General Subscription\".", app.registerPage().getNewsletterText()); }
 
-
-//    @Test
-//    @Tag("register")
-//    @DisplayName("MVP-51: Can register new sellers account")
-
-//    @Test
-//    @Tag("register")
-//    @DisplayName("MVP-52: Cant register new account with weak password (less than 8 symbols)")
 
 }

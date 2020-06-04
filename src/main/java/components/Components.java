@@ -7,7 +7,6 @@ public class Components extends BasePage {
     private MainMenu mainMenu;
     private ShopSubMenu shopSubCategoryMenu;
     private MiniCart miniCart;
-    private BreadCrumbsTrail breadCrumbsTrail;
 
 
     public Components(WebDriver driver) {
@@ -39,11 +38,4 @@ public class Components extends BasePage {
         }
     }
 
-    public BreadCrumbsTrail breadCrumbsTrail() {
-        if (breadCrumbsTrail== null) {
-            return new BreadCrumbsTrail(driver);
-        } else {
-            return breadCrumbsTrail;
-        }
-    }
 }

@@ -30,31 +30,25 @@ public class MyOrdersPage extends BasePage {
 
     public void gotoMyOrdersPage(){
         LOGGER.info("Navigate to My Orders directly");
-        navigateTo(PAGE_URL);
-    }
+        navigateTo(PAGE_URL); }
+
     public String getOrderInfo(){
         LOGGER.info("Getting order info");
-        return getText(orderInfo);
-    }
+        return getText(orderInfo); }
 
     public void clickBackButton(){
         LOGGER.info("Clicking back to my orders button");
-        click(backButton);
-    }
+        click(backButton); }
 
     public void reorderFirst() {
         LOGGER.info("Clicking on first reorder option");
         for(WebElement reorder : reorderLinks){
             click(reorder);
-            break;
-        }
-    }
+            break; } }
 
     public void viewFirstOrder() {
         LOGGER.info("Clicking on first view order option");
         for(WebElement viewOrder : viewOrderLinks){
             click(viewOrder);
-            break;
-        }
-    }
+            break; } }
 }

@@ -15,11 +15,11 @@ public class ShopSubMenu extends BasePage {
     @FindBy(how = How.ID, using = "ui-id-3")
     private WebElement shop;
 
+    @FindBy(how = How.XPATH, using = "//a[text()='Explore All']")
+    private WebElement exploreAll;
+
     @FindBy(how = How.XPATH, using = "//span[text()='Shop All']")
     private WebElement shopAll;
-
-    @FindBy(how = How.XPATH, using = "//a[text()='Explore Designer A-Z']")
-    private WebElement exploreDesigner;
 
     @FindBy(how = How.XPATH, using = "//span[text()='Necklaces']")
     private WebElement necklacesButton;
@@ -36,34 +36,22 @@ public class ShopSubMenu extends BasePage {
     @FindBy(how = How.XPATH, using = "//span[text()='Accessories']")
     private WebElement accessoriesButton;
 
-    @FindBy(how = How.XPATH, using = "//span[text()='Wedding Rings']")
-    private WebElement weddingRingsButton;
+    @FindBy(how = How.XPATH, using = "//span[text()='One of a Kind']")
+    private WebElement oneOfAKindButton;
 
-    @FindBy(how = How.XPATH, using = "//span[text()='Engagement Rings']")
-    private WebElement engagementRingsButton;
+    @FindBy(how = How.XPATH, using = "//span[text()='Below £2,000']")
+    private WebElement below2000Button;
 
-    @FindBy(how = How.XPATH, using = "//span[text()='Bridal Jewellery ']")
-    private WebElement bridalJewelleryButton;
+    @FindBy(how = How.XPATH, using = "//span[text()='£2,000 to £5,000']")
+    private WebElement from2000to5000Button;
 
-    @FindBy(how = How.XPATH, using = "//span[text()='Men']")
-    private WebElement menButton;
+    @FindBy(how = How.XPATH, using = "//span[text()='£5,000 to £10,000']")
+    private WebElement from5000to10000Button;
 
-    @FindBy(how = How.XPATH, using = "//span[text()='Women']")
-    private WebElement womenButton;
+    @FindBy(how = How.XPATH, using = "//span[text()='Above £10,000']")
+    private WebElement above10000;
 
-    @FindBy(how = How.XPATH, using = "//span[text()='By £500']")
-    private WebElement by500Button;
-
-    @FindBy(how = How.XPATH, using = "//span[text()='By £1000']")
-    private WebElement by1000Button;
-
-    @FindBy(how = How.XPATH, using = "//span[text()='By £2000']")
-    private WebElement by2000Button;
-
-    @FindBy(how = How.XPATH, using = "//span[text()='By £3000']")
-    private WebElement by3000Button;
-
-//    @FindAll({@FindBy(how = How.XPATH, using = "//ul[@class='level1 submenu ui-menu ui-widget ui-widget-content ui-corner-all expanded']/li/a")})
+//    @FindAll({@FindBy(how = How.XPATH, using = "//ul[@class='level1 submenu ui-menu ui-widget ui-widget-content ui-corner-all expanded submenu-reverse']/li/a")})
 //    private List<WebElement> shopDropDownOptions;
 
     public ShopSubMenu(WebDriver driver) {super(driver);}
@@ -83,7 +71,7 @@ public class ShopSubMenu extends BasePage {
     public void clickOnExploreDesigner() {
         LOGGER.info("Clicking on explore designer shop sub menu link from main menu");
         hoverOver(shop);
-        click(exploreDesigner);
+        click(exploreAll);
         waitForFullPageOrJsAjaxToLoad();}
 
     public void hoverOverShop(){
@@ -121,48 +109,29 @@ public class ShopSubMenu extends BasePage {
         LOGGER.info("Clicking accessories button from the shop sub menu");
         click(accessoriesButton);}
 
-        public void clickWeddingRings(){
+        public void clickOneOfAKind(){
         hoverOverShop();
-        LOGGER.info("Clicking wedding rings button from the shop sub menu");
-        click(weddingRingsButton);}
+        LOGGER.info("Clicking one of a kind button from the shop sub menu");
+        click(oneOfAKindButton);}
 
-        public void clickEngagementRings(){
-        hoverOverShop();
-        LOGGER.info("Clicking engagement rings button from the shop sub menu");
-        click(engagementRingsButton);}
 
-        public void clickBridalJewellery(){
+        public void clickBelow2000(){
         hoverOverShop();
-        LOGGER.info("Clicking bridal jewelry button from the shop sub menu");
-        click(bridalJewelleryButton);}
+        LOGGER.info("Clicking below 2000 button from the shop sub menu");
+        click(below2000Button);}
 
-        public void clickMen(){
+        public void clickFrom2000To5000(){
         hoverOverShop();
-        LOGGER.info("Clicking men button from the shop sub menu");
-        click(menButton);}
+        LOGGER.info("Clicking from 2000 to 5000 button from the shop sub menu");
+        click(from2000to5000Button);}
 
-        public void clickWomen(){
+        public void clickFrom5000To10000(){
         hoverOverShop();
-        LOGGER.info("Clicking women button from the shop sub menu");
-        click(womenButton);}
+        LOGGER.info("Clicking from 5000 to 10000 button from the shop sub menu");
+        click(from5000to10000Button);}
 
-        public void clickBy500(){
+        public void clickAbove10000(){
         hoverOverShop();
-        LOGGER.info("Clicking by 500 button from the shop sub menu");
-        click(by500Button);}
-
-        public void clickBy1000(){
-        hoverOverShop();
-        LOGGER.info("Clicking by 1000 button from the shop sub menu");
-        click(by1000Button);}
-
-        public void clickBy2000(){
-        hoverOverShop();
-        LOGGER.info("Clicking by 2000 button from the shop sub menu");
-        click(by2000Button);}
-
-        public void clickBy3000(){
-        hoverOverShop();
-        LOGGER.info("Clicking by 3000 button from the shop sub menu");
-        click(by3000Button);}
+        LOGGER.info("Clicking above 10000 button from the shop sub menu");
+        click(above10000);}
 }
