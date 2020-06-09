@@ -3,7 +3,9 @@ package enums;
 public enum Country {
 
     ALBANIA("Albania"),
-    ARUBA("Aruba");
+    ARUBA("Aruba"),
+    UNITED_KINGDOM("United Kingdom");
+
 
     private String country;
 

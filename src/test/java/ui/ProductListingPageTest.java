@@ -15,7 +15,7 @@ public class ProductListingPageTest extends BaseTest {
     @Tag("plp")
     @DisplayName("MVP-26: Can navigate to Product Listing page")
     public void canNavigateToProductListingPage(){
-        app.productListingPage().clickOnProductByName("Bulgari");
+        app.productListingPage().clickProductByName("Bulgari");
         Assertions.assertEquals("Bulgari", app.productListingPage().getPageTitle()); }
 
     @Test

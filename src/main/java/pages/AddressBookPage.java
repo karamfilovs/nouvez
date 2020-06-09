@@ -23,6 +23,12 @@ public class AddressBookPage extends BasePage {
     @FindBy(how = How.XPATH, using = "//div[@class='box box-address-shipping']/div/address")
     private WebElement defaultShippingAddressText;
 
+    @FindBy(how = How.XPATH, using = "//span[text()='Change Billing Address']")
+    private WebElement changeBillingAddressButton;
+
+    @FindBy(how = How.XPATH, using = "//span[text()='Change Shipping Address']")
+    private WebElement changeShippingAddressButton;
+
     @FindAll({@FindBy(how = How.CSS, using = "a.action.edit")})
     private List<WebElement> editAddressButtons;
 
@@ -38,6 +44,7 @@ public class AddressBookPage extends BasePage {
         LOGGER.info("Clicking the add new address button");
         click(addNewAddressButton); }
 
+
     public void editFirstAddress(){
         LOGGER.info("Clicking on first edit button");
         for(WebElement editAddressButton : editAddressButtons){
@@ -51,4 +58,13 @@ public class AddressBookPage extends BasePage {
     public String getDefaultShippingAddressText(){
         LOGGER.info("Getting the text of the default shipping address");
         return getText(defaultShippingAddressText); }
+
+    public void clickChangeBillingAddressButton(){
+        LOGGER.info("Clicking the add new address button");
+        click(changeBillingAddressButton); }
+
+
+    public void clickChangeShippingAddressButton(){
+        LOGGER.info("Clicking the add new address button");
+        click(changeShippingAddressButton); }
 }

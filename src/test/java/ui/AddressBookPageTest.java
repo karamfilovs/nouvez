@@ -11,6 +11,8 @@ public class AddressBookPageTest extends BaseTest {
         app.loginPage().gotoLoginPage();
         Assertions.assertEquals("Customer Login", app.loginPage().getPageTitle());
         app.loginPage().login();
+        app.myAccountPage().navigateToMenu(MyAccountNavMenu.ADDRESS_BOOK);
+        Assertions.assertEquals("Address Book", app.addressBookPage().getPageTitle());
     }
 
     @AfterEach
@@ -21,9 +23,7 @@ public class AddressBookPageTest extends BaseTest {
     @Test
     @Tag("address-book")
     @DisplayName("MVP-71: Can add multiple addresses to an account")
-    public void canAddNewDefaultBillingAddress() {
-        app.myAccountPage().navigateToMenu(MyAccountNavMenu.ADDRESS_BOOK);
-        Assertions.assertEquals("Address Book", app.addressBookPage().getPageTitle());
+    public void canChangeTheDefaultBillingAddress() {
         app.addressBookPage().clickAddNewAddressButton();
         app.addNewAddressPage().addNewUKAddress();
         app.addNewAddressPage().setDefaultBillingAddressCheckbox();

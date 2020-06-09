@@ -28,6 +28,7 @@ public class App {
     private ProductDetailsPage productDetailsPage;
     private ProductListingPage productListingPage;
     private CheckoutPage checkoutPage;
+    private CheckoutPage2 checkoutPage2;
     private CartPage cartPage;
     private NewsFeedPage newsFeedPage;
     private ShopPage shopPage;
@@ -42,6 +43,9 @@ public class App {
     private CategoryPages categoryPages;
     private DesignerPage designerPage;
     private AddNewAddressPage addNewAddressPage;
+    private SuccessPage successPage;
+    private CreateNewAccountPage createNewAccountPage;
+
 
     //lazy instantiating methods
     public LoginPage loginPage() {
@@ -89,6 +93,11 @@ public class App {
         if (checkoutPage == null) {
             checkoutPage = new CheckoutPage(driver); }
         return checkoutPage; }
+
+    public CheckoutPage2 checkoutPage2() {
+        if (checkoutPage2 == null) {
+            checkoutPage2 = new CheckoutPage2(driver); }
+        return checkoutPage2; }
 
     public CartPage cartPage() {
         if (cartPage == null) {
@@ -160,6 +169,16 @@ public class App {
         if (addNewAddressPage == null) {
             addNewAddressPage = new AddNewAddressPage(driver); }
         return addNewAddressPage; }
+
+        public SuccessPage successPage() {
+        if (successPage == null) {
+            successPage = new SuccessPage(driver); }
+        return successPage; }
+
+        public CreateNewAccountPage createNewAccountPage() {
+        if (createNewAccountPage == null) {
+            createNewAccountPage = new CreateNewAccountPage(driver); }
+        return createNewAccountPage; }
 
 
     /**
