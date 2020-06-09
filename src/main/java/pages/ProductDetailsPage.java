@@ -17,8 +17,9 @@ public class ProductDetailsPage extends BasePage {
     private WebElement productPrice;
 
     @FindBy(how = How.XPATH, using = "//span[@class='product-designer']")
-    private WebElement productInfo;
+    private WebElement designerName;
 
+    //span[text()='Theo Fennell']
 
     @FindBy(how = How.XPATH, using = "//a[@data-action='add-to-wishlist']")
     private WebElement addToWishListLink;
@@ -33,27 +34,19 @@ public class ProductDetailsPage extends BasePage {
 
     public void clickAddToCartButton() {
         LOGGER.info("Clicking Add to cart button");
-        click(addToCartButton);
-    }
+        click(addToCartButton); }
 
-    public void hoverOnAddToCartButton(){
-        LOGGER.info("Hover on Add to Cart button");
-        hoverOver(addToCartButton);
-    }
+    public String getDesignerNameText(){
+        LOGGER.info("Getting the text of the designer field");
+        return getText(designerName); }
 
     public void clickAddToWishList() {
         LOGGER.info("Clicking Add to Wishlist");
-        click(addToWishListLink);
-    }
+        click(addToWishListLink); }
 
     public void clickShareLink() {
         LOGGER.info("Clicking Share link");
-        click(shareLink);
-    }
-
-    public String getProductInfo() {
-        return getText(productInfo);
-    }
+        click(shareLink); }
 
     public String getProductPrice() {
         return getText(productPrice);

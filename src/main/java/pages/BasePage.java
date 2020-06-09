@@ -314,8 +314,6 @@ public abstract class BasePage {
         for (WebElement curElement : listToGetFrom) {
             if (getText(curElement).contains(text)) {
                 click(curElement);
-                break;
-            }
-        }
-    }
+                break; } } }
+
 }

@@ -8,6 +8,7 @@ public class DataGenerator {
     private static final String NUMBER = "0123456789";
 
     private static final String DATA_FOR_RANDOM_STRING = CHAR_LOWER + CHAR_UPPER + NUMBER;
+    private static final String DATA_FOR_RANDOM_NUMBER = NUMBER;
     private static SecureRandom random = new SecureRandom();
 
     public static String generateRandomString(int length) {
@@ -22,6 +23,20 @@ public class DataGenerator {
             sb.append(rndChar);
         }
         return sb.toString();
+
+    }
+
+    public static String generateRandomNumber(int length) {
+        if (length < 1) throw new IllegalArgumentException();
+
+        StringBuilder number = new StringBuilder(length);
+        for (int i = 0; i < length; i++) {
+
+            // 0-62 (exclusive), random returns 0-61
+            int rndmCharAt = random.nextInt(DATA_FOR_RANDOM_NUMBER.length());
+            number.append(rndmCharAt);
+        }
+        return number.toString();
 
     }
 }

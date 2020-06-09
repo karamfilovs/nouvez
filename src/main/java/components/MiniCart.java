@@ -77,7 +77,7 @@ public class MiniCart extends BasePage {
     /**
      * Method that clicks the checkout button in the mini cart
      */
-    public void checkOut() {
+    public void clickCheckOut() {
         LOGGER.info("Clicking checkout button in the mini cart");
         click(checkoutButton);
     }

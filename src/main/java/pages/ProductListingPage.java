@@ -9,23 +9,30 @@ import org.openqa.selenium.support.How;
 import java.util.List;
 
 public class ProductListingPage extends BasePage {
+    private final String PAGE_URL = "/shop/shop-by-category.html";
 
     @FindBy(how = How.ID, using = "product-addtocart-button")
     private WebElement addToCartButton;
 
-    @FindBy(how = How.XPATH, using = "//ol[@class='product-items widget-product-grid']  ")
-    private WebElement productName;
+    @FindAll({@FindBy(how = How.XPATH, using = "span.product-image-container")})
+    private List <WebElement> products;
 
-    @FindAll({@FindBy(how = How.XPATH, using = "//strong[@class='product-item-name']/a")})
-    private List<WebElement> products;
+    @FindAll({@FindBy(how = How.XPATH, using = "//strong[@class='product name product-item-name']/a")})
+    private List<WebElement> productNames;
 
     public ProductListingPage(WebDriver driver) {
         super(driver);
     }
 
-
-    public void clickOnProductByName(String name) {
-        scrollDownToElement(productName);
-        clickWebElementByText(name, products);
+    public void gotoProductListingsPage() {
+        LOGGER.info("Navigating to product listings page");
+        navigateTo(PAGE_URL);
     }
+
+    public void clickProductByName(String productName){
+        LOGGER.info("Clicking element with text :" + productName);
+        for (WebElement curProduct : productNames) {
+            if (getText(curProduct).contains(productName)) {
+                click(curProduct);
+                break; } } }
 }

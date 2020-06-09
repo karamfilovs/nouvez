@@ -10,7 +10,7 @@ public class MiniCartTest extends BaseTest {
     public void beforeEach(){
         app.homePage().gotoHomePage();
         Assertions.assertEquals("Home Page", app.loginPage().getPageTitle());
-        app.productListingPage().clickOnProductByName("Gucci");
+        app.productListingPage().clickProductByName("Gucci");
         Assertions.assertEquals("Gucci", app.productDetailsPage().getPageTitle());
         app.productDetailsPage().clickAddToCartButton();
         Assertions.assertEquals("Your Cart", app.components().miniCart().getMiniCartTitle());
@@ -40,7 +40,7 @@ public class MiniCartTest extends BaseTest {
     @Tag("mini-cart")
     @DisplayName("MVP-183: Can navigate to checkout page from mini-cart")
     public void canNavigateToCheckoutPageFromMiniCart(){
-    app.components().miniCart().checkOut();
+    app.components().miniCart().clickCheckOut();
     Assertions.assertEquals("Checkout", app.checkoutPage().getPageTitle());
     }
 
