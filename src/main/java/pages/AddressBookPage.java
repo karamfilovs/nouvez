@@ -29,42 +29,65 @@ public class AddressBookPage extends BasePage {
     @FindBy(how = How.XPATH, using = "//span[text()='Change Shipping Address']")
     private WebElement changeShippingAddressButton;
 
+    @FindBy(how = How.XPATH, using = "//div[@class='message-success success message']")
+    private WebElement messageAlert;
+
+    @FindBy(how = How.CSS, using = "button.action-primary.action-accept")
+    private WebElement okButton;
+
     @FindAll({@FindBy(how = How.CSS, using = "a.action.edit")})
     private List<WebElement> editAddressButtons;
+
+    @FindAll({@FindBy(how = How.XPATH, using = "//a[@class='action delete']")})
+    private List<WebElement> deleteAddressButtons;
 
     public AddressBookPage(WebDriver driver) {
         super(driver);
     }
 
-    public void gotoPage(){
+    public void gotoPage() {
         LOGGER.info("Navigate Address Book directly");
         navigateTo(PAGE_URL); }
 
-    public void clickAddNewAddressButton(){
+    public void clickAddNewAddressButton() {
         LOGGER.info("Clicking the add new address button");
-        click(addNewAddressButton); }
+        click(addNewAddressButton);}
 
-
-    public void editFirstAddress(){
+    public void editFirstAddress() {
         LOGGER.info("Clicking on first edit button");
-        for(WebElement editAddressButton : editAddressButtons){
+        for (WebElement editAddressButton : editAddressButtons) {
             click(editAddressButton);
             break; } }
 
-    public String getDefaultBillingAddressText(){
+    public String getDefaultBillingAddressText() {
         LOGGER.info("Getting the text of the default billing address");
         return getText(defaultBillingAddressText); }
 
-    public String getDefaultShippingAddressText(){
+    public String getDefaultShippingAddressText() {
         LOGGER.info("Getting the text of the default shipping address");
         return getText(defaultShippingAddressText); }
 
-    public void clickChangeBillingAddressButton(){
+    public void clickChangeDefaultBillingAddressButton() {
         LOGGER.info("Clicking the add new address button");
         click(changeBillingAddressButton); }
 
+    public void clickOKButton() {
+        LOGGER.info("Clicking the OK button at the confirmation pop-up");
+        click(okButton); }
 
-    public void clickChangeShippingAddressButton(){
+    public void deleteFirstAddress() {
+        LOGGER.info("Clicking the first delete address button");
+        for(WebElement deleteAddressButton : deleteAddressButtons){
+        click(deleteAddressButton);
+            break;}
+        clickOKButton();
+        }
+
+    public void clickChangeDefaultShippingAddressButton() {
         LOGGER.info("Clicking the add new address button");
         click(changeShippingAddressButton); }
+
+    public String getTheTextOfTheMessageAlert() {
+        LOGGER.info("Getting the text of the message alert");
+        return getText(messageAlert); }
 }

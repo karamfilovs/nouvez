@@ -17,14 +17,6 @@ public class CheckoutPage extends BasePage {
     private static final Logger LOGGER = LoggerFactory.getLogger(CheckoutPage.class);
     private final String PAGE_URL = "checkout/#shipping";
 
-    String email = DataGenerator.generateRandomString(8 ) +"@pragmatic-qa.com";
-    String firstName = DataGenerator.generateRandomString(6);
-    String lastName = DataGenerator.generateRandomString(8);
-    String streetAddress = DataGenerator.generateRandomString(25);
-    String city = DataGenerator.generateRandomString(8);
-    String zip = DataGenerator.generateRandomString(5 );
-    String phone = DataGenerator.generateRandomNumber(10);
-
     @FindBy(how = How.ID, using = "customer-email")
     private WebElement emailField;
 
@@ -116,7 +108,7 @@ public class CheckoutPage extends BasePage {
         LOGGER.info("Entering phone number:" + phoneNumber);
         typeText(phoneNumberField, phoneNumber); }
 
-    public void selectShippingMethod(List<WebElement> shippingMethodRadioButtons, String optionVisibleTextToSelect) {
+    public void selectShippingMethod(String optionVisibleTextToSelect) {
         for (WebElement shippingMethodRadioButton : shippingMethodRadioButtons) {
             if (shippingMethodRadioButton.getText().toLowerCase().contains(optionVisibleTextToSelect.toLowerCase())) {
                 shippingMethodRadioButton.click();
@@ -136,7 +128,7 @@ public class CheckoutPage extends BasePage {
         enterZip(zipCode);
         selectCountry(Country.UNITED_KINGDOM);
         enterPhoneNumber(phone);
-        selectShippingMethod(shippingMethodRadioButtons,"Fedex");
+        selectShippingMethod("Fedex");
         clickNextButton();
 
     }
