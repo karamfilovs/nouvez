@@ -80,7 +80,7 @@ public class CheckoutPage2 extends BasePage {
         typeText(expDateField, expirationDate); }
 
     public void enterCVC(String CVC) {
-        LOGGER.info("Entering card expiration date: " + CVC);
+        LOGGER.info("Entering card CVC: " + CVC);
         typeText(cvcField, CVC); }
 
     public void clickPlaceOrderButton(){

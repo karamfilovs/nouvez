@@ -45,6 +45,7 @@ public class App {
     private AddNewAddressPage addNewAddressPage;
     private SuccessPage successPage;
     private CreateNewAccountPage createNewAccountPage;
+    private EditAddressPage editAddressPage;
 
 
     //lazy instantiating methods
@@ -179,6 +180,11 @@ public class App {
         if (createNewAccountPage == null) {
             createNewAccountPage = new CreateNewAccountPage(driver); }
         return createNewAccountPage; }
+
+        public EditAddressPage editAddressPage() {
+        if (editAddressPage == null) {
+            editAddressPage = new EditAddressPage(driver); }
+        return editAddressPage; }
 
 
     /**

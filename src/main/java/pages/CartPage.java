@@ -19,7 +19,7 @@ public class CartPage extends BasePage {
     private WebElement selectQTYDropDown;
 
     @FindBy(how = How.CSS, using = "a.use-ajax.action")
-    private WebElement moveToWishlistButton;
+    private WebElement moveToWishListButton;
 
     @FindBy(how = How.CSS, using = "a.action.action-delete")
     private WebElement removeButton;
@@ -36,51 +36,70 @@ public class CartPage extends BasePage {
     @FindBy(how = How.XPATH, using = "//span[@data-th='Subtotal']")
     private WebElement productTotal;
 
+    @FindBy(how = How.CSS, using = "span.cart-price")
+    private WebElement productPrice;
+
+    @FindBy(how = How.XPATH, using = "//div[@class='message-error error message']")
+    private WebElement errorMessage;
+
+
     public CartPage(WebDriver driver) {
         super(driver);
     }
 
     public void gotoCartPage() {
         LOGGER.info("Navigating to Basket page");
-        navigateTo(PAGE_URL);
-    }
+        navigateTo(PAGE_URL); }
 
     public void clickContinueShoppingButton() {
         LOGGER.info("Click continue shopping button");
-        continueShoppingButton.click();
-    }
+        continueShoppingButton.click(); }
 
     public CartPage selectQuantity(String quantity) {
+        LOGGER.info("Setting the quantity to "+ quantity);
         super.selectDropDownOptionByVisibleText(selectQTYDropDown, quantity);
-        return this;
-    }
+        return this; }
 
     public void clickMoveToWishlistButton() {
         LOGGER.info("Click move to wishlist button");
-        moveToWishlistButton.click();
-    }
+        moveToWishListButton.click(); }
 
     public void clickRemoveButton() {
         LOGGER.info("Click remove button");
-        removeButton.click();
-    }
+        removeButton.click(); }
 
     public void enterCouponCode(String couponCode) {
         LOGGER.info("Entering coupon code:" + couponCode);
-        typeText(couponCodeField, couponCode);
-    }
+        typeText(couponCodeField, couponCode); }
 
     public void clickApplyCouponButton() {
         LOGGER.info("Click apply coupon button");
-        applyCouponButton.click();
-    }
+        applyCouponButton.click(); }
+
     public void clickCheckoutButton() {
         LOGGER.info("Click checkout button");
-        checkoutButton.click();
-    }
+        checkoutButton.click(); }
 
     public String getProductTotalPrice() {
         LOGGER.info("Getting product total price");
-       return getText(productTotal);
-    }
+        return getText(productTotal).substring(1).replace(",","") .replace(".","");}
+
+    public String getProductPrice() {
+        LOGGER.info("Getting product price");
+        return getText(productPrice).substring(1).replace(",","").replace(".",""); }
+
+    public String getSelectedQuantity() {
+        LOGGER.info("Getting the number of selected quantity");
+        return getDropDownOption(selectQTYDropDown).trim(); }
+
+    public String getErrorMessageText() {
+        LOGGER.info("Getting the text of the error message");
+        return getDropDownOption(errorMessage); }
+
+    public Integer calculateTotalPrice() {
+        LOGGER.info("Calculating the total cart price");
+        int itemQuantity = Integer.parseInt(getSelectedQuantity());
+        int price = Integer.parseInt(getProductPrice());
+        int total = itemQuantity * price;
+        return total; }
 }
