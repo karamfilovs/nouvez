@@ -9,37 +9,27 @@ public class ProductDetailsPageTest extends BaseTest {
     public void beforeEach(){
         app.homePage().gotoHomePage();
         Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle());
+        app.loginPage().login();
         app.components().mainMenu().hoverOnShop();
         app.components().shopSubCategoryMenu().clickOnShopAll();
-        Assertions.assertEquals("Shop by Category - Shop", app.homePage().getPageTitle());
+        Assertions.assertEquals("Shop", app.homePage().getPageTitle());
     }
 
     @Test
     @Tag("pdp")
     @DisplayName("MVP-9: Can navigate to PDP page")
     public void canNavigateToPDPPage() {
-        app.shopByCategoryPage().clickOnProductByName("Gucci");
-        Assertions.assertEquals("Gucci", app.components().shopSubCategoryMenu().getPageTitle());
-    }
+        app.shopByCategoryPage().clickOnProductByName("Pippa Small");
+        Assertions.assertEquals("Pippa Small", app.productDetailsPage().getDesignerNameText()); }
 
     @Test
     @Tag("pdp")
     @DisplayName("MVP-20: Can add product to wish-list")
     public void canAddProductToWishList(){
-        
-    }
+        app.shopByCategoryPage().clickOnProductByName("Pippa Small");
+        Assertions.assertEquals("Pippa Small", app.productDetailsPage().getDesignerNameText());
+        app.productDetailsPage().clickAddToWishList();
+        Assertions.assertEquals("Pippa Small has been Added to wishlist", app.productDetailsPage().getTextOfWishListPopUp()); }
 
-    @Test
-    @Tag("pdp")
-    @DisplayName("MVP-47: Can share product from pdp")
-    public void canShareProductFromPDP(){
 
-    }
-
-    @Test
-    @Tag("pdp")
-    @DisplayName("MVP-46: Can increase product quantity by clicking Add to Cart button multiple times")
-    public void canIncreaseProductQuantityByClickingAddToCartMultipleTimes(){
-
-    }
 }
