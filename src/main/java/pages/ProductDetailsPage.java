@@ -32,6 +32,9 @@ public class ProductDetailsPage extends BasePage {
     @FindBy(how = How.ID, using = "custom-product-whishlist-popup")
     private WebElement wishListPopUpp;
 
+    @FindBy(how = How.ID, using = "st_gdpr_iframe")
+    private WebElement shareThisIFrame;
+
     @FindAll({@FindBy(how = How.XPATH, using = "//div[@class='st-btn']")})
     private List<WebElement> shareToOptions;
 
@@ -53,6 +56,12 @@ public class ProductDetailsPage extends BasePage {
 
     public void clickShareLink() {
         click(shareLink); }
+
+     public String shareThisIsVisible() {
+        switchToActiveElement();
+         if (isDisplayed(shareThisIFrame)){
+             return "true" ;}
+         else return "false";}
 
     public void shareAnItemByText(String shareTo){
         LOGGER.info("Clicking Share link and then clicking "+ shareTo+" on Share this");

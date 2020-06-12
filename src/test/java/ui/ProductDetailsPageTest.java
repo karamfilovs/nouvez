@@ -10,6 +10,7 @@ public class ProductDetailsPageTest extends BaseTest {
         app.homePage().gotoHomePage();
         Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle());
         app.loginPage().login();
+        Assertions.assertEquals("My Account", app.myAccountPage().getPageTitle());
         app.components().mainMenu().hoverOnShop();
         app.components().shopSubCategoryMenu().clickOnShopAll();
         Assertions.assertEquals("Shop", app.homePage().getPageTitle());
@@ -31,5 +32,14 @@ public class ProductDetailsPageTest extends BaseTest {
         app.productDetailsPage().clickAddToWishList();
         Assertions.assertEquals("Pippa Small has been Added to wishlist", app.productDetailsPage().getTextOfWishListPopUp()); }
 
+    @Test
+    @Tag("pdp")
+    @DisplayName("MVP-47: Can share product from pdp")
+    public void canShareProductFromPDP(){
+        app.shopByCategoryPage().clickOnProductByName("Loquet");
+        Assertions.assertEquals("Loquet", app.productDetailsPage().getDesignerNameText());
+        app.productDetailsPage().clickShareLink();
+        Assertions.assertEquals("true", app.productDetailsPage().shareThisIsVisible());
 
+    }
 }
