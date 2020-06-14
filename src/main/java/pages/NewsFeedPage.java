@@ -22,7 +22,7 @@ public class NewsFeedPage extends BasePage {
     @FindBy(how = How.ID, using = "newsletter-error")
     private WebElement emailValidationError;
 
-    @FindBy(how = How.CSS, using = "button.action.subscribe")
+    @FindBy(how = How.XPATH, using = "//span[text()='Subscribe']")
     private WebElement subscribeButton;
 
     @FindBy(how = How.XPATH, using = "//div[@class='newsletter-container']")
@@ -32,26 +32,27 @@ public class NewsFeedPage extends BasePage {
         super(driver);
     }
 
-    private void enterEmail(String email) {
-        scrollDownToElement(newsFeedContainer);
+    public void enterEmail(String email) {
         LOGGER.info("Entering news feed email:" + email);
-        typeText(newsFeedEmailField, email);
-    }
+        scrollDownToElement(newsFeedContainer);
+        typeText(newsFeedEmailField, email);}
 
     private void clickSubscribeButton() {
         LOGGER.info("Clicking Subscribe button");
         waitForElementToBeClickable(subscribeButton);
-        click(subscribeButton);
-    }
+        click(subscribeButton); }
 
     public void subscribeToNewsFeed(String email) {
         enterEmail(email);
-        clickSubscribeButton();
-    }
+        clickSubscribeButton(); }
+
+    public String subscribeButtonIsVisible() {
+        if (isDisplayed(subscribeButton)){
+        return "true" ;}
+        else return "false";}
 
     public String getNewsFeedError() {
-        return getText(newsFeedError);
-    }
+        return getText(newsFeedError); }
 
     public String getEmailValidationError() {
         return getText(emailValidationError);

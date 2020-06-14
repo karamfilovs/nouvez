@@ -49,8 +49,7 @@ public class NewsFeedTest extends BaseTest {
     public void cantSubscribeToNewsFeedWithBlankEmail(){
         app.homePage().gotoHomePage();
         Assertions.assertEquals("Home Page", app.homePage().getPageTitle());
-        app.newsFeedPage().subscribeToNewsFeed("  ");
-        Assertions.assertEquals("This is a required field.", app.newsFeedPage().getEmailValidationError());
-    }
+        app.newsFeedPage().enterEmail( "  ");
+        Assertions.assertEquals("false", app.newsFeedPage().subscribeButtonIsVisible()); }
 
 }
