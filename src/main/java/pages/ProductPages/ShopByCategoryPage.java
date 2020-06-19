@@ -28,7 +28,7 @@ public class ShopByCategoryPage extends BasePage {
     private List<WebElement> products;
 
     @FindBy(how = How.XPATH, using = "//ol[@class='products list items product-items']")
-    private  WebElement  productRange;
+    private WebElement productRange;
 
     @FindAll({@FindBy(how = How.CSS, using = "div.filter-options-item")})
     private List<WebElement> filterByOptions;
@@ -42,15 +42,15 @@ public class ShopByCategoryPage extends BasePage {
     @FindAll({@FindBy(how = How.XPATH, using = "//ol[@id='show_above_products-price']/li/a")})
     private List<WebElement> filterByPriceDropDownOptions;
 
-    @FindAll({@FindBy(how = How.CSS, using = "//ol[@id='show_above_products-diamond_filter_colour']/li/a")})
+    @FindAll({@FindBy(how = How.XPATH, using = "//ol[@id='show_above_products-diamond_filter_colour']/li/a")})
     private List<WebElement> filterByDiamondDropDownOptions;
 
-    @FindAll({@FindBy(how = How.CSS, using = "//ol[@id='show_above_products-designer_name']/li/a")})
+    @FindAll({@FindBy(how = How.XPATH, using = "//ol[@id='show_above_products-designer_name']/li/a")})
     private List<WebElement> filterByDesignerDropDownOptions;
 
 
-    @FindBy(how = How.ID, using = "toolbar-amount")
-    private WebElement amountToolbar;
+    @FindAll({@FindBy(how = How.ID, using = "//span[@class='toolbar-number']")})
+    private List<WebElement> numbersToolbar;
 
     @FindBy(how = How.CSS, using = "a.action.remove")
     private WebElement remover;
@@ -58,47 +58,81 @@ public class ShopByCategoryPage extends BasePage {
     @FindBy(how = How.CSS, using = "span.filter-value")
     private WebElement filterValue;
 
-    public ShopByCategoryPage(WebDriver driver) { super(driver);}
+    public ShopByCategoryPage(WebDriver driver) {
+        super(driver);
+    }
 
     public void goToShopByCategoryPage() {
         LOGGER.info("Navigating to shop by category page");
-        navigateTo(PAGE_URL); }
+        navigateTo(PAGE_URL);
+    }
 
     /**
      * Clicks on a category from the Select a Category menu
      */
     public void clickOnCategoryButtonByName(String name) {
-        clickWebElementByText(name,categoriesButtons); }
+        clickWebElementByText(name, categoriesButtons);
+    }
+
+    /**
+     * Clicks on a category from the Select a Category menu
+     */
+    public void clickOnFilterByName(String name) {
+        LOGGER.info("Clicking on " + name + " filter");
+        clickWebElementByText(name, filterByOptions);
+    }
 
     /**
      * Clicks on product by name
+     *
      * @param name
      */
-    public void clickOnProductByName(String name){
+    public void clickOnProductByName(String name) {
         scrollDownToElement(productRange);
-        clickWebElementByText(name, products );}
+        clickWebElementByText(name, products);
+    }
 
-    public String getFilterValueText(){
+    public String getFilterValueText() {
         LOGGER.info("Getting filter value text");
         return getText(filterValue); }
 
-    public void clickRemoverButton(){
+    public void clickRemoverButton() {
         LOGGER.info("Clicking the remove filter button");
         click(remover); }
 
-    /**
-     * Clicks on an option from the filters
-     */
-    public List<String> storeFilterByMetalValues(String filterBy) {
-        LOGGER.info("Clicks on " + filterBy + " filter");
-        List<String> metalOptionsList = new ArrayList<>();
-        clickWebElementByText(filterBy, filterByOptions);
-        for( WebElement metalOptions : filterByMetalDropDownOptions){
-            metalOptionsList.add(metalOptions.getText());}
-    return metalOptionsList;}
+    public void selectMetalFilterByName(String filterName, String metalName) {
+        LOGGER.info("Selecting "+ metalName + "from metal filter options");
+        clickOnFilterByName(filterName);
+        clickWebElementByText(metalName, filterByMetalDropDownOptions); }
 
-//    От тук нататък идеята ми е да си направя параметъризиран тест, чиито сорс да е metalOptionsList
+    public void selectGemsFilterByName(String filterName, String gemName) {
+        LOGGER.info("Selecting "+ gemName + "from gems filter options");
+        clickOnFilterByName(filterName);
+        clickWebElementByText(gemName, filterByGemsDropDownOptions); }
 
+    public void selectPriceFilterByRange(String filterName, String range) {
+        LOGGER.info("Selecting "+ range + "from price filter options");
+        clickOnFilterByName(filterName);
+        clickWebElementByText(range, filterByPriceDropDownOptions); }
 
+    public void selectDiamondsFilterByName(String filterName, String name) {
+        LOGGER.info("Selecting "+ name + "from price filter options");
+        clickOnFilterByName(filterName);
+        clickWebElementByText(name, filterByDiamondDropDownOptions); }
+
+    public void selectDesignerFilterByName(String filterName, String name) {
+        LOGGER.info("Selecting "+ name + "from price filter options");
+        clickOnFilterByName(filterName);
+        clickWebElementByText(name, filterByDesignerDropDownOptions); }
+
+    public String checkIfAmountToolbarValueIsZero() {
+        LOGGER.info("Getting the value of the amount of items displayed");
+        for(WebElement numberToolbar : numbersToolbar){
+        if (Integer.parseInt(getText(numberToolbar)) == 0)
+            return "True";}
+        return "False"; }
 
 }
+
+
+

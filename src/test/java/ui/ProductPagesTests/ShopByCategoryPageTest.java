@@ -3,6 +3,8 @@ package ui.ProductPagesTests;
 import core.BaseTest;
 import enums.Category;
 import enums.Emails;
+import enums.Filters.*;
+import enums.RequiredFields;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
@@ -25,37 +27,52 @@ public class ShopByCategoryPageTest extends BaseTest {
         app.components().clickCompanyLogo();
         Assertions.assertEquals("Home Page", app.homePage().getPageTitle());}
 
-    @Test
+    @ParameterizedTest(name = "MVP-13: Can filter products by metal=> {0}")
+    @EnumSource(value = Metal.class)
     @Tag("plp")
     @DisplayName("MVP-13: Can filter products by metal")
-    public void canFilterProductsByMetal() {
-        app.shopByCategoryPage().goToShopByCategoryPage();
-        Assertions.assertEquals("Shop", app.shopByCategoryPage().getPageTitle());
-        app.shopByCategoryPage().storeFilterByMetalValues("Metal"); }
+    public void canFilterProductsByMetal(Metal metal) {
+        app.shopByCategoryPage().selectMetalFilterByName("Metal", metal.getMetal());
+        Assertions.assertEquals(metal.getMetal(),app.shopByCategoryPage().getFilterValueText());
+        Assertions.assertEquals("False",app.shopByCategoryPage().checkIfAmountToolbarValueIsZero()); }
 
 
-    @Test
+    @ParameterizedTest(name ="MVP-237: Can filter products by gems => {0}")
+    @EnumSource(value = Gems.class)
     @Tag("plp")
     @DisplayName("MVP-237: Can filter products by gems")
-    public void canFilterProductsByGems() { };
+    public void canFilterProductsByGems(Gems gems) {
+        app.shopByCategoryPage().selectGemsFilterByName("Gems", gems.getGems());
+        Assertions.assertEquals(gems.getGems(),app.shopByCategoryPage().getFilterValueText());
+        Assertions.assertEquals("False",app.shopByCategoryPage().checkIfAmountToolbarValueIsZero()); }
 
-    @Test
+    @ParameterizedTest(name ="MVP-238: Can filter products on Shop by products page by price range => {0}")
+    @EnumSource(value = Price.class)
     @Tag("plp")
-    @DisplayName("MVP-238: Can filter products on Shop by products page by price")
-    public void canFilterProductsByPrice() {
-    };
+    @DisplayName("MVP-238: Can filter products on Shop by products page by price range")
+    public void canFilterProductsByPrice(Price price) {
+        app.shopByCategoryPage().selectPriceFilterByRange("Price", price.getPrice());
+        Assertions.assertEquals(price.getPrice(),app.shopByCategoryPage().getFilterValueText());
+        Assertions.assertEquals("False",app.shopByCategoryPage().checkIfAmountToolbarValueIsZero()); }
 
-    @Test
+
+    @ParameterizedTest(name ="MVP-239: Can filter products on Shop by products page by diamonds type=> {0}")
+    @EnumSource(value = Diamonds.class)
     @Tag("plp")
     @DisplayName("MVP-239: Can filter products on Shop by products page by diamonds type")
-    public void canFilterProductsByDiamonds() {
-    };
+    public void canFilterProductsByDiamonds(Diamonds diamonds) {
+        app.shopByCategoryPage().selectDiamondsFilterByName("Diamonds", diamonds.getDiamonds());
+        Assertions.assertEquals(diamonds.getDiamonds(),app.shopByCategoryPage().getFilterValueText());
+        Assertions.assertEquals("False",app.shopByCategoryPage().checkIfAmountToolbarValueIsZero()); }
 
-    @Test
+    @ParameterizedTest(name ="MVP-239: Can filter products on Shop by products page by designer type=> {0}")
+    @EnumSource(value = Designer.class)
     @Tag("plp")
     @DisplayName("MVP-239: Can filter products on Shop by products page by designer")
-    public void canFilterProductsByDesigner() {
-    };
+    public void canFilterProductsByDesigner(Designer designer) {
+        app.shopByCategoryPage().selectDesignerFilterByName("Designer", designer.getDesigner());
+        Assertions.assertEquals(designer.getDesigner(),app.shopByCategoryPage().getFilterValueText());
+        Assertions.assertEquals("False",app.shopByCategoryPage().checkIfAmountToolbarValueIsZero()); }
 
 
 }
