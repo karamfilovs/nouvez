@@ -8,7 +8,8 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import pages.*;
+import pages.ProductPages.*;
+import pages.UserPages.*;
 
 import java.io.File;
 import java.time.LocalTime;
