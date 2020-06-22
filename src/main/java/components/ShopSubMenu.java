@@ -39,6 +39,9 @@ public class ShopSubMenu extends BasePage {
     @FindBy(how = How.XPATH, using = "//span[text()='One of a Kind']")
     private WebElement oneOfAKindButton;
 
+    @FindBy(how = How.XPATH, using = "//span[text()='Gifting']")
+    private WebElement giftingButton;
+
     @FindBy(how = How.XPATH, using = "//span[text()='Below £2,000']")
     private WebElement below2000Button;
 
@@ -112,6 +115,11 @@ public class ShopSubMenu extends BasePage {
         public void clickOneOfAKind(){
         hoverOverShop();
         LOGGER.info("Clicking one of a kind button from the shop sub menu");
+        click(oneOfAKindButton);}
+
+        public void clickGifting(){
+        hoverOverShop();
+        LOGGER.info("Clicking gifting button from the shop sub menu");
         click(oneOfAKindButton);}
 
 

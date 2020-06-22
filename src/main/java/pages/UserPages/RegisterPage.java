@@ -37,13 +37,25 @@ public class RegisterPage extends BasePage {
     private WebElement passwordMissMatchError;
 
     @FindBy(how = How.ID, using = "password-error")
-    private WebElement weakPasswordError;
+    private WebElement passwordError;
+
+    @FindBy(how = How.ID, using = "password-confirmation-error")
+    private WebElement repeatPasswordError;
 
     @FindBy(how = How.XPATH, using = "//button[@class='action submit primary']")
     private WebElement createAccountButton;
 
     @FindBy(how = How.CSS, using = "div.message-error.error.message")
     private WebElement topErrorMessage;
+
+    @FindBy(how = How.ID, using = "email_address-error")
+    private WebElement emailAddressError;
+
+    @FindBy(how = How.ID, using = "firstname-error")
+    private WebElement firstNameError;
+
+    @FindBy(how = How.ID, using = "lastname-error")
+    private WebElement lastNameError;
 
     @FindBy(how = How.XPATH, using = "//div[@class='box box-newsletter']//div/p")
     private WebElement newsletterSubscriptionText;
@@ -96,6 +108,14 @@ public class RegisterPage extends BasePage {
 
     public String passwordMissMatchErrorMessage(){ return getText(passwordMissMatchError); }
 
-    public String weakPasswordError(){ return getText(weakPasswordError); }
+    public String getPasswordError(){ return getText(passwordError); }
+
+    public String getEmailAddressError(){ return getText(emailAddressError); }
+
+    public String getFirstNameError(){ return getText(firstNameError); }
+
+    public String getLastNameError(){ return getText(lastNameError); }
+
+    public String getRepeatPasswordError(){ return getText(repeatPasswordError); }
 
 }

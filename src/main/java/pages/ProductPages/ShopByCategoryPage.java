@@ -18,7 +18,7 @@ import java.util.ListIterator;
 
 public class ShopByCategoryPage extends BasePage {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ShopPage.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ShopByCategoryPage.class);
     private final String PAGE_URL = "/shop/shop-by-category.html";
 
     @FindAll({@FindBy(how = How.XPATH, using = "//div[@class='subcategories']/ul/li")})
@@ -47,7 +47,6 @@ public class ShopByCategoryPage extends BasePage {
 
     @FindAll({@FindBy(how = How.XPATH, using = "//ol[@id='show_above_products-designer_name']/li/a")})
     private List<WebElement> filterByDesignerDropDownOptions;
-
 
     @FindAll({@FindBy(how = How.ID, using = "//span[@class='toolbar-number']")})
     private List<WebElement> numbersToolbar;

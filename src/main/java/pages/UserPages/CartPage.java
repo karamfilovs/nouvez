@@ -43,6 +43,9 @@ public class CartPage extends BasePage {
     @FindBy(how = How.XPATH, using = "//div[@class='message-error error message']")
     private WebElement errorMessage;
 
+    @FindBy(how = How.XPATH, using = "//div[@class='cart-empty']")
+    private WebElement emptyCartMessage;
+
 
     public CartPage(WebDriver driver) {
         super(driver);
@@ -103,4 +106,8 @@ public class CartPage extends BasePage {
         int price = Integer.parseInt(getProductPrice());
         int total = itemQuantity * price;
         return total; }
+
+    public String getEmptyCartMessageText() {
+        LOGGER.info("Getting the text of the empty cart message");
+        return getText(emptyCartMessage); }
 }

@@ -2,11 +2,9 @@ package ui.UserPagesTests;
 
 import core.BaseTest;
 import enums.Emails;
-import enums.RequiredFields;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
-import org.openqa.selenium.WebElement;
 import utils.DataGenerator;
 
 public class RegisterPageTest extends BaseTest {
@@ -55,7 +53,7 @@ public class RegisterPageTest extends BaseTest {
         app.registerPage().enterPassword("Test");
         app.registerPage().enterConfirmPassword("Test");
         app.registerPage().clickCreateAnAccountButton();
-        Assertions.assertEquals("Minimum length of this field must be equal or greater than 8 symbols. Leading and trailing spaces will be ignored.", app.registerPage().weakPasswordError()); }
+        Assertions.assertEquals("Minimum length of this field must be equal or greater than 8 symbols. Leading and trailing spaces will be ignored.", app.registerPage().getPasswordError()); }
 
     @ParameterizedTest(name = "MVP-4: Cant register user with invalid email => {0}")
     @EnumSource(value = Emails.class)
@@ -65,23 +63,26 @@ public class RegisterPageTest extends BaseTest {
         app.registerPage().enterFirstName("Yavor");
         app.registerPage().enterLastName("Todd");
         app.registerPage().enterEmail(emails.getEmails());
-        app.registerPage().enterPassword("Test");
-        app.registerPage().enterConfirmPassword("Test");
-        app.registerPage().clickCreateAnAccountButton(); }
+        app.registerPage().enterPassword("Test123");
+        app.registerPage().enterConfirmPassword("Test123");
+        app.registerPage().clickCreateAnAccountButton();
+        Assertions.assertEquals("Please enter a valid email address (Ex: johndoe@domain.com).",app.registerPage().getEmailAddressError());}
 
-
-    @ParameterizedTest(name = "MVP-245: Cant register user with blank required field => {0}")
-    @EnumSource(value = RequiredFields.class)
+    @Test
     @Tag("register")
     @DisplayName("MVP-4: MVP-245: Cant register user with blank required field")
-    public void cantRegisterWithBlankRequiredField(RequiredFields requiredFields) {
-        app.registerPage().enterFirstName("Yavor");
-        app.registerPage().enterLastName("Todd");
-        app.registerPage().enterEmail(requiredFields.getRequiredFields());
-        app.registerPage().enterPassword("Test");
-        app.registerPage().enterConfirmPassword("Test");
-        app.registerPage().clickCreateAnAccountButton(); }
-
+    public void cantRegisterWithBlankRequiredField() {
+        app.registerPage().enterFirstName(" ");
+        app.registerPage().enterLastName(" ");
+        app.registerPage().enterEmail(" ");
+        app.registerPage().enterPassword("  ");
+        app.registerPage().enterConfirmPassword(" ");
+        app.registerPage().clickCreateAnAccountButton();
+        Assertions.assertEquals("This is a required field.", app.registerPage().getFirstNameError());
+        Assertions.assertEquals("This is a required field.",app.registerPage().getLastNameError());
+        Assertions.assertEquals("This is a required field.",app.registerPage().getEmailAddressError());
+        Assertions.assertEquals("This is a required field.", app.registerPage().getPasswordError());
+        Assertions.assertEquals("This is a required field.", app.registerPage().getRepeatPasswordError()); }
 
     @Test
     @Tag("register")

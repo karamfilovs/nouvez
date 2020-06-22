@@ -6,6 +6,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
@@ -46,6 +47,9 @@ public abstract class BasePage {
 
     @FindBy(how = How.CSS, using = ".icon.icon-account")
     private WebElement myAccountIcon;
+
+    @FindAll({@FindBy(how = How.ID, using = "//span[@class='toolbar-number']")})
+    private List<WebElement> numbersToolbar;
 
     protected WebDriver driver;
 
@@ -315,5 +319,12 @@ public abstract class BasePage {
             if (getText(curElement).contains(text)) {
                 click(curElement);
                 break; } } }
+
+    public String checkIfAmountToolbarValueIsZero() {
+        LOGGER.info("Getting the value of the amount of items displayed");
+        for(WebElement numberToolbar : numbersToolbar){
+            if (Integer.parseInt(getText(numberToolbar)) == 0)
+                return "True";}
+        return "False"; }
 
 }
