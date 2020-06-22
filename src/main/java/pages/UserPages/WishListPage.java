@@ -55,9 +55,6 @@ public class WishListPage extends BasePage {
     @FindBy(how = How.CSS, using = "button.action.share")
     private WebElement shareWishListButton;
 
-    @FindBy(how = How.XPATH, using = "//button[@data-role='all-tocart']")
-    private WebElement addAllToCartButton;
-
     @FindBy(how = How.XPATH, using = "a.product-item-photo")
     private WebElement productItem;
 
@@ -132,9 +129,5 @@ public class WishListPage extends BasePage {
         click(shareWishListButton);
     }
 
-    public void addAllItemsToCart() {
-        LOGGER.info("Adding all items to cart");
-        click(addAllToCartButton);
-    }
 
 }

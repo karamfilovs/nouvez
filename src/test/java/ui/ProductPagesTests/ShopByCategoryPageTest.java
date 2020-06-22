@@ -2,9 +2,7 @@ package ui.ProductPagesTests;
 
 import core.BaseTest;
 import enums.Category;
-import enums.Emails;
 import enums.Filters.*;
-import enums.RequiredFields;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;

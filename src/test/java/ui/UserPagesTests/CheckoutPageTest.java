@@ -21,8 +21,7 @@ public class CheckoutPageTest extends BaseTest {
         String CVC = DataGenerator.generateRandomNumber(3);
         app.productListingPage().gotoProductListingsPage();
         Assertions.assertEquals("Shop", app.productListingPage().getPageTitle());
-        app.productListingPage().clickProductByName("Maison Auclert");
-        Assertions.assertEquals("Maison Auclert", app.productDetailsPage().getDesignerNameText());
+        app.productListingPage().clickFirstProduct();
         app.productDetailsPage().clickAddToCartButton();
         app.components().miniCart().clickCheckOut();
         Assertions.assertEquals("Checkout", app.checkoutPage().getPageTitle());
@@ -40,8 +39,7 @@ public class CheckoutPageTest extends BaseTest {
         Assertions.assertEquals("My Account", app.myAccountPage().getPageTitle());
         app.productListingPage().gotoProductListingsPage();
         Assertions.assertEquals("Shop", app.productListingPage().getPageTitle());
-        app.productListingPage().clickProductByName("Pippa Small");
-        Assertions.assertEquals("Pippa Small", app.productDetailsPage().getDesignerNameText());
+        app.productListingPage().clickFirstProduct();
         app.productDetailsPage().clickAddToCartButton();
         app.components().miniCart().clickCheckOut();
         Assertions.assertEquals("Checkout", app.checkoutPage().getPageTitle());

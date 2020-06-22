@@ -8,17 +8,16 @@ public class SearchTest extends BaseTest {
     @BeforeEach
     public void beforeEach(){
         app.homePage().gotoHomePage();
-        Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle());
-    }
+        Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle()); }
 
 
     @Test
     @Tag("search")
     @DisplayName("MVP-6: Can search for existing designer full match")
     public void canSearchForDesigner(){
-        app.homePage().searchProduct("Bulgari");
-        Assertions.assertEquals("Search results for: 'Bulgari'", app.myAccountPage().getPageTitle());
-    }
+        app.homePage().searchProduct("Pippa Small");
+        Assertions.assertEquals("Search results for: 'Pippa Small'", app.myAccountPage().getPageTitle());
+        Assertions.assertEquals("False", app.homePage().checkIfAmountToolbarValueIsZero()); }
 
     @Test
     @Tag("search")
@@ -26,8 +25,7 @@ public class SearchTest extends BaseTest {
     public void canSearchForNonExistingDesigner(){
         app.homePage().searchProduct("Alex");
         Assertions.assertEquals("Search results for: 'Alex'", app.homePage().getPageTitle());
-        Assertions.assertEquals("Your search returned no results.", app.homePage().getSearchNoticeMessage());
-    }
+        Assertions.assertEquals("Your search returned no results.", app.homePage().getSearchNoticeMessage()); }
 
     @Test
     @Tag("search")
@@ -35,16 +33,15 @@ public class SearchTest extends BaseTest {
     public void canSearchForProduct(){
         app.homePage().searchProduct("bracelet");
         Assertions.assertEquals("Search results for: 'bracelet'", app.homePage().getPageTitle());
-    }
+        Assertions.assertEquals("False", app.homePage().checkIfAmountToolbarValueIsZero());}
 
     @Test
     @Tag("search")
     @DisplayName("MVP-162: Can search for existing product partial match")
     public void canSearchForProductByPartialMatch(){
         app.homePage().searchProduct("rin");
-        Assertions.assertEquals("Search results for: 'rin'", app.homePage().getPageTitle());
-        Assertions.assertEquals("ring", app.homePage().getRelatedSearchTermText());
-    }
+        Assertions.assertEquals("Search results for: 'rin'", app.homePage().getRelatedSearchTermText());
+        Assertions.assertEquals("False", app.homePage().checkIfAmountToolbarValueIsZero());}
 
     @Test
     @Tag("search")

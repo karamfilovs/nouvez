@@ -80,5 +80,11 @@ public class ProductDetailsPage extends BasePage {
     public String getProductPrice() {
         return getText(productPrice); }
 
+    public String shareThisIsPresent(){
+    LOGGER.info("Checking if share this button is present");
+    if(isDisplayed(shareLink) == true){
+    return "true";}
+    else return "false";}
+
     public void navigateToSpecificProduct(String productURL) { navigateTo(productURL); }
 }

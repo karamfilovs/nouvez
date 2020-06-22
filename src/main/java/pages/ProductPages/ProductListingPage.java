@@ -15,7 +15,7 @@ public class ProductListingPage extends BasePage {
     @FindBy(how = How.ID, using = "product-addtocart-button")
     private WebElement addToCartButton;
 
-    @FindAll({@FindBy(how = How.XPATH, using = "span.product-image-container")})
+    @FindAll({@FindBy(how = How.CSS, using = "a.product-item-link")})
     private List <WebElement> products;
 
     @FindAll({@FindBy(how = How.XPATH, using = "//strong[@class='product name product-item-name']/a")})
@@ -36,4 +36,10 @@ public class ProductListingPage extends BasePage {
             if (getText(curProduct).contains(productName)) {
                 click(curProduct);
                 break; } } }
-}
+
+    public void clickFirstProduct(){
+        LOGGER.info("Clicking on the first product");
+        for(WebElement product : products){
+            click(product);
+        break; }}
+    }

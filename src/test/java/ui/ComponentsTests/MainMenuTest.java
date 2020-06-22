@@ -15,7 +15,7 @@ public class MainMenuTest extends BaseTest {
     @DisplayName("MVP-152: Can navigate to diary page from main menu and return to home page using Once logo")
     public void canNavigateToDiaryPageAndBackToHomeUsingLogo(){
         app.components().mainMenu().clickDiary();
-        Assertions.assertEquals("Once | Once", app.shopPage().getPageTitle());
+        Assertions.assertEquals("Once | Once", app.shopByCategoryPage().getPageTitle());
         app.components().clickCompanyLogo();
         Assertions.assertEquals("Home Page", app.homePage().getPageTitle()); }
 
@@ -24,7 +24,7 @@ public class MainMenuTest extends BaseTest {
     @DisplayName("MVP-152: Can navigate to experience page from main menu and return to home page using Once logo")
     public void canNavigateToExperiencePageAndBackToHomeUsingLogo(){
         app.components().mainMenu().clickExperience();
-        Assertions.assertEquals("Experience", app.shopPage().getPageTitle());
+        Assertions.assertEquals("Experience", app.shopByCategoryPage().getPageTitle());
         app.components().clickCompanyLogo();
         Assertions.assertEquals("Home Page", app.homePage().getPageTitle()); }
 
@@ -33,7 +33,7 @@ public class MainMenuTest extends BaseTest {
     @DisplayName("MVP-152: Can navigate to about page from main menu and return to home page using Once logo")
     public void canNavigateToAboutPageAndBackToHomeUsingLogo(){
         app.components().mainMenu().clickAbout();
-        Assertions.assertEquals("About", app.shopPage().getPageTitle());
+        Assertions.assertEquals("About", app.shopByCategoryPage().getPageTitle());
         app.components().clickCompanyLogo();
         Assertions.assertEquals("Home Page", app.homePage().getPageTitle()); }
 
@@ -42,7 +42,7 @@ public class MainMenuTest extends BaseTest {
     @DisplayName("MVP-152: Can navigate to contact page from main menu and return to home page using breadcrumbs trail")
     public void canNavigateToContactPageAndBackToHomeClickingOnTheLogo(){
         app.components().mainMenu().clickContact();
-        Assertions.assertEquals("Contact", app.shopPage().getPageTitle());
+        Assertions.assertEquals("Contact", app.shopByCategoryPage().getPageTitle());
         app.components().clickCompanyLogo();
         Assertions.assertEquals("Home Page", app.homePage().getPageTitle()); }
 

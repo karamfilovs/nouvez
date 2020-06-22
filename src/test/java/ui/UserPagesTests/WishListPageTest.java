@@ -18,7 +18,7 @@ public class WishListPageTest extends BaseTest {
     @Tag("wish-list")
     @DisplayName("MVP-180: Can change the quantity of displayed items in the wish list")
     public void changeDisplayedItems() {
-        app.myAccountNavigation().clickMyWishList();
+        app.myAccountNavigation().clickMyWishListLink();
         Assertions.assertEquals("My Wish List", app.wishListPage().getPageTitle());
         app.wishListPage().selectQuantityOfShownItems("20");
         Assertions.assertEquals("20", app.wishListPage().checkLimiterQuantity());
@@ -81,14 +81,6 @@ public class WishListPageTest extends BaseTest {
         app.wishListPage().addToCart();
     }
 
-    @Test
-    @Tag("wish-list")
-    @DisplayName("MVP-60: Can add all items from wish-list to cart")
-    public void canAddAllItemsFromWishListToCart() {
-        app.homePage().clickWishListIcon();
-        Assertions.assertEquals("My Wish List", app.myAccountPage().getPageTitle());
-        app.wishListPage().addAllItemsToCart();
-    }
 
     @Test
     @Tag("wish-list")

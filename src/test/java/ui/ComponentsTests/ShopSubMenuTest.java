@@ -20,7 +20,7 @@ public class ShopSubMenuTest extends BaseTest {
     @DisplayName("MVP-240: Can navigate to shop by category page via the shop sub menu")
     public void canNavigateToShopByCategoryPage() {
         app.components().shopSubCategoryMenu().clickOnShopAll();
-        Assertions.assertEquals("Shop - Shop", app.shopByCategoryPage().getPageTitle()); }
+        Assertions.assertEquals("Shop", app.shopByCategoryPage().getPageTitle()); }
 
     @Test
     @Tag("SkipCleanup")
@@ -34,14 +34,14 @@ public class ShopSubMenuTest extends BaseTest {
     @DisplayName("MVP-240: Can navigate to necklaces page via the shop sub-category menu")
     public void canNavigateToNecklacesPageAndBackHomeViaLogo() {
         app.components().shopSubCategoryMenu().clickNecklaces();
-        Assertions.assertEquals("Necklaces - Shop - Shop", app.homePage().getPageTitle()); }
+        Assertions.assertEquals("Necklaces", app.homePage().getPageTitle()); }
 
     @Test
     @Tag("shopSubCategory")
     @DisplayName("MVP-240: Can navigate to earrings page via the shop sub-category menu")
     public void canNavigateToEarringsPageAndBackHomeViaLogo() {
         app.components().shopSubCategoryMenu().clickEarrings();
-        Assertions.assertEquals("Earrings - Shop - Shop", app.homePage().getPageTitle()); }
+        Assertions.assertEquals("Earrings", app.homePage().getPageTitle()); }
 
 
     @Test
@@ -49,28 +49,35 @@ public class ShopSubMenuTest extends BaseTest {
     @DisplayName("MVP-240: Can navigate to rings page via the shop sub-category menu")
     public void canNavigateToRingsPageAndBackHomeViaLogo() {
         app.components().shopSubCategoryMenu().clickRings();
-        Assertions.assertEquals("Rings - Shop - Shop", app.homePage().getPageTitle()); }
+        Assertions.assertEquals("Rings", app.homePage().getPageTitle()); }
 
     @Test
     @Tag("shopSubCategory")
     @DisplayName("MVP-240: Can navigate to bracelets page via the shop sub-category menu")
     public void canNavigateToBraceletsPageAndBakcHomeViaLogo() {
         app.components().shopSubCategoryMenu().clickBracelets();
-        Assertions.assertEquals("Bracelets - Shop - Shop", app.homePage().getPageTitle()); }
+        Assertions.assertEquals("Bracelets", app.homePage().getPageTitle()); }
 
     @Test
     @Tag("shopSubCategory")
     @DisplayName("MVP-240: Can navigate to accessories category via the shop sub-category menu")
     public void canNavigateToAccessoriesPageAndBackHomeViaLogo() {
         app.components().shopSubCategoryMenu().clickAccessories();
-        Assertions.assertEquals("Accessories - Shop - Shop", app.homePage().getPageTitle()); }
+        Assertions.assertEquals("Accessories", app.homePage().getPageTitle()); }
 
     @Test
     @Tag("shopSubCategory")
     @DisplayName("MVP-240: Can navigate to One of a kind page via the shop sub-category menu")
     public void canNavigateToOneOfAKindPageAndBackHomeViaLogo() {
         app.components().shopSubCategoryMenu().clickOneOfAKind();
-        Assertions.assertEquals("One of a Kind - Shop - Shop", app.homePage().getPageTitle()); }
+        Assertions.assertEquals("One of a Kind", app.homePage().getPageTitle()); }
+
+    @Test
+    @Tag("shopSubCategory")
+    @DisplayName("MVP-240: Can navigate to One of a kind page via the shop sub-category menu")
+    public void canNavigateToGiftingPageAndBackHomeViaLogo() {
+        app.components().shopSubCategoryMenu().clickGifting();
+        Assertions.assertEquals("Gifting", app.homePage().getPageTitle()); }
 
 
 }

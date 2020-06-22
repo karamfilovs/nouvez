@@ -2,6 +2,7 @@ package core;
 
 import CategoryPages.CategoryPages;
 import components.Components;
+import components.MyAccountNavigation;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -32,12 +33,10 @@ public class App {
     private CheckoutPage2 checkoutPage2;
     private CartPage cartPage;
     private NewsFeedPage newsFeedPage;
-    private ShopPage shopPage;
     private WishListPage wishListPage;
     private MyOrdersPage myOrdersPage;
     private AddressBookPage addressBookPage;
     private MyAccountNavigation myAccountNavigation;
-    private SendInvitationsPage sendInvitationsPage;
     private MyInvitationsPage myInvitationsPage;
     private WishListSharingPage wishListSharingPage;
     private ShopByCategoryPage shopByCategoryPage;
@@ -111,10 +110,6 @@ public class App {
             newsFeedPage = new NewsFeedPage(driver); }
         return newsFeedPage; }
 
-    public ShopPage shopPage() {
-        if (shopPage == null) {
-            shopPage = new ShopPage(driver); }
-        return shopPage; }
 
     public WishListPage wishListPage() {
         if (wishListPage == null) {
@@ -142,10 +137,6 @@ public class App {
             myAccountNavigation = new MyAccountNavigation(driver); }
         return myAccountNavigation; }
 
-    public SendInvitationsPage sendInvitationsPage() {
-        if (sendInvitationsPage == null) {
-            sendInvitationsPage = new SendInvitationsPage(driver); }
-        return sendInvitationsPage; }
 
     public MyInvitationsPage myInvitationsPage() {
         if (myInvitationsPage == null) {
