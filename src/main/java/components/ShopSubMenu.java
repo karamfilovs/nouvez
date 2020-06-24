@@ -2,11 +2,14 @@ package components;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pages.BasePage;
+
+import java.util.List;
 
 
 public class ShopSubMenu extends BasePage {
@@ -42,6 +45,9 @@ public class ShopSubMenu extends BasePage {
     @FindBy(how = How.XPATH, using = "//span[text()='Gifting']")
     private WebElement giftingButton;
 
+//    @FindAll({ @FindBy(how = How.PARTIAL_LINK_TEXT, using = "shop-by-category")})
+//    private List<WebElement> designerLinks;
+
     @FindBy(how = How.XPATH, using = "//span[text()='Below £2,000']")
     private WebElement below2000Button;
 
@@ -54,8 +60,8 @@ public class ShopSubMenu extends BasePage {
     @FindBy(how = How.XPATH, using = "//span[text()='Above £10,000']")
     private WebElement above10000;
 
-//    @FindAll({@FindBy(how = How.XPATH, using = "//ul[@class='level1 submenu ui-menu ui-widget ui-widget-content ui-corner-all expanded submenu-reverse']/li/a")})
-//    private List<WebElement> shopDropDownOptions;
+//    @FindAll({@FindBy(how = How.XPATH, using = "//div[@class='header-nav']//ul/li/a")})
+//    private List<WebElement> shopByCategoryDropDownOptions;
 
     public ShopSubMenu(WebDriver driver) {super(driver);}
 
@@ -85,7 +91,7 @@ public class ShopSubMenu extends BasePage {
      */
 //    public void clickOnCategoryButtonByName(String name) {
 //        hoverOverShop();
-//        clickWebElementByText(name,shopDropDownOptions); }
+//        clickWebElementByText(name,shopByCategoryDropDownOptions); }
 
         public void clickNecklaces(){
         hoverOverShop();
@@ -120,7 +126,7 @@ public class ShopSubMenu extends BasePage {
         public void clickGifting(){
         hoverOverShop();
         LOGGER.info("Clicking gifting button from the shop sub menu");
-        click(oneOfAKindButton);}
+        click(giftingButton);}
 
 
         public void clickBelow2000(){
@@ -142,4 +148,8 @@ public class ShopSubMenu extends BasePage {
         hoverOverShop();
         LOGGER.info("Clicking above 10000 button from the shop sub menu");
         click(above10000);}
+
+//        public void clickDesignerByName(String name){
+//            hoverOverShop();
+//            clickWebElementByText(name,designerLinks); }
 }
