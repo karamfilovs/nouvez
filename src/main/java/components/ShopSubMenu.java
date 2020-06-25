@@ -45,8 +45,8 @@ public class ShopSubMenu extends BasePage {
     @FindBy(how = How.XPATH, using = "//span[text()='Gifting']")
     private WebElement giftingButton;
 
-//    @FindAll({ @FindBy(how = How.PARTIAL_LINK_TEXT, using = "shop-by-category")})
-//    private List<WebElement> designerLinks;
+    @FindAll({ @FindBy(how = How.PARTIAL_LINK_TEXT, using = "shop-by-category")})
+    private List<WebElement> designerLinks;
 
     @FindBy(how = How.XPATH, using = "//span[text()='Below £2,000']")
     private WebElement below2000Button;
@@ -149,7 +149,7 @@ public class ShopSubMenu extends BasePage {
         LOGGER.info("Clicking above 10000 button from the shop sub menu");
         click(above10000);}
 
-//        public void clickDesignerByName(String name){
-//            hoverOverShop();
-//            clickWebElementByText(name,designerLinks); }
+        public void clickDesignerByName(String name){
+            hoverOverShop();
+            clickWebElementByText(name,designerLinks); }
 }
