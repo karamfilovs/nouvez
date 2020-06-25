@@ -111,12 +111,12 @@ public class ShopSubMenuTest extends BaseTest {
         app.components().shopSubCategoryMenu().clickAbove10000();
         Assertions.assertEquals("£10,000.00 and above", app.shopByCategoryPage().getFilterValueText()); }
 
- @Test
-    @Tag("shopSubCategory")
-    @DisplayName("MVP-240: Can navigate to above 10000 price range pages via the shop sub-category menu")
-    public void canNavigateToDesignerPages() {
-        app.components().shopSubCategoryMenu().clickDesignerByName("Antonini");
-        Assertions.assertEquals("Antonini", app.shopByCategoryPage().getPageTitle());}
+// @Test
+//    @Tag("shopSubCategory")
+//    @DisplayName("MVP-240: Can navigate to above 10000 price range pages via the shop sub-category menu")
+//    public void canNavigateToDesignerPages() {
+//        app.components().shopSubCategoryMenu().clickDesignerByName("Antonini");
+//        Assertions.assertEquals("Antonini", app.shopByCategoryPage().getPageTitle());}
 
 
 
