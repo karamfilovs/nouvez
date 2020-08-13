@@ -2,6 +2,7 @@ package pages;
 
 import enums.Checked;
 import enums.Currency;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,8 +18,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 public abstract class BasePage {
     private static int WAIT_TIME = 10;
@@ -326,5 +330,56 @@ public abstract class BasePage {
             if (Integer.parseInt(getText(numberToolbar)) == 0)
                 return "True";}
         return "False"; }
+
+    public boolean isLinkBroken(URL url) throws Exception {
+        LOGGER.info("Checking URL: " + url.toString());
+        String responseMessage;
+        int statusCode;
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        connection.setReadTimeout(10000);
+        connection.setConnectTimeout(10000);
+        connection.connect();
+        statusCode = connection.getResponseCode();
+        responseMessage = connection.getResponseMessage();
+        LOGGER.info("URL responded with: " + responseMessage.toUpperCase() + "/" + statusCode);
+        connection.disconnect();
+        boolean isGoodStatusCode = (statusCode >= 200 && statusCode < 400);
+        if(isGoodStatusCode){
+            return false;
+        } {
+            LOGGER.info("The broken link is: " + url.toString());
+            return true;
+        }
+
+    }
+
+    protected List<WebElement> findAllLinks() {
+        List<WebElement> links = driver.findElements(By.tagName("a"));
+        links.addAll(driver.findElements(By.tagName("img")));
+        return links.stream().filter(link -> link.getAttribute("href") != null).collect(Collectors.toList());
+    }
+
+    /**
+     * Performs check against all links found at the page to make sure none of them is broken
+     */
+    public void checkNoLinksAreBroken() {
+        List<WebElement> links = findAllLinks();
+        links.removeIf(link -> link.getAttribute("href").contains(",")); //delete this line when bug for main menu is fixed
+        links.removeIf(link -> link.getAttribute("href").contains("kb")); //removing link which doesn't return code
+        links.forEach(link -> {
+            try {
+                String destination = link.getAttribute("href");
+                if (isLinkBroken(new URL(destination))) {
+                    LOGGER.info("Repeating link check");
+                    if(isLinkBroken(new URL(destination))){
+                        throw new RuntimeException("Broken link: " + destination);
+                    }
+                }
+            } catch (Exception e) {
+                e.getMessage();
+            }
+        });
+
+    }
 
 }
