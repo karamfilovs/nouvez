@@ -14,14 +14,11 @@ public class MainMenu extends BasePage {
     @FindBy(how = How.XPATH, using = "//span[text()='Shop']")
     private WebElement shop;
 
+    @FindBy(how = How.XPATH, using = "//span[text()='Concierge']")
+    private WebElement concierge;
+
     @FindBy(how = How.XPATH, using = "//span[text()='Diary']")
     private WebElement diary;
-
-    @FindBy(how = How.XPATH, using = "//span[text()='Experience']")
-    private WebElement experience;
-
-    @FindBy(how = How.XPATH, using = "//span[text()='About']")
-    private WebElement about;
 
     @FindBy(how = How.XPATH, using = "//span[text()='Contact']")
     private WebElement contact;
@@ -40,8 +37,23 @@ public class MainMenu extends BasePage {
         waitForFullPageOrJsAjaxToLoad();
     }
 
+    public void ClickOnShop() {
+        LOGGER.info("Clicking on Shop link from main menu");
+        click(shop);
+        waitForFullPageOrJsAjaxToLoad();
+    }
+
     /**
      * Clicks on diary link
+     */
+    public void clickConcierge() {
+        LOGGER.info("Clicking on concierge link from main menu");
+        click(concierge);
+        waitForFullPageOrJsAjaxToLoad();
+    }
+
+    /**
+     * Clicks on experience link
      */
     public void clickDiary() {
         LOGGER.info("Clicking on diary link from main menu");
@@ -49,23 +61,6 @@ public class MainMenu extends BasePage {
         waitForFullPageOrJsAjaxToLoad();
     }
 
-    /**
-     * Clicks on experience link
-     */
-    public void clickExperience() {
-        LOGGER.info("HClicking on experience link from main menu");
-        click(experience);
-        waitForFullPageOrJsAjaxToLoad();
-    }
-
-    /**
-     * Clicks on about link
-     */
-    public void clickAbout() {
-        LOGGER.info("Clicking on About link from main menu");
-        click(about);
-        waitForFullPageOrJsAjaxToLoad();
-    }
 
     /**
      * Clicks on contact link

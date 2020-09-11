@@ -17,25 +17,18 @@ public class Components extends BasePage {
         if (mainMenu == null) {
             return new MainMenu(driver);
         } else {
-            return mainMenu;
-        }
-    }
+            return mainMenu; } }
 
     public ShopSubMenu shopSubCategoryMenu() {
         if (shopSubCategoryMenu == null) {
             return new ShopSubMenu(driver);
         } else {
-            return shopSubCategoryMenu;
-        }
-    }
-
+            return shopSubCategoryMenu; } }
 
     public MiniCart miniCart() {
         if (miniCart == null) {
             return new MiniCart(driver);
         } else {
-            return miniCart;
-        }
-    }
+            return miniCart; } }
 
 }

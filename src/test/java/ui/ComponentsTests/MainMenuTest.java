@@ -12,30 +12,22 @@ public class MainMenuTest extends BaseTest {
 
     @Test
     @Tag("main-menu")
+    @DisplayName("MVP-152: Can navigate to concierge page from main menu and return to home page using Once logo")
+    public void canNavigateToConciergePageAndBackToHomeUsingLogo(){
+        app.components().mainMenu().clickConcierge();
+        Assertions.assertEquals("Concierge", app.shopByCategoryPage().getPageTitle());
+        app.components().clickCompanyLogo();
+        Assertions.assertEquals("Home Page", app.homePage().getPageTitle()); }
+
+    @Test
+    @Tag("main-menu")
     @DisplayName("MVP-152: Can navigate to diary page from main menu and return to home page using Once logo")
     public void canNavigateToDiaryPageAndBackToHomeUsingLogo(){
         app.components().mainMenu().clickDiary();
-        Assertions.assertEquals("Once | Once", app.shopByCategoryPage().getPageTitle());
+        Assertions.assertEquals("Diary", app.shopByCategoryPage().getPageTitle());
         app.components().clickCompanyLogo();
         Assertions.assertEquals("Home Page", app.homePage().getPageTitle()); }
 
-    @Test
-    @Tag("main-menu")
-    @DisplayName("MVP-152: Can navigate to experience page from main menu and return to home page using Once logo")
-    public void canNavigateToExperiencePageAndBackToHomeUsingLogo(){
-        app.components().mainMenu().clickExperience();
-        Assertions.assertEquals("Experience", app.shopByCategoryPage().getPageTitle());
-        app.components().clickCompanyLogo();
-        Assertions.assertEquals("Home Page", app.homePage().getPageTitle()); }
-
-    @Test
-    @Tag("main-menu")
-    @DisplayName("MVP-152: Can navigate to about page from main menu and return to home page using Once logo")
-    public void canNavigateToAboutPageAndBackToHomeUsingLogo(){
-        app.components().mainMenu().clickAbout();
-        Assertions.assertEquals("About", app.shopByCategoryPage().getPageTitle());
-        app.components().clickCompanyLogo();
-        Assertions.assertEquals("Home Page", app.homePage().getPageTitle()); }
 
     @Test
     @Tag("main-menu")
