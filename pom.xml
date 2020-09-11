@@ -160,7 +160,7 @@
                         <headless>off</headless>
                         <login.username>yavor@pragmatic-qa.com</login.username>
                         <login.password>Test2020$</login.password>
-                        <url>http://youronce.brmcloud.co.uk</url>
+                        <url>https://www-stage.youronce.com/</url>
                         <take.screenshots.enabled>true</take.screenshots.enabled>
                     </systemPropertyVariables>
                     <groups>${tags}</groups>

@@ -1,4 +1,4 @@
-package ui.UserPagesTests;
+package ui.ComponentsTests;
 
 import core.BaseTest;
 import io.github.artsok.RepeatedIfExceptionsTest;
