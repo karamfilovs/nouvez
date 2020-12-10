@@ -15,8 +15,8 @@ public class LoginPageTest extends BaseTest {
     public void canLoginWithValidCredentials(){
         app.loginPage().gotoLoginPage();
         Assertions.assertEquals("Customer Login", app.loginPage().getPageTitle());
-        app.loginPage().enterUsername("alex@pragmatic.bg");
-        app.loginPage().enterPassword("Test2019$");
+        app.loginPage().enterUsername("yavor@pragmatic-qa.com");
+        app.loginPage().enterPassword("Test2020$");
         app.loginPage().clickLoginButton();
         Assertions.assertEquals("My Account", app.myAccountPage().getPageTitle());
         app.myAccountPage().navigateToMenu(MyAccountNavMenu.SIGN_OUT);

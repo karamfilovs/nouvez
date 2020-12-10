@@ -13,16 +13,16 @@ public class LoginPage extends BasePage {
     private final String PAGE_URL = "/customer/account/login/";
 
     @FindBy(how = How.NAME, using = "login[username]")
-    private WebElement usernameField;
-
-    @FindBy(how = How.CSS, using = "a.action.remind")
-    private WebElement resetPasswordLink;
+    private WebElement emailField;
 
     @FindBy(how = How.NAME, using = "login[password]")
     private WebElement passwordField;
 
     @FindBy(how = How.ID, using = "send2")
     private WebElement loginButton;
+
+    @FindBy(how = How.CSS, using = "a.action.remind")
+    private WebElement resetPasswordLink;
 
     @FindBy(how = How.ID, using = "email-error")
     private WebElement badLoginErrorMessage;
@@ -70,7 +70,7 @@ public class LoginPage extends BasePage {
 
     public void enterUsername(String username) {
         LOGGER.info("Entering username:" + username);
-        typeText(usernameField, username);
+        typeText(emailField, username);
     }
 
 
