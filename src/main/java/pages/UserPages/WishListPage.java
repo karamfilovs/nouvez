@@ -63,7 +63,6 @@ public class WishListPage extends BasePage {
     }
 
     public void selectQuantityOfShownItems(String optionVisibleTextToSelect) {
-        waitForElementVisibility(limiterDropDown);
         Select select = new Select(limiterDropDown);
         select.selectByVisibleText(optionVisibleTextToSelect);
     }

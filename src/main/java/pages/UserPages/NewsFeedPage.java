@@ -40,7 +40,6 @@ public class NewsFeedPage extends BasePage {
 
     private void clickSubscribeButton() {
         LOGGER.info("Clicking Subscribe button");
-        waitForElementToBeClickable(subscribeButton);
         click(subscribeButton); }
 
     public void subscribeToNewsFeed(String email) {

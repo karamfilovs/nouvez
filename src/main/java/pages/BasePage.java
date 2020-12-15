@@ -121,6 +121,7 @@ public abstract class BasePage {
      * @param isChecked       enums.Checked.YES or enums.Checked.NO depending on if you want it checked or no
      */
     protected void checkCheckbox(WebElement checkboxToCheck, Checked isChecked) {
+        waitForElementVisibility(checkboxToCheck);
         if (!checkboxToCheck.isSelected() && isChecked == Checked.YES) {
             checkboxToCheck.click();
         } else if (checkboxToCheck.isSelected() && isChecked == Checked.NO) {
@@ -152,7 +153,7 @@ public abstract class BasePage {
      * @param elementToBeVisible
      * @return
      */
-    protected WebElement waitForElementVisibility(WebElement elementToBeVisible) {
+    private WebElement waitForElementVisibility(WebElement elementToBeVisible) {
         waitForFullPageOrJsAjaxToLoad();
         driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         WebDriverWait wait = new WebDriverWait(driver, WAIT_TIME);
@@ -169,7 +170,7 @@ public abstract class BasePage {
      * @param elementToBeVisible
      * @return
      */
-    protected WebElement waitForElementToBeClickable(WebElement elementToBeVisible) {
+    private WebElement waitForElementToBeClickable(WebElement elementToBeVisible) {
         driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         WebDriverWait wait = new WebDriverWait(driver, WAIT_TIME);
         WebElement foundElementAfterWait = wait.until(ExpectedConditions.elementToBeClickable(elementToBeVisible));

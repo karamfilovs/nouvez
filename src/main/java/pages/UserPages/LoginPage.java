@@ -1,20 +1,15 @@
 package pages.UserPages;
 
-import enums.AccountType;
 import enums.Checked;
-import enums.Country;
-import enums.Salutation;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindAll;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.ui.Select;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pages.BasePage;
-
-import java.util.List;
 
 public class LoginPage extends BasePage {
     private static final Logger LOGGER = LoggerFactory.getLogger(LoginPage.class);
@@ -50,7 +45,7 @@ public class LoginPage extends BasePage {
     @FindBy (how = How.ID, using = "billingAddressAddressPhoneNumber")
     private WebElement phoneNumberField;
 
-    @FindBy (how = How.ID, using = "wk-term-check")
+    @FindBy (how = How.NAME, using = "gdprPolicy")
     private WebElement termsAndConditionsCheckbox;
 
     @FindBy (how = How.CSS, using = "button.btn-primary")
@@ -67,15 +62,13 @@ public class LoginPage extends BasePage {
 
     public void selectAccountType(String accountType) {
         LOGGER.info("Selects account type");
-        waitForElementVisibility(accountTypesDropDown);
-        Select select = new Select(accountTypesDropDown);
-        select.selectByVisibleText(accountType);}
+        selectDropDownOptionByVisibleText(accountTypesDropDown, accountType);
+    }
 
     public void selectSalutation(String salutationType){
-        LOGGER.info("Selects salutation " + salutationType);
-        waitForElementVisibility(salutationTypesDropDown);
-        Select select = new Select(salutationTypesDropDown);
-        select.selectByVisibleText(salutationType);}
+            LOGGER.info("Selects salutation " + salutationType);
+            selectDropDownOptionByVisibleText(salutationTypesDropDown, salutationType);
+        }
 
     public void fillInFirstName(String firstName){
         LOGGER.info("Filling in the first name field with " + firstName);
@@ -95,30 +88,34 @@ public class LoginPage extends BasePage {
 
     public void selectYourCountry(String country){
         LOGGER.info("Selects country :" + country);
-        waitForElementVisibility(countryDropDown);
-        Select select = new Select(countryDropDown);
-        select.selectByVisibleText(country);}
+        selectDropDownOptionByVisibleText(countryDropDown, country);
+    }
 
     public void fillInAddress(String address){
         LOGGER.info("Filling in the address field with " + address);
-        waitForElementVisibility(addressField);
         typeText(addressField,address);
-        click(addressAlert);}
+        click(addressAlert);
+        click(addressField);
+    }
 
     public void fillInPhoneNumber(String phoneNumber){
         LOGGER.info("Filling in the phone number field with " + phoneNumber);
-        typeText(phoneNumberField,phoneNumber); }
+        typeText(phoneNumberField,phoneNumber);
+        click(phoneNumberField);
+    }
 
     public void checkTermsAndConditionsCheckbox() {
         LOGGER.info("Checks the checkbox to accept terms and conditions");
-        waitForFullPageOrJsAjaxToLoad();
-        waitForElementVisibility(termsAndConditionsCheckbox);
-        checkCheckbox(termsAndConditionsCheckbox,Checked.NO);}
+        checkCheckbox(termsAndConditionsCheckbox,Checked.YES);}
 
     public void clickSubmitButton()  {
-        LOGGER.info("CLicks submit/verder button ");
-        scrollDownToElement(submitButton);
-        waitForElementToBeClickable(submitButton);
-        clickWithActionsBuilder(submitButton);
+        LOGGER.info("Clicks submit/verder button ");
+        click(submitButton);
+    }
+
+    public void scrollPageDown(){
+        Actions act = new Actions(driver);
+        act.sendKeys(Keys.PAGE_DOWN).build().perform(); //Page Down
+        System.out.println("Scroll down perfomed");
     }
 }

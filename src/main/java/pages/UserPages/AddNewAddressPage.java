@@ -50,7 +50,6 @@ public class AddNewAddressPage extends BasePage {
 
     public void selectCountry(WebElement countryDropDown, String countryToSelect){
         LOGGER.info("Selecting country from the drop-down menu");
-            waitForElementVisibility(countryDropDown);
             Select select = new Select(countryDropDown);
             select.selectByVisibleText(countryToSelect); }
 

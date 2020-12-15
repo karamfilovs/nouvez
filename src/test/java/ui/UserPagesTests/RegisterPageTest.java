@@ -98,6 +98,7 @@ public class RegisterPageTest extends BaseTest {
         app.loginPage().fillInPassword("Test2020&");
         app.loginPage().selectYourCountry(Country.BELGIUM.getCountry());
         app.loginPage().fillInAddress("1505SK Zaandam, Regenmeter 1 ");
+        app.loginPage().scrollPageDown();
         app.loginPage().fillInPhoneNumber("12345678910");
         app.loginPage().checkTermsAndConditionsCheckbox();
         app.loginPage().clickSubmitButton();
