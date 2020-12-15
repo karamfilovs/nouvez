@@ -1,4 +1,4 @@
-package CategoryPages;
+package BackboneNavigationPages;
 
 import org.openqa.selenium.WebDriver;
 import pages.BasePage;

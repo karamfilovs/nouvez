@@ -86,7 +86,7 @@ public abstract class BasePage {
 
     protected void clickWithActionsBuilder(WebElement element) {
         Actions builder = new Actions(driver);
-        builder.moveToElement(element).click();
+        builder.moveToElement(element).click().perform();
     }
 
     public String getTitle() {
@@ -265,6 +265,13 @@ public abstract class BasePage {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         //This will scroll the page till the element is found
         js.executeScript("arguments[0].scrollIntoView();", element);
+    }
+    protected void scrollDownToPageEnd() throws InterruptedException {
+        LOGGER.info("Scrolling down to the bottom of the page");
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        //This will scroll the page till the element is found
+        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+        Thread.sleep(5000);;
     }
 
     /**

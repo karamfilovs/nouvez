@@ -63,7 +63,7 @@ public class EditAddressPage extends BasePage {
         enterStreetAddressLine1(streetAddressLine1);
         enterCity(city);
         enterZip(zip);
-        selectCountry(Country.UNITED_KINGDOM);
+        selectCountry(Country.BELGIUM);
         enterPhoneNumber(phoneNumber);
         saveTheAddress();}
 }

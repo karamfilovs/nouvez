@@ -1,47 +1,60 @@
 package pages.UserPages;
 
+import enums.AccountType;
+import enums.Checked;
+import enums.Country;
+import enums.Salutation;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.Select;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pages.BasePage;
 
+import java.util.List;
+
 public class LoginPage extends BasePage {
     private static final Logger LOGGER = LoggerFactory.getLogger(LoginPage.class);
-    private final String PAGE_URL = "/customer/account/login/";
+    private final String PAGE_URL = "nl/account/login";
 
-    @FindBy(how = How.NAME, using = "login[username]")
+    @FindBy(how = How.ID, using = "accountType")
+    WebElement accountTypesDropDown;
+
+    @FindBy(how = How.ID, using = "personalSalutation")
+    WebElement salutationTypesDropDown;
+
+    @FindBy (how = How.ID, using = "personalFirstName")
+    private WebElement firstNameField;
+
+    @FindBy (how = How.ID, using = "personalLastName")
+    private WebElement lastNameField;
+
+    @FindBy (how = How.ID, using = "personalMail")
     private WebElement emailField;
 
-    @FindBy(how = How.NAME, using = "login[password]")
+    @FindBy (how = How.ID, using = "personalPassword")
     private WebElement passwordField;
 
-    @FindBy(how = How.ID, using = "send2")
-    private WebElement loginButton;
+    @FindBy(how = How.ID, using = "billingAddressAddressCountry")
+    WebElement countryDropDown;
 
-    @FindBy(how = How.CSS, using = "a.action.remind")
-    private WebElement resetPasswordLink;
+    @FindBy (how = How.ID, using = "billingAddressAutocompleteAddress")
+    private WebElement addressField;
 
-    @FindBy(how = How.ID, using = "email-error")
-    private WebElement badLoginErrorMessage;
+    @FindBy (how = How.XPATH, using = "//span[@class='postcodenl-autocomplete-item-label']")
+    private WebElement addressAlert;
 
-    @FindBy(how = How.ID, using = "pass-error")
-    private WebElement requiredPasswordMessage;
+    @FindBy (how = How.ID, using = "billingAddressAddressPhoneNumber")
+    private WebElement phoneNumberField;
 
-    @FindBy(how = How.ID, using = "email-error")
-    private WebElement requiredUsernameMessage;
+    @FindBy (how = How.ID, using = "wk-term-check")
+    private WebElement termsAndConditionsCheckbox;
 
-    @FindBy(how = How.CSS, using = "div.message-error.error.message")
-    private WebElement invalidLoginCombinationMessage;
-
-    @FindBy(how = How.PARTIAL_LINK_TEXT, using = "My Account")
-    private WebElement registrationLink;
-
-    @FindBy(how = How.CSS, using = "div.message-success")
-    private WebElement successMessage;
-
+    @FindBy (how = How.CSS, using = "button.btn-primary")
+    private WebElement submitButton;
 
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -50,56 +63,62 @@ public class LoginPage extends BasePage {
 
     public void gotoLoginPage() {
         LOGGER.info("Navigating to Login page");
-        navigateTo(PAGE_URL);
-    }
+        navigateTo(PAGE_URL); }
 
-    public void enterPassword(String password) {
-        LOGGER.info("Entering password:" + password);
-        typeText(passwordField, password);
-    }
+    public void selectAccountType(String accountType) {
+        LOGGER.info("Selects account type");
+        waitForElementVisibility(accountTypesDropDown);
+        Select select = new Select(accountTypesDropDown);
+        select.selectByVisibleText(accountType);}
 
-    public void clickResetPasswordLink() {
-        LOGGER.info("Clicking on reset password link");
-        click(resetPasswordLink);
-    }
+    public void selectSalutation(String salutationType){
+        LOGGER.info("Selects salutation " + salutationType);
+        waitForElementVisibility(salutationTypesDropDown);
+        Select select = new Select(salutationTypesDropDown);
+        select.selectByVisibleText(salutationType);}
 
-    public void clickLoginButton() {
-        LOGGER.info("Clicking Login button");
-        click(loginButton);
-    }
+    public void fillInFirstName(String firstName){
+        LOGGER.info("Filling in the first name field with " + firstName);
+        typeText(firstNameField,firstName); }
 
-    public void enterUsername(String username) {
-        LOGGER.info("Entering username:" + username);
-        typeText(emailField, username);
-    }
+    public void fillInLastName(String lastName){
+        LOGGER.info("Filling in the last name field with " + lastName);
+        typeText(lastNameField,lastName); }
 
+    public void fillInEmail(String email){
+        LOGGER.info("Filling in the e-mail field with " + email);
+        typeText(emailField,email); }
 
-    public String getBadEmailErrorMessage() {
-        return getText(badLoginErrorMessage);
-    }
+    public void fillInPassword(String password){
+        LOGGER.info("Filling in the password field with " + password);
+        typeText(passwordField , password); }
 
-    public String getInvalidCombinationErrorMessage() {
-        return getText(invalidLoginCombinationMessage);
-    }
+    public void selectYourCountry(String country){
+        LOGGER.info("Selects country :" + country);
+        waitForElementVisibility(countryDropDown);
+        Select select = new Select(countryDropDown);
+        select.selectByVisibleText(country);}
 
+    public void fillInAddress(String address){
+        LOGGER.info("Filling in the address field with " + address);
+        waitForElementVisibility(addressField);
+        typeText(addressField,address);
+        click(addressAlert);}
 
-    public String getPasswordRequiredMessageText() {
-        return getText(requiredPasswordMessage);
-    }
+    public void fillInPhoneNumber(String phoneNumber){
+        LOGGER.info("Filling in the phone number field with " + phoneNumber);
+        typeText(phoneNumberField,phoneNumber); }
 
-    public String getUsernameRequiredMessage() {
-        return getText(requiredUsernameMessage);
-    }
+    public void checkTermsAndConditionsCheckbox() {
+        LOGGER.info("Checks the checkbox to accept terms and conditions");
+        waitForFullPageOrJsAjaxToLoad();
+        waitForElementVisibility(termsAndConditionsCheckbox);
+        checkCheckbox(termsAndConditionsCheckbox,Checked.NO);}
 
-
-    public String getSuccessMessage() {
-        return getText(successMessage);
-    }
-
-    public void login() {
-        gotoLoginPage();
-        enterUsername(System.getProperty("login.username"));
-        enterPassword(System.getProperty("login.password"));
-        clickLoginButton();
+    public void clickSubmitButton()  {
+        LOGGER.info("CLicks submit/verder button ");
+        scrollDownToElement(submitButton);
+        waitForElementToBeClickable(submitButton);
+        clickWithActionsBuilder(submitButton);
     }
 }

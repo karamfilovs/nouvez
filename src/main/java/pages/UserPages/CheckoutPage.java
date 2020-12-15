@@ -126,7 +126,7 @@ public class CheckoutPage extends BasePage {
         enterStreetAddressLine1(street);
         enterCity(city);
         enterZip(zipCode);
-        selectCountry(Country.UNITED_KINGDOM);
+        selectCountry(Country.BELGIUM);
         enterPhoneNumber(phone);
         selectShippingMethod("Fedex");
         clickNextButton();

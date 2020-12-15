@@ -7,12 +7,12 @@ import org.junit.jupiter.api.*;
 
 public class WishListPageTest extends BaseTest {
 
-    @BeforeEach
-    public void beforeEach() {
-        app.loginPage().gotoLoginPage();
-        Assertions.assertEquals("Customer Login", app.loginPage().getPageTitle());
-        app.loginPage().login();
-    }
+//    @BeforeEach
+//    public void beforeEach() {
+//        app.loginPage().gotoLoginPage();
+//        Assertions.assertEquals("Customer Login", app.loginPage().getPageTitle());
+//        app.loginPage().login();
+//    }
 
     @Test
     @Tag("wish-list")

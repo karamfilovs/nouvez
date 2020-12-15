@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>bg.pragmatic</groupId>
-    <artifactId>once-ui-automation</artifactId>
+    <artifactId>nouvez-ui-automation</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -160,7 +160,7 @@
                         <headless>off</headless>
                         <login.username>yavor@pragmatic-qa.com</login.username>
                         <login.password>Test2020$</login.password>
-                        <url>https://www-qa.youronce.com/</url>
+                        <url>https://staging-8347.nouvez.nl/</url>
                         <take.screenshots.enabled>true</take.screenshots.enabled>
                     </systemPropertyVariables>
                     <groups>${tags}</groups>

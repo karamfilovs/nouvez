@@ -17,12 +17,12 @@ public class WishListIconTest extends BaseTest {
     app.homePage().clickWishListIcon();
     Assertions.assertEquals("Customer Login", app.homePage().getPageTitle()); }
 
-    @Test
-    @Tag("wish-list")
-    @DisplayName("MVP-180: Can navigate to wish-list page after clicking the wish-list icon")
-    public void canNavigateToWishListPageClickingTheWishListIcon() {
-    app.loginPage().login();
-    Assertions.assertEquals("Home Page", app.homePage().getPageTitle());
-    app.homePage().clickWishListIcon();
-    Assertions.assertEquals("My Wish List", app.homePage().getPageTitle()); }
+//    @Test
+//    @Tag("wish-list")
+//    @DisplayName("MVP-180: Can navigate to wish-list page after clicking the wish-list icon")
+//    public void canNavigateToWishListPageClickingTheWishListIcon() {
+//    app.loginPage().login();
+//    Assertions.assertEquals("Home Page", app.homePage().getPageTitle());
+//    app.homePage().clickWishListIcon();
+//    Assertions.assertEquals("My Wish List", app.homePage().getPageTitle()); }
 }

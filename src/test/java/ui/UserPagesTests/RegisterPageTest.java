@@ -1,7 +1,10 @@
 package ui.UserPagesTests;
 
 import core.BaseTest;
+import enums.AccountType;
+import enums.Country;
 import enums.Emails;
+import enums.Salutation;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
@@ -11,10 +14,8 @@ public class RegisterPageTest extends BaseTest {
 
     @BeforeEach
     public void beforeEach() {
-        app.homePage().gotoHomePage();
-        Assertions.assertEquals("Home Page", app.myAccountPage().getPageTitle());
-        app.homePage().clickMyAccountIcon();
-        Assertions.assertEquals("Customer Login", app.myAccountPage().getPageTitle()); }
+        app.loginPage().gotoLoginPage();}
+//       Assertions.assertEquals("Login", app.loginPage().getPageTitle()); }
 
     @Test
     @Tag("register")
@@ -86,17 +87,23 @@ public class RegisterPageTest extends BaseTest {
 
     @Test
     @Tag("register")
-    @DisplayName("MVP-51: Can register new account and sign up to newsletter")
+    @DisplayName("GEN-T1 : Can register new account")
     public void registerAccountSignedUpForNewsletter() {
         String email = DataGenerator.generateRandomString(8) + "@" + "pragmatic-qa.com";
-        app.registerPage().enterFirstName("Yavor");
-        app.registerPage().enterLastName("Todd");
-        app.registerPage().enterEmail(email);
-        app.registerPage().checkNewsletterCheckbox();
-        app.registerPage().enterPassword("Test2021$");
-        app.registerPage().enterConfirmPassword("Test2021$");
-        app.registerPage().clickCreateAnAccountButton();
-        Assertions.assertEquals("You are subscribed to \"General Subscription\".", app.registerPage().getNewsletterText()); }
+        app.loginPage().selectAccountType(AccountType.PERSONAL.getAccountType());
+        app.loginPage().selectSalutation(Salutation.MR.getSalutationType());
+        app.loginPage().fillInFirstName("Yavor");
+        app.loginPage().fillInLastName("Todd");
+        app.loginPage().fillInEmail(email);
+        app.loginPage().fillInPassword("Test2020&");
+        app.loginPage().selectYourCountry(Country.BELGIUM.getCountry());
+        app.loginPage().fillInAddress("1505SK Zaandam, Regenmeter 1 ");
+        app.loginPage().fillInPhoneNumber("12345678910");
+        app.loginPage().checkTermsAndConditionsCheckbox();
+        app.loginPage().clickSubmitButton();
+        Assertions.assertEquals("Klantenaccount", app.myAccountPage().confirmTheWelcomeMessage());}
+
+
 
 
 }

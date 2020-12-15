@@ -15,29 +15,29 @@ import java.util.List;
 
 public class MyAccountPage extends BasePage {
     private static final Logger LOGGER = LoggerFactory.getLogger(MyAccountPage.class);
-    private static final String PAGE_URL = "/customer/account";
-
-    @FindAll({@FindBy(how = How.XPATH, using = "//li[@class='nav item']//a")})
-    private List<WebElement> navigationMenuLinks;
-
+    private static final String PAGE_URL = "/account";
 
     public MyAccountPage(WebDriver driver) {
         super(driver);
     }
 
-    public void gotoPage() {
-        LOGGER.info("Navigating to My Account page");
-        navigateTo(PAGE_URL);
-    }
+    @FindAll({@FindBy(how = How.XPATH, using = "//li[@class='nav item']//a")})
+    private List<WebElement> navigationMenuLinks;
+
+    @FindBy(how = How.XPATH, using = "//div[@class='account-welcome']/h1")
+    private WebElement welcomeMessage;
+
+
+    public String confirmTheWelcomeMessage(){
+        LOGGER.info("Gets the text of the welcome message");
+        return getText(welcomeMessage);}
+
 
     public void navigateToMenu(MyAccountNavMenu menu) {
         LOGGER.info("Clicking on:" + menu.getMenu());
         for(WebElement menuLink : navigationMenuLinks){
             if (getText(menuLink).contains(menu.getMenu())){
                 click(menuLink);
-                break;
-            }
-        }
-    }
+                break; } } }
 
 }

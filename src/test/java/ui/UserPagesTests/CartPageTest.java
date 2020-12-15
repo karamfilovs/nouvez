@@ -40,21 +40,6 @@ public class CartPageTest extends BaseTest {
 //    @Tag("Cart")
 //    @DisplayName("MVP-65: Can apply gift card ")
 
-    @Test
-    @Tag("Cart")
-    @DisplayName("MVP-66: Can move product from the shopping cart to wish-list")
-    public void canMoveProductFromCartToWishList() {
-        app.loginPage().login();
-        Assertions.assertEquals("My Account", app.myAccountPage().getPageTitle());
-        app.productListingPage().gotoProductListingsPage();
-        Assertions.assertEquals("Shop", app.productListingPage().getPageTitle());
-        app.productListingPage().clickFirstProduct();
-        app.productDetailsPage().clickAddToCartButton();
-        app.components().miniCart().viewBag();
-        Assertions.assertEquals("Shopping Cart", app.cartPage().getPageTitle());
-        app.cartPage().clickMoveToWishlistButton();
-        Assertions.assertEquals("You have no items in your shopping cart.\n" +
-                "Click here to continue shopping.", app.cartPage().getEmptyCartMessageText()); }
 }
 
 
