@@ -51,6 +51,9 @@ public class LoginPage extends BasePage {
     @FindBy (how = How.CSS, using = "button.btn-primary")
     private WebElement submitButton;
 
+    @FindBy (how = How.XPATH, using = "//span[@class='form-tab-heading']")
+    private WebElement headerNote;
+
     public LoginPage(WebDriver driver) {
         super(driver);
     }
@@ -116,6 +119,9 @@ public class LoginPage extends BasePage {
     public void scrollPageDown(){
         Actions act = new Actions(driver);
         act.sendKeys(Keys.PAGE_DOWN).build().perform(); //Page Down
-        System.out.println("Scroll down perfomed");
-    }
+        System.out.println("Scroll down perfomed"); }
+
+    public String getHeaderNote(){
+        LOGGER.info("Getting the header note");
+        return getText(headerNote); }
 }

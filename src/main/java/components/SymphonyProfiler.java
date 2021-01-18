@@ -8,13 +8,13 @@ import pages.BasePage;
 
 public class SymphonyProfiler extends BasePage {
 
-    @FindBy (how = How.ID, using = "sfToolbarHideButton-618210")
+    @FindBy (how = How.XPATH, using = "//a[@class='hide-button']")
     private WebElement hideSymphonyToolbarButton;
 
 
     public SymphonyProfiler(WebDriver driver) { super(driver); }
 
-    public void clickHideSymphonyToolbarButton(){
+    public void closeSymphonyProfilerToolbar(){
         LOGGER.info("Clicking close Symphony Profiler toolbar button");
         click(hideSymphonyToolbarButton);
     }
