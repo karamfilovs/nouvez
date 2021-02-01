@@ -11,12 +11,6 @@ public class ProductListingPageTest extends BaseTest {
         Assertions.assertEquals("Home Page", app.homePage().getPageTitle());
         app.components().shopSubCategoryMenu().clickOnShopAll(); }
 
-    @Test
-    @Tag("plp")
-    @DisplayName("MVP-26: Can navigate to Product Listing page")
-    public void canNavigateToProductListingPage(){
-        app.productListingPage().clickFirstProduct();
-        Assertions.assertEquals("true", app.productDetailsPage().shareThisIsVisible()); }
 
 
     @Test

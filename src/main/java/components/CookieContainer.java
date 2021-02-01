@@ -8,13 +8,13 @@ import pages.BasePage;
 
 public class CookieContainer extends BasePage {
 
-    @FindBy (how = How.CSS, using = "button.btn.btn-secondary ")
-    private WebElement rejectCookiesButton;
+    @FindBy (how = How.XPATH, using = "//button[contains(text(),'Accepteren')]")
+    private WebElement acceptCookiesButton;
 
     public CookieContainer(WebDriver driver) { super(driver); }
 
-    public void clickRejectCookiesButton(){
+    public void clickAcceptCookiesButton(){
         LOGGER.info("Clicks reject cookies button");
-        click(rejectCookiesButton);
+        click(acceptCookiesButton);
     }
 }

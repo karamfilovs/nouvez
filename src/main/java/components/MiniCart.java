@@ -12,29 +12,30 @@ public class MiniCart extends BasePage {
     private static final Logger LOGGER = LoggerFactory.getLogger(MiniCart.class);
 
 
-    @FindBy(how = How.ID, using = "btn-minicart-close")
+    @FindBy(how = How.XPATH, using = "//span[@class='icon icon-arrow-head-left icon-sm']")
     private WebElement closeMiniBasketButton;
 
-    @FindBy(how = How.CSS, using = "div.minicart-title")
+    @FindBy(how = How.XPATH, using = "//div[contains(text(),'Winkelmandje')]")
     private WebElement miniCartTitle;
 
-    @FindBy(how = How.CSS, using = "a.action.delete")
+    @FindBy(how = How.XPATH, using = "//button[@class='btn btn-light cart-item-remove-button']")
     private WebElement removeItemButton;
 
-    @FindBy(how = How.CSS, using = "a.action.viewcart")
-    private WebElement viewBagButton;
+    @FindBy(how = How.XPATH, using = "//select[@name='quantity']")
+    private WebElement quantityDropDown;
 
-    @FindBy(how = How.ID, using = "top-cart-btn-checkout")
+    @FindBy(how = How.ID, using = "addPromotionOffcanvasCartInput")
+    private WebElement voucherCodeField;
+
+    @FindBy(how = How.ID, using = "addPromotionOffcanvasCart")
+    private WebElement addVoucherButton;
+
+    @FindBy(how = How.XPATH, using = "//a[@class='btn btn-block begin-checkout-btn btn-primary']")
     private WebElement checkoutButton;
 
-    @FindBy(how = How.CSS, using = "button.action-primary.action-accept")
-    private WebElement ok;
+    @FindBy(how = How.XPATH, using = "//div[@class='cart-item-price']")
+    private WebElement totalPrice;
 
-    @FindBy(how = How.CSS, using = "button.action-secondary.action-dismiss")
-    private WebElement cancel;
-
-    @FindBy(how = How.CSS, using = "span.counter-number")
-    private WebElement counter;
 
     public MiniCart(WebDriver driver) {
         super(driver);
@@ -66,13 +67,6 @@ public class MiniCart extends BasePage {
         click(removeItemButton);
     }
 
-    /**
-     * Method that clicks the view bag button in the mini cart
-     */
-    public void viewBag() {
-        LOGGER.info("Clicking view bag button in the mini cart");
-        click(viewBagButton);
-    }
 
     /**
      * Method that clicks the checkout button in the mini cart
@@ -82,29 +76,9 @@ public class MiniCart extends BasePage {
         click(checkoutButton);
     }
 
-    /**
-     * Method that clicks OK button at the confirmation popup
-     */
-    public void checkOK() {
-        LOGGER.info("Clicking OK button in the mini cart confirmation popup");
-        click(ok);
-    }
+    public void selectItemQuantity(String quantity){
+        LOGGER.info("Selects item quantity from the drop down");
+       selectDropDownOptionByVisibleText(quantityDropDown, quantity); }
 
-    /**
-     * Method that clicks Cancel button at the confirmation popup
-     */
-    public void checkCancel() {
-        LOGGER.info("Clicking Cancel button in the mini cart confirmation popup");
-        click(cancel);
-    }
 
-    /**
-     * Method that returns the number of items from the mini cart counter
-     *
-     * @return
-     */
-    public String getCounterNumber() {
-        LOGGER.info("Getting the number of items in the mini cart");
-        return getText(counter);
-    }
 }
