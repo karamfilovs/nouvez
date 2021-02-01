@@ -14,7 +14,7 @@ public class RegisterPageTest extends BaseTest {
         app.loginPage().gotoLoginPage();
        Assertions.assertEquals("Ik ben een nieuwe klant", app.loginPage().getHeaderNote());
         app.components().symphonyProfiler().closeSymphonyProfilerToolbar();
-        app.components().cookieContainer().clickRejectCookiesButton();}
+        app.components().cookieContainer().clickAcceptCookiesButton();}
 
 //    @Test
 //    @Tag("register")
@@ -96,7 +96,7 @@ public class RegisterPageTest extends BaseTest {
         app.loginPage().fillInEmail(email);
         app.loginPage().fillInPassword("Test2020&");
         app.loginPage().selectYourCountry(Country.BELGIUM.getCountry());
-        app.loginPage().fillInAddress("1505SK Zaandam, Regenmeter 1 ");
+        app.loginPage().fillInAddress("9120 Beveren, Zakdam 1");
         app.loginPage().fillInPhoneNumber("12345678910");
         app.loginPage().checkTermsAndConditionsCheckbox();
         app.loginPage().clickSubmitButton();

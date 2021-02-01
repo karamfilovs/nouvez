@@ -8,13 +8,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pages.BasePage;
 
-public class CartPage extends BasePage {
+public class ShoppingBasketPage extends BasePage {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(CartPage.class);
-    private final String PAGE_URL = "/checkout/cart/";
+    private static final Logger LOGGER = LoggerFactory.getLogger(ShoppingBasketPage.class);
+    private final String PAGE_URL = "/checkout/register";
 
-    @FindBy(how = How.XPATH, using = "//a[@class='action continue']")
-    private WebElement continueShoppingButton;
+    @FindBy(how = How.XPATH, using = "//a[@title='Terug naar de shop']")
+    private WebElement backToTheShopButton;
+
+    @FindBy(how = How.CSS, using = "a.login-collapse-toggle")
+    private WebElement loginLink;
 
     @FindBy(how = How.ID, using = "qty")
     private WebElement selectQTYDropDown;
@@ -47,7 +50,7 @@ public class CartPage extends BasePage {
     private WebElement emptyCartMessage;
 
 
-    public CartPage(WebDriver driver) {
+    public ShoppingBasketPage(WebDriver driver) {
         super(driver);
     }
 
@@ -57,12 +60,12 @@ public class CartPage extends BasePage {
 
     public void clickContinueShoppingButton() {
         LOGGER.info("Click continue shopping button");
-        continueShoppingButton.click(); }
+        backToTheShopButton.click(); }
 
-    public CartPage selectQuantity(String quantity) {
+    public void selectQuantity(String quantity) {
         LOGGER.info("Setting the quantity to "+ quantity);
         super.selectDropDownOptionByVisibleText(selectQTYDropDown, quantity);
-        return this; }
+        }
 
     public void clickMoveToWishlistButton() {
         LOGGER.info("Click move to wishlist button");

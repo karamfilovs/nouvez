@@ -5,11 +5,14 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pages.BasePage;
+
+import java.util.List;
 
 public class LoginPage extends BasePage {
     private static final Logger LOGGER = LoggerFactory.getLogger(LoginPage.class);
@@ -39,8 +42,8 @@ public class LoginPage extends BasePage {
     @FindBy (how = How.ID, using = "billingAddressAutocompleteAddress")
     private WebElement addressField;
 
-    @FindBy (how = How.XPATH, using = "//span[@class='postcodenl-autocomplete-item-label']")
-    private WebElement addressAlert;
+    @FindAll(@FindBy (how = How.XPATH, using = "//span[@class='postcodenl-autocomplete-item-label']"))
+    private List<WebElement> addressAlerts;
 
     @FindBy (how = How.ID, using = "billingAddressAddressPhoneNumber")
     private WebElement phoneNumberField;
@@ -93,12 +96,22 @@ public class LoginPage extends BasePage {
         LOGGER.info("Selects country :" + country);
         selectDropDownOptionByVisibleText(countryDropDown, country);
     }
+    public void clickAddressAlert(){
+        LOGGER.info("Clicking on first address offered");
+            for(WebElement address : addressAlerts){
+                click(address);
+                break; } }
+
 
     public void fillInAddress(String address){
         LOGGER.info("Filling in the address field with " + address);
-        typeText(addressField,address);
-        click(addressAlert);
+        scrollPageDown();
+        scrollPageDown();
         click(addressField);
+        typeText(addressField,address);
+        clickAddressAlert();
+
+//
     }
 
     public void fillInPhoneNumber(String phoneNumber){
