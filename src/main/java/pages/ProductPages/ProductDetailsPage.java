@@ -18,6 +18,9 @@ public class ProductDetailsPage extends BasePage {
     @FindBy(how = How.XPATH, using = "//h2[@itemprop='name']")
     private WebElement itemName;
 
+    @FindBy(how = How.XPATH, using = "//li[contains(text(),' garantie op product')]")
+    private WebElement warrantyDescription;
+
     public ProductDetailsPage(WebDriver driver) { super(driver); }
 
     public void clickAddToCartButton() {

@@ -27,7 +27,9 @@ public class CheckoutPageTest extends BaseTest {
         String CVC = DataGenerator.generateRandomNumber(3);
         app.productDetailsPage().clickAddToCartButton();
         app.components().miniCart().clickCheckOut();
-        Assertions.assertEquals("Checkout", app.checkoutPage().getPageTitle());
+        Assertions.assertEquals("Winkelmandje", app.shoppingBasketPage().getHeaderText());
+        app.shoppingBasketPage().clickCheckoutButton();
+        Assertions.assertEquals("Persoonlijke informatie", app.checkoutPage().getHeaderText());
         app.checkoutPage().fillInShippingDetailsAndClickNext(email, text, text, text, text, text, phone );
         Assertions.assertEquals("Payment Method", app.checkoutPage2().getTextOfCurSection());
         app.checkoutPage2().fillInPaymentDetails("4000 008260000000","522",CVC, text);
