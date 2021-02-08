@@ -170,7 +170,7 @@ public abstract class BasePage {
      * @param elementToBeVisible
      * @return
      */
-    private WebElement waitForElementToBeClickable(WebElement elementToBeVisible) {
+    protected WebElement waitForElementToBeClickable(WebElement elementToBeVisible) {
         driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         WebDriverWait wait = new WebDriverWait(driver, WAIT_TIME);
         WebElement foundElementAfterWait = wait.until(ExpectedConditions.elementToBeClickable(elementToBeVisible));

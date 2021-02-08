@@ -56,6 +56,9 @@ public class CheckoutPage extends BasePage {
     @FindBy(how = How.CSS, using = ".button.action")
     private WebElement nextButton;
 
+    @FindBy(how = How.ID, using = "formTabMainRegistrationHeading")
+    private WebElement headerText;
+
     public CheckoutPage(WebDriver driver) {
         super(driver);
     }
@@ -117,6 +120,10 @@ public class CheckoutPage extends BasePage {
     public void clickNextButton() {
         LOGGER.info("Clicking next button");
         click(nextButton); }
+
+    public String getHeaderText() {
+        LOGGER.info("Getting the text of the header for assertion purposes");
+        return getText(headerText); }
 
     public void fillInShippingDetailsAndClickNext(String email, String firstName, String lastName, String street, String city, String zipCode, String phone){
         LOGGER.info("Filling in all required fields on Checkout page");

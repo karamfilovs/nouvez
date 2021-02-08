@@ -19,6 +19,9 @@ public class ShoppingBasketPage extends BasePage {
     @FindBy(how = How.CSS, using = "a.login-collapse-toggle")
     private WebElement loginLink;
 
+    @FindBy(how = How.XPATH, using = "//h1[contains(text(),' Winkelmandje')]")
+    private WebElement headerText;
+
     @FindBy(how = How.ID, using = "qty")
     private WebElement selectQTYDropDown;
 
@@ -34,7 +37,7 @@ public class ShoppingBasketPage extends BasePage {
     @FindBy(how = How.CSS, using = "button.action.apply")
     private WebElement applyCouponButton;
 
-    @FindBy(how = How.XPATH, using = "//button[@title='Proceed to Checkout']")
+    @FindBy(how = How.XPATH, using = "//button[@class='btn-primary-orange']")
     private WebElement checkoutButton;
 
     @FindBy(how = How.XPATH, using = "//span[@data-th='Subtotal']")
@@ -57,6 +60,10 @@ public class ShoppingBasketPage extends BasePage {
     public void gotoCartPage() {
         LOGGER.info("Navigating to Basket page");
         navigateTo(PAGE_URL); }
+
+    public String getHeaderText(){
+        LOGGER.info("Getting the text of the header");
+        return getText(headerText); }
 
     public void clickContinueShoppingButton() {
         LOGGER.info("Click continue shopping button");
@@ -85,7 +92,7 @@ public class ShoppingBasketPage extends BasePage {
 
     public void clickCheckoutButton() {
         LOGGER.info("Click checkout button");
-        checkoutButton.click(); }
+        click(checkoutButton); }
 
     public String getProductTotalPrice() {
         LOGGER.info("Getting product total price");
